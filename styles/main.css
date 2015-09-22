@@ -2,6 +2,7 @@
  * CSS for Accessible University Demo Site 
  * http://uw.edu/accesscomputing/AU
  *
+ * main.css = Shared styles
  */
   
 /* 
@@ -21,27 +22,6 @@ body {
   background: white;
   border-left: 2px solid black;
 }
-main { 
-  width: 75%;
-  float: left;
-  padding-right: 1em;
-  margin-bottom: 2em;
-}
-aside { 
-  width: 10em;
-  float: right;
-  border: 2px solid #39275B;
-  background-color: #cccce0;
-  padding: 0 0.75em;
-}
-footer { 
-  font-size: 0.9em;
-  clear: left;
-  width: 100%;
-  margin-top: 1em;
-  padding: 1em 0.5em;
-  border-top: 3px solid #514273;
-}
 
 /* 
  * Standard HTML Elements 
@@ -60,16 +40,56 @@ h2 {
 }
 
 /* 
- * Clear visible focus 
- * for mouse users (hover) 
- * and keyboard users (focus)
+ * Form Styles
  *
  */
-a:hover, a:focus { 
-  color: #FFF;
-  background-color: #000;
-  text-decoration: none;
+
+form > div { 
+  margin: 1em 0;
 }
+form h2 { 
+  font-weight: bold;
+  font-size: 1.2em;
+}
+form input[type="text"] { 
+  width: 100%;
+}
+div#majors { 
+  width: 10em;
+}
+fieldset { 
+  border: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+legend { 
+  margin-left: 0;
+  font-weight: bold;
+}
+form div.major {
+  display: block;
+	position: relative;
+	margin: 0;
+	width: 10em;
+}
+.major input {
+  float: right;
+	position: absolute;
+	right: 0;
+}
+#captcha h2 { 
+  font-size: 1.1em;
+	margin-bottom: 0.25em;
+}
+#captcha p { 
+  margin-top: 0.25em;
+}
+#captcha img {
+  display: block; 
+	margin-top: 0.5em;
+	border: 1px solid black;
+	max-width: 100%;
+}		
 
 /* 
  * 
@@ -109,103 +129,3 @@ table#enrollment th, table#enrollment td {
   width: 3em;
   text-align: center;
 }
-
-/* 
- *
- * Application form 
- *
- */
-form > div { 
-  margin: 1em 0;
-}
-form input[type="text"] { 
-  width: 100%;
-}
-aside h2 { 
-  font-weight: bold;
-  font-size: 1.2em;
-}
-.required { 
-  font-weight: bold;
-}
-fieldset { 
-  border: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-div#majors { 
-  width: 10em;
-}
-form div.major {
-  display: block;
-  position: relative;
-  margin: 0;
-  width: 10em;
-}
-.major input {
-  float: right;
-  position: absolute;
-  right: 0;
-}
-legend { 
-  margin-left: 0;
-  font-weight: bold;
-}
-
-/* 
- *
- * Text CAPTCHA 
- * 
- */
-#captcha h2 { 
-  font-size: 1.1em;
-  margin-bottom: 0.25em;
-}
-#captcha_label { 
-  display: block;
-}
-#captcha p { 
-  margin-top: 0.25em;
-}
-
-/* 
- * 
- * Dropdown Menu 
- * 
- */
-
-nav { 
-  
-}
-
-/* 
- * 
- * Somewhat Responsive 
- *
- */
-@media (max-width: 1175px) { 
-  main { 
-    width: 70%;
-  }
-}
-@media (max-width: 985px) { 
-  main { 
-    width: 65%;
-  }
-}
-@media (max-width: 850px) { 
-  main { 
-    width: 60%;
-  }
-}
-@media (max-width: 750px) { 
-  main, aside { 
-    float: none;
-  }
-  main { 
-    width: 100%;
-  }
-  aside { 
-    margin-bottom: 1em;
-  }     
-}       

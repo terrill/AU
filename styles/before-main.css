@@ -1,0 +1,89 @@
+/* 
+ * CSS for Accessible University Demo Site 
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-main.css = Styles for inaccessible version
+ */
+  
+/* 
+ * Overall structure 
+ * (HTML does NOT use semantic elements) 
+ * 
+ */  
+
+#main_wrapper { 
+  position: relative;
+  height: auto;
+}
+#main { 
+  width: 75%; 
+	float: left;
+	padding-right: 1em;
+	margin-bottom: 2em;
+}
+#main p img { 
+  float: left;
+	padding: 0 0.25em 0.25em 0;
+}
+#sidebar { 
+  width: 20%; 
+	float: right; 
+	border: 2px solid #39275B;
+	background-color: #cccce0;
+	padding: 0 0.75em;
+	margin-bottom: 2em;
+}
+#footer { 
+  clear: both;
+	font-size: 0.9em;
+	width: 100%;
+	padding: 1em 0.5em;
+	border-top: 3px solid #514273;
+}
+
+/* 
+ * Uses color alone to communicate "link" 
+ *
+ */
+a { 
+  color: blue;
+	text-decoration: none;
+}
+
+/* 
+ * Overrides browsers' visible focus indicator
+ *
+ */
+a:hover, a:focus { 
+  outline: none;
+}
+
+/* 
+ *
+ * Uses color alone to indicate which fields are required
+ *
+ */
+.required { 
+  color: #39275B;
+}
+
+/* 
+ *
+ * CAPTCHA 
+ *
+ */
+
+#captcha h2 { 
+  font-size: 1.1em;
+	margin-bottom: 0.25em;
+}
+#captcha p { 
+  margin-top: 0.25em;
+}
+#captcha img {
+  display: block; 
+	margin-top: 0.5em;
+	border: 1px solid black;
+	max-width: 100%;
+}		
+
