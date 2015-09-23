@@ -5,6 +5,52 @@
  * after-menu.css = Styles for accessible dropdown menu
  */
   
+ul#menu {	
+  margin: 0;
+	padding: 0;
+	z-index: 30
+}
+#menu > li {	
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	float: left;
+	background-color: #E7ECD8;
+  padding: 0;
+	margin: 0.25em;
+	border-left: 1px solid #BBB; 
+	border-top: 1px solid #AAA; 
+	border-right: 2px solid #999;
+	border-top-left-radius: 5px;	
+	border-top-right-radius: 5px;	
+}
+#menu li a {
+	padding: 0.25em 1em;  
+  display: block;
+	color: #8A94A8;
+}
+#menu li ul { 
+  display: none;
+	list-style-type: none;  
+	background-color: #E7ECD8;  
+	margin: 0;
+	padding: 0;
+	width: 12em;
+  position: absolute;
+	border: 1px solid #AAA;
+	border-right: 2px solid #999
+}
+#menu li ul li { 
+  margin: 0;
+  padding: 0;
+  border-bottom: thin solid #CCC;
+}
+#menu li ul li a	{	
+}
+#menu a:hover {	
+  background: #39275b;
+	color: #FFF;
+}
 
 
 /*

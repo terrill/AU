@@ -71,6 +71,16 @@ input:focus {
 }
 
 /* 
+ * Visibly hidden content, for screen readers only		
+ *
+ */
+.clipped { 
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* 
  * Form styles		
  *
  */
