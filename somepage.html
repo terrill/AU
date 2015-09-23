@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Accessible University Mock Site Landing Page</title>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<link href="styles/main.css" rel="stylesheet">
+	<style>
+  	main p { 
+    	max-width: 40em;
+  	}
+  </style>
+  <script src="scripts/jquery-1.11.3.min.js"></script>
+  <script>
+    $(document).ready(function() { 
+
+      var urlParam = getUrlParameters(); 
+            
+      function getUrlParameters() {
+        var pageURL = window.location.search.substring(1);
+        var urlParams = pageURL.split('&');
+        for (var i = 0; i < urlParams.length; i++) {
+          var thisParam = urlParams[i].split('=');
+          if (thisParam[0] == 'ref') { 
+            var ref = thisParam[1];   
+            if (ref.length >= 4) { // link is a valid length for this site          
+              var spanText = 'the <strong>' + ref + '</strong> link ';
+              $('#referringLink').html(spanText);
+            }
+          }
+        }
+      } 
+    });
+  </script>
+</head>
+<body>
+
+  <div id="content">
+
+    <header role="banner">
+  	    <img id="logo" src="images/au123456789.gif" alt="Accessible University" width="441" height="90"/>
+    </header>
+    
+    <main>
+      <h1>Catch-all Landing Page</h1>
+      
+      <p>You probably arrived here by clicking on <span id="referringLink">a link</span> 
+        in the navigation menu of the Accessibility University Demo Site.
+        If so, just use your browser's back button to return to the demo page.
+      </p>
+    </main>
+        
+    <footer role="contentinfo">
+    Copyright &copy;2002 - 2015 University of Washington. Permission is granted to copy these materials for educational, noncommercial purposes provided the source is acknowledged. This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and was updated in 2009 with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement. 
+    </footer> 
+
+  </div><!--end #content-->
+</body>
+</html>
