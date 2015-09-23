@@ -13,7 +13,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   color: black;
-  background-color: #39275B;
+  background-color: 2A194C;
 }
 #content { 
   width: 80%;
@@ -21,22 +21,6 @@ body {
   padding: 1em;
   background: white;
   border-left: 2px solid black;
-}
-
-/* 
- * Standard HTML Elements 
- *
- */
-  
-h1 { 
-  margin: 0;
-  padding: 0;
-}
-h2 { 
-  clear: left;
-  font-weight: normal;
-  font-size: 1.6em;
-  margin-bottom: 0.75em;
 }
 
 /* 

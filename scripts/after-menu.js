@@ -1,3 +1,16 @@
+/* 
+ * JavaScript for Accessible University Demo Site 
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-menu.js = Accessible Dropdown menu
+ */
+  
+$(document).ready(function() { 
+
+  // code here 
+    
+});
+
 /*
 Copyright © 2013 Adobe Systems Incorporated.
 

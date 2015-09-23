@@ -41,6 +41,16 @@ footer {
  * Standard HTML Elements 
  *
  */
+h1 { 
+  margin: 0;
+  padding: 0;
+}
+h2 { 
+  font-weight: normal;
+  font-size: 1.6em;
+  margin-bottom: 0.75em;
+}
+ 
 a { 
 	text-decoration: underline;
 }

@@ -17,6 +17,7 @@
 }
 #main { 
   width: 75%; 
+  clear: left;
 	float: left;
 	padding-right: 1em;
 	margin-bottom: 2em;
@@ -40,6 +41,12 @@
 	padding: 1em 0.5em;
 	border-top: 3px solid #514273;
 }
+.heading { 
+  font-size: 1.6em;
+  font-weight: normal;
+  margin-bottom: 0.75em;
+}
+
 
 /* 
  * Uses color alone to communicate "link" 
@@ -87,3 +94,12 @@ a:hover, a:focus {
 	max-width: 100%;
 }		
 
+/* 
+ *
+ * Misc styles 
+ *
+ */
+img.hr { 
+  margin: 1em 0;  
+}
+ 
