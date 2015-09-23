@@ -4,6 +4,12 @@
  *
  * before-form.js = Handle form validation 
  */
+
+$(document).ready(function() { 
+
+  // code here 
+    
+});
   
 		function showError() {
 			var errorDiv = document.getElementById('errorMsg');

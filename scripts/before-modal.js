@@ -1,3 +1,16 @@
+/* 
+ * JavaScript for Accessible University Demo Site 
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-modal.js = Inaccessible Modal
+ */
+  
+$(document).ready(function() { 
+
+  // code here 
+    
+});
+
 		function getWindowSize() {
 			//returns an array of windows width and height
 			var windowSize = new Array();
