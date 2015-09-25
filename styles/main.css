@@ -80,11 +80,6 @@ form div.major {
  * Custom Styles 
  *
  */
-.section { 
-  margin-left: 0.25em;
-  padding-bottom: 1em;
-  background: url('../images/line_gradient.gif') bottom center no-repeat;
-}
 .section img { 
   float: left;
   padding: 0 0.5em 0; 
