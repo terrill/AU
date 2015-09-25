@@ -12,7 +12,6 @@
   <script src="scripts/jquery-1.11.3.min.js"></script>
 	<script src="scripts/before-menu.js"></script>
 	<script src="scripts/before-form.js"></script>
-	<script src="scripts/before-modal.js"></script>
 </head>
 <body>
   <div id="content">
@@ -224,7 +223,7 @@
         </div>
 
         <div>
-          <input type="submit" name="submit" value="Submit" />
+          <input type="submit" id="submit" name="submit" value="Submit" />
         </div>
 
       </form>
@@ -237,9 +236,9 @@
 
   </div><!--end #content-->
 
-  <!--containers for error message--> 
-  <div id="errorMask"></div>
-  <div id="errorMsg"></div>
+  <!--containers for displaying modal message--> 
+  <div id="modalMask"></div>
+  <div id="modalContent"></div>
 
 </body>
 </html>
