@@ -6,47 +6,34 @@
  */
   
 $(document).ready(function() { 
-
-  var timeout = 3000; /* milliseconds */
+  
+  var timeout = 3000;
   var timer = 0; 
-  var subMenu = false; 
-  
-  $('#menu li').hover(function() { 
-    
-    cancelCloseTimer(); 
-    
-    // close previously open submenu
-    if (subMenu) { 
-  	  subMenu.hide();
-    }
+  var subMenu = null; 
 
-    // get anbd show new submenu
-    subMenu = $(this).children('ul');
-    subMenu.show();
-    
-  }) 
+  $("#menu > li")
+    .on('mouseenter',function(){
+      // close previously open submenu
+      closeSubMenu();
+      // get and show new submenu
+      subMenu = $(this).children('ul');
+      subMenu.show();
+      clearTimeout(timer);
+    })
+    .parent().mouseout(function(){
+      clearTimeout(timer);
+      timer = setTimeout(function(){
+        closeSubMenu();
+      },timeout);
+    });
 
-  // close submenu 
-  function close() {
-    if(subMenu) { 
-      subMenu.hide();
-    }
-  }
-
-	// close timer
-  function closeTimer() {
-	  timer = setTimeout(close, timeout);
-  }
-
-	// cancel close timer
-	function cancelCloseTimer() {
-		if(closeTimer) {
-		  clearTimeout(timer);
-      timer = null;
-		}
-  }
-  
   // close subMenu when click-out
-	document.onclick = close; 
-    
+  document.onclick = closeSubMenu; 
+
+  function closeSubMenu() { 
+    if (subMenu) { 
+      subMenu.hide(); 
+      subMenu = null;
+    }
+  }
 });

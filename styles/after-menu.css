@@ -27,7 +27,8 @@ ul#menu {
 #menu li a {
 	padding: 0.25em 1em;  
   display: block;
-	color: #8A94A8;
+	color: #39275b;
+	text-decoration: none;
 }
 #menu li ul { 
   display: none;
@@ -47,9 +48,11 @@ ul#menu {
 }
 #menu li ul li a	{	
 }
-#menu a:hover {	
+#menu a:hover, 
+#menu a:focus {	
   background: #39275b;
 	color: #FFF;
+	outline: none;
 }
 
 
