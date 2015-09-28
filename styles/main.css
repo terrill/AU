@@ -13,7 +13,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   color: black;
-  background-color: 2A194C;
+  background-color: #2A194C;
 }
 #content { 
   width: 80%;
@@ -61,19 +61,6 @@ form div.major {
 	position: absolute;
 	right: 0;
 }
-#captcha h2 { 
-  font-size: 1.1em;
-	margin-bottom: 0.25em;
-}
-#captcha p { 
-  margin-top: 0.25em;
-}
-#captcha img {
-  display: block; 
-	margin-top: 0.5em;
-	border: 1px solid black;
-	max-width: 100%;
-}		
 
 /* 
  * 

@@ -12,6 +12,8 @@
   <script src="scripts/jquery-1.11.3.min.js"></script>
 	<script src="scripts/before-menu.js"></script>
 	<script src="scripts/before-form.js"></script>
+	<script src="scripts/before-modal.js"></script>
+	<script src="scripts/before-carousel.js"></script>
 </head>
 <body>
   <div id="content">
@@ -86,6 +88,7 @@
       <p>There are at least 17 accessibility problems on this page. 
         To see a list of all known problems, <a href="problems.html">click here</a>. 
         To see a more accessible version of this same page, <a href="after.html">click here</a>.
+        <span id="cheatSheetLinkSpan"></span>
       </p>
 
       <img class="hr" src="images/line_gradient.gif" alt="horizontal line graphic">
@@ -174,6 +177,9 @@
 
       <form action="#" method="post" onsubmit="return validate(this)">
 
+        <!-- container for displaying form errors --> 
+        <div id="error"></div>
+
         <div class="required">
           Name: <br/>
           <input type="text" name="name"/>
@@ -236,9 +242,32 @@
 
   </div><!--end #content-->
 
-  <!--containers for displaying modal message--> 
+  <!--containers for displaying modal content--> 
   <div id="modalMask"></div>
-  <div id="modalContent"></div>
+  <div id="modalContent">
+    <div class="modalHeading">17 Accessibility Problems</div>
+    <button type="button" id="modalXButton">x</button>
+    <ol>
+      <li>Problem 1</li>
+      <li>Problem 2</li>
+      <li>Problem 3</li>
+      <li>Problem 4</li>
+      <li>Problem 5</li>
+      <li>Problem 6</li>
+      <li>Problem 7</li>
+      <li>Problem 8</li>
+      <li>Problem 9</li>
+      <li>Problem 10</li>
+      <li>Problem 11</li>
+      <li>Problem 12</li>
+      <li>Problem 13</li>
+      <li>Problem 14</li>
+      <li>Problem 15</li>
+      <li>Problem 16</li>      
+      <li>Problem 17</li>      
+    </ol>
+    <button type="button" id="modalOkButton">OK</button>    
+  </div>
 
 </body>
 </html>
