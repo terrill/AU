@@ -24,6 +24,14 @@ body {
 }
 
 /* 
+ * HTML Elements 
+ *
+ */
+a { 
+  color: #3E0087;
+}
+
+/* 
  * Shared Form Styles
  *
  */
