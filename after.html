@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Accessible University Mock Site - Accessible Version</title>
+	<title>Accessible University Demo Site - Accessible Version</title>
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 	<link href="styles/main.css" rel="stylesheet">
 	<link href="styles/after-main.css" rel="stylesheet">
@@ -198,29 +198,33 @@
 
       <h2>Apply Now!</h2>
 
-      <form action="#" method="post">
+      <form action="#" method="get">
+
+        <!-- container for displaying form errors or other messages --> 
+        <div id="feedback" role="alert"></div>
+
         <div class="required">
-          <label for="name">Name: (required)</label><br/>
+          <label for="name">Name: (required)</label>
           <input id="name" type="text" name="name" required/>
         </div>
         <div class="required">
-          <label for="email">Email: (required)</label><br/>
-          <input id="email" type="text" name="email" required/>
+          <label for="email">Email: (required)</label>
+          <input id="email" type="email" name="email" required/>
         </div>
         <div>
-          <label for="city">City:</label><br/>
+          <label for="city">City:</label>
           <input type="text" name="city" id="city"/>
         </div>
         <div>
-          <label for="state">State/Province:</label><br/>
+          <label for="state">State/Province:</label>
           <input type="text" name="state" id="state"/>
         </div>
         <div>
-          <label for="zip">Zip/Postal Code:</label> <br/>
+          <label for="zip">Zip/Postal Code:</label>
           <input type="text" name="zip" id="zip"/>
         </div>
         <div>
-          <label for="country">Country:</label><br/>
+          <label for="country">Country:</label>
           <input type="text" name="country" id="country"/>
         </div>
 
@@ -254,14 +258,10 @@
           </ul>
         </fieldset>
 
-        <div id="captcha">
-          <h2>Security Question</h2>
-          <label id="captcha_label" for="captcha_answer"></label>
-          <input type="text" id="captcha_answer" name="captcha_answer" required>
-	      </div>
+        <div id="captcha"></div>
 	
         <div>
-          <input type="submit" name="submit" value="Submit" />
+          <input id="submit" type="submit" name="submit" value="Submit" />
         </div>
       </form>
     </aside>

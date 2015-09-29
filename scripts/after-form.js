@@ -7,140 +7,43 @@
 
 $(document).ready(function() { 
 
-		function showCaptcha() { 
-			// create an array with a few questions 
-			var questions = new Array();
-			questions[0] = 'If a cow is purple, what color is it?';
-			questions[1] = '2 plus two equals ';
-			questions[2] = 'Sunday, Bird, Friday. Which of these is not a day?';
-			var question = questions[Math.floor(Math.random() * questions.length)];
-			document.getElementById('captcha_label').innerHTML = question;
-		}
+  // add text-based captcha to the #captcha container 
+  // NOTE: This is just an example; no captcha validation actually occurs 
+  // See problems.html for a discussion of captcha accessibility 
+  
+  var question = getQuestion();
+  var captchaHeading = $('<h3>').text('Security Question');
+  var captchaLabel = $('<label>').attr({
+    'id': 'captcha_label',
+    'for': 'captcha_answer'
+  }).text(question);
+  var captchaInput = $('<input>').attr({
+    'id': 'captcha_answer',
+    'name': 'captcha_answer',
+    'type': 'text',
+    'required': ''
+  });
+  $('#captcha').append(captchaHeading,captchaLabel,captchaInput); 
+  
+  // handle form submission 
+  // NOTE: This is just an example; normally this would be handled server-side 
+  // In this example, all submissions are good submissions! 
+  // Provide accessible information that indicates submission was successful 
+  var formParams = document.location.search;
+  if (formParams.indexOf('submit=Submit') !== -1) { 
+    $('title').text('Success! Accessible University');
+    var feedbackHeading = $('<h3>').text('Thank you!');
+    var feedbackText = $('<p>').text('Your application has been received.');
+    $('#feedback').append(feedbackHeading,feedbackText).show();    
+  }
+}); 
 
-    // form validation - compare this with "before" version, below
-		function showError(errorMessage) {			
-			var errorDiv = document.getElementById('errorMsg');
-			errorDiv.innerHTML = errorMessage;
-			errorDiv.style.display='block';
-			errorDiv.setAttribute('tabindex','0');
-			errorDiv.focus();
-		}
-		function validateEmail(email) {
-			var atPos=email.indexOf("@");
-			var dotPos=email.lastIndexOf(".");
-			//must contain at least an @ sign and a dot (.) 
-			//The @ must not be the first character 
-			//The last dot must at least be one character after the @ sign
-			if (atPos<1||dotPos-atPos<2) return false; 
-			else return true;
-		}
-		function validate (thisform) {
-			var userName = thisform.name.value;
-			var userEmail = thisform.email.value;
-			var captchaAnswer = thisform.captcha_answer.value;
-			var numErrors = 0;
-			var errorMessages = new Array();
-			if (userName==null||userName=="") { 
-				errorMessages[numErrors] = 'Name is required';
-				var firstBadField = 'name';
-				numErrors++;
-			}
-			if (userEmail==null||userEmail=="") { 
-				errorMessages[numErrors] = 'Email is required';
-				if (numErrors == 0) var firstBadField = 'email';
-				numErrors++;
-			}
-			else if (validateEmail(userEmail) == false) { 
-				errorMessages[numErrors] = 'You entered an invalid email address';
-				if (numErrors == 0) var firstBadField = 'email';
-				numErrors++;
-			}
-			if (captchaAnswer==null||captchaAnswer=="") { 
-				errorMessages[numErrors] = 'You must answer the security question at the bottom of the form';
-				if (numErrors == 0) var firstBadField = 'captcha_answer';
-				numErrors++;
-			}			
-			if (numErrors > 0) { 
-				if (numErrors == 1) { 
-					var errorMessage = 'ERROR: ' + errorMessages[0];
-					errorMessage += '. Please correct this error and submit again.';
-				}
-				else { 
-					var errorMessage = '<p>There were ' + numErrors + ' errors '; 
-					errorMessage += 'in the information you entered:</p> ';
-					errorMessage += '<ul>';
-					for (i=0;i<numErrors;i++) { 
-						errorMessage += '<li>' + errorMessages[i] + '</li>';
-					}
-					errorMessage += '</ul>';
-					errorMessage += '<p>Please correct these errors and submit again.</p>';
-				}
-				showError(errorMessage);
-				//set focus to the first field that requires correcting
-				if (firstBadField == 'name') thisform.name.focus();
-				else if (firstBadField == 'email') thisform.email.focus();
-				else if (firstBadField == 'captcha_answer') thisform.captcha_answer.focus();
-				//scroll viewport to top of page so error message is visible
-				window.scrollTo(0,0); 
-				return false;
-			}
-			else return true;
-		}
-});
+function getQuestion() { 
   
-		function showError() {
-			var errorDiv = document.getElementById('errorMsg');
-			var errorMask = document.getElementById('errorMask');
-			//add an event listener to capture when user clicks on errorMask 
-			if (errorMask.addEventListener) { 
-				errorMask.addEventListener('click',function() { 
-					//hide error message (and background mask)
-					errorDiv.style.display='none';
-					errorMask.style.display='none';
-				}, false);
-			}
-			else if (errorMask.attachEvent) { //do the same thing for IE 
-				errorMask.attachEvent('click',function() { 
-					errorDiv.style.display='none';
-					errorMask.style.display='none';
-				});
-			}
-			errorDiv.innerHTML = 'Your form has errors. Please correct, then resubmit.';
-			//position errorDiv in center of browser window
-			var winSize = getWindowSize();
-			var winWidth = winSize[0];
-			var winHeight = winSize[1];
-			var errorLeft = ((winWidth-200)/2) + 'px';
-			var errorTop = ((winHeight-200)/2) + 'px';
-			errorDiv.style.left=errorLeft;
-			errorDiv.style.top=errorTop;
-			errorDiv.style.display='block';
-			errorMask.style.display='block';
-		}
-		function validateEmail(email) {
-			var atPos=email.indexOf("@");
-			var dotPos=email.lastIndexOf(".");
-			//must contain at least an @ sign and a dot (.) 
-			//The @ must not be the first character 
-			//The last dot must at least be one character after the @ sign
-			if (atPos<1||dotPos-atPos<2) return false; 
-			else return true;
-		}
-		function validate (thisform) {
-			//returns true if all form input is valid
-			//otherwise calls showError() and returns false
-			var userName = thisform.name.value;
-			var userEmail = thisform.email.value;
-			var captcha = thisform.captcha.value;
-			var isValid = true; //until proven false
-			if (userName==null||userName=="") isValid = false;
-			else if (userEmail==null||userEmail=="") isValid = false;
-			else if (validateEmail(userEmail) == false) isValid = false;
-			else isValid = false; // user for sure entered the wrong captcha text 
-			if (isValid == false) {
-				showError();
-				return false;
-			}
-			else return true;
-		}
-  
+  var questions = [];
+  questions[0] = 'If a cow is purple, what color is it?';
+	questions[1] = '2 plus two equals ';
+	questions[2] = 'Sunday, Bird, Friday. Which of these is not a day?';
+	var question = questions[Math.floor(Math.random() * questions.length)];
+	return question; 
+}

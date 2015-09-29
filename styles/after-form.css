@@ -10,6 +10,10 @@ form h2 {
   font-weight: bold;
   font-size: 1.2em;
 }
+form input[type="email"] { 
+  display: block; 
+  width: 95%;
+}
 fieldset { 
   border: none;
   margin-left: 0;
@@ -47,8 +51,27 @@ legend {
 }
 #captcha_label { 
   display: block;
+  margin: 0.75em 0;
 }
 #captcha p { 
   margin-top: 0.25em;
 }
+
+/* 
+ * 
+ * Error Message or other feedback 
+ * 
+ */
+#feedback { 
+  background-color: #FFC; 
+  font-weight: bold;
+  padding: 0.75em; 
+  border: 1px solid #2A194C;
+  display: none;
+}
+#feedback h3 { 
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
 		

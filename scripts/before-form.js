@@ -7,7 +7,6 @@
 
 $(document).ready(function(event) { 
 
-console.log('form.js is ready');
   $('#submit').on('click',function(event) { 
     var heading = $('<div>').addClass('errorHeading').text('ERROR');     
     var errorMsg = $('<p>')
