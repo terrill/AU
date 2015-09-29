@@ -24,42 +24,16 @@ body {
 }
 
 /* 
- * Form Styles
+ * Shared Form Styles
  *
  */
 
 form > div { 
   margin: 1em 0;
 }
-form h2 { 
-  font-weight: bold;
-  font-size: 1.2em;
-}
 form input[type="text"] { 
-  width: 100%;
-}
-div#majors { 
-  width: 10em;
-}
-fieldset { 
-  border: none;
-  margin-left: 0;
-  padding-left: 0;
-}
-legend { 
-  margin-left: 0;
-  font-weight: bold;
-}
-form div.major {
-  display: block;
-	position: relative;
-	margin: 0;
-	width: 10em;
-}
-.major input {
-  float: right;
-	position: absolute;
-	right: 0;
+  display: block; 
+  width: 95%;
 }
 
 /* 

@@ -7,6 +7,7 @@
 	<link href="styles/main.css" rel="stylesheet">
 	<link href="styles/before-main.css" rel="stylesheet">
 	<link href="styles/before-menu.css" rel="stylesheet">
+	<link href="styles/before-form.css" rel="stylesheet">
 	<link href="styles/before-modal.css" rel="stylesheet">
 	<link href="styles/before-carousel.css" rel="stylesheet">
   <script src="scripts/jquery-1.11.3.min.js"></script>
@@ -172,41 +173,41 @@
 
     <div id="sidebar">
 
-      <p style="font-size:1.2em; font-weight:bold">Apply Now!<br/>
-        <span class="required" style="font-size:0.9em">(required fields are in blue)</span></p>
+      <div class="heading">Apply Now!</div>
+        <p class="required reqExample">(required fields are in blue)</p>
 
-      <form action="#" method="post" onsubmit="return validate(this)">
+      <form action="#" method="post">
 
         <!-- container for displaying form errors --> 
         <div id="error"></div>
 
         <div class="required">
-          Name: <br/>
+          Name:
           <input type="text" name="name"/>
         </div>
 
         <div class="required">
-          Email: <br/>
+          Email:
           <input type="text" name="email"/>
         </div>
 
         <div>
-          City: <br/>
+          City: 
           <input type="text" name="city"/>
         </div>
 
         <div>
-          State/Province: <br/>
+          State/Province:
           <input type="text" name="state"/>
         </div>
 
         <div>
-          Zip/Postal Code: <br/>
+          Zip/Postal Code:
           <input type="text" name="zip"/>
         </div>
 
         <div>
-          Country: <br/>
+          Country:
           <input type="text" name="country"/>
         </div>
 

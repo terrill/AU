@@ -1,0 +1,54 @@
+/* 
+ * CSS for Accessible University Demo Site 
+ * http://uw.edu/accesscomputing/AU
+ *
+ * after-form.css = Styles unique to inaccessible form
+ *    (shared form styles are in main.css) 
+ */
+  
+form h2 { 
+  font-weight: bold;
+  font-size: 1.2em;
+}
+fieldset { 
+  border: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+legend { 
+  margin-left: 0;
+  font-weight: bold;
+}
+#majors ul {
+  list-style-type: none;
+  display: block;
+	position: relative;
+	margin: 0;
+	padding-left: 0;
+	width: 10em;
+}
+#majors li input {
+  float: right;
+	position: absolute;
+	right: 0;
+}
+.required { 
+  font-weight: bold;
+}
+ 
+/* 
+ *
+ * Text CAPTCHA 
+ * 
+ */
+#captcha h2 { 
+  font-size: 1.1em;
+  margin-bottom: 0.25em;
+}
+#captcha_label { 
+  display: block;
+}
+#captcha p { 
+  margin-top: 0.25em;
+}
+		
