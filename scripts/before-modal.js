@@ -7,12 +7,10 @@
 
 $(document).ready(function(event) { 
   
-  var spanText = 'For a cheat sheet of accessibility problems, '; 
-  var spanLink = $('<a>').text('click here').on('click',function(event) { 
-    event.stopPropagation();
+  $('a[href="cheatsheet.html"]').on('click',function(event) { 
     showModal();
+    event.preventDefault();
   });
-  $('#cheatSheetLinkSpan').text(spanText).append(spanLink).append('.');
   
   // handle click on X or Ok button in modal dialog 
   $(document).on('click','#modalXButton, #modalOkButton',function(event) { 
