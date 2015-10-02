@@ -5,3 +5,51 @@
  * before-carousel.css = Styles for inaccessible carousel
  */
   
+#carousel { 
+  position: relative;
+  background-color: #000;
+  text-align: center;
+  margin: 10px 0 10px;
+}
+#carousel .slide { 
+  display: none;
+  text-align: center;
+  width: 580px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+#carousel .slide .description { 
+  font-size: 1.5em;
+  padding: 0.75em 1.5em;  
+}
+#carousel .slide a { 
+  color: #CCC;
+}
+#carousel .slide img { 
+}
+#carousel .slide.current {
+  display: block;
+  z-index: 500;
+}
+.btn-prev,
+.btn-next {
+  position: absolute;
+  z-index: 700;
+  top: 147px;
+  border: 0;
+  background-color: #cccce0;
+  transition: padding .4s ease-out;
+}
+.btn-prev {
+  left:0;
+  border-radius: 0 .25em .25em 0;
+}
+.btn-next {
+  right:0;
+  border-radius: .25em 0 0 .25em;
+}
+.btn-next:hover, .btn-next:focus,
+.btn-prev:hover, .btn-prev:focus {
+  padding-left: 2em;
+  padding-right: 2em;
+}
