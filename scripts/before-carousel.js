@@ -39,7 +39,14 @@ $(document).ready(function() {
 
   navButtons.append(prevButton,nextButton);
   $('#carousel').append(navButtons);    
-
+  
+  // add slide indicators (lentils) 
+  var lentils = $('<ul>').addClass('lentils'); 
+  for (var i=0; i<slideCount; i++) { 
+    var lentil = $('<li>');
+    lentils.append(lentil);
+  } 
+  $('#carousel').append(lentils); 
   
   // show the first one 
   showSlide(0);
@@ -51,6 +58,11 @@ function showSlide(index) {
   $('.slide:visible').removeClass('current'); 
   // and show the new one 
   $('.slide').eq(index).addClass('current'); 
+  
+  // also update the slide indicator 
+  $('.lentils li.active').removeClass('active');
+  $('.lentils li').eq(index).addClass('active');
+  
 }
 
 function updateIndex(index,direction,count) { 

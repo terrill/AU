@@ -31,6 +31,13 @@
   display: block;
   z-index: 500;
 }
+/* 
+ * 
+ * Prev/Next buttons
+ *
+ * 
+ */
+
 .btn-prev,
 .btn-next {
   position: absolute;
@@ -53,3 +60,33 @@
   padding-left: 2em;
   padding-right: 2em;
 }
+
+/* 
+ * 
+ * Slide Indicators (Lentils) 
+ *
+ * 
+ */
+ul.lentils { 
+  list-style-type: circle; 
+}
+.lentils li { 
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFF;
+  box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+}
+.lentils li.active {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  background-color: #FF9; /* yellow */
+}
+
+
