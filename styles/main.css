@@ -87,7 +87,7 @@ table#enrollment th, table#enrollment td {
  */
 div#ccLogo { 
   float: left;
-  padding: 0 1em 0.5em;
+  padding: 0 1em 0.5em 0;
 }
 #footer p, 
 footer p { 
