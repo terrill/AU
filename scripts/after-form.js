@@ -30,7 +30,7 @@ $(document).ready(function() {
   // In this example, all submissions are good submissions! 
   // Provide accessible information that indicates submission was successful 
   var formParams = document.location.search;
-  if (formParams.indexOf('submit=Submit') !== -1) { 
+  if (formParams.indexOf('submitted=yes') !== -1) { 
     $('title').text('Success! Accessible University');
     var feedbackHeading = $('<h3>').text('Thank you!');
     var feedbackText = $('<p>').text('Your application has been received.');
