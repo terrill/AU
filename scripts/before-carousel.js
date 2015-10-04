@@ -20,7 +20,7 @@ $(document).ready(function() {
     'src': 'images/arrow-left.png'    
   });
   var nextIcon = $('<img>').attr({
-    'src': 'images/arrow-right.png'    
+    'src': 'images/arrow-right.png'
   });
   var prevButton = $('<div>')
     .addClass('btn-prev')
@@ -67,7 +67,6 @@ function showSlide(index) {
 
 function updateIndex(index,direction,count) { 
   
-console.log('updating ' + index);  
   if (direction === 'prev') { 
     if (index == 0) { 
       // this is the first side, loop around to last slide 

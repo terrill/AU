@@ -14,6 +14,7 @@
 	<script src="scripts/after-menu.js"></script>
 	<script src="scripts/after-form.js"></script>
 	<script src="scripts/after-modal.js"></script>
+	<script src="scripts/after-carousel.js"></script>
 </head>
 <body>
 
@@ -69,7 +70,33 @@
 
     <main role="main">
 
-    <!-- insert slideshow here --> 
+      <div id="carousel" role="region" aria-describedby="carouselHeading">
+        <h2 id="carouselHeading" class="clipped">Featured Story Slideshow</h2>
+        <ul>
+          <li class="slide">
+            <img src="images/slide1.jpg" 
+              alt="Robot with a friendly face, assembled with various scraps of hardware, and mounted on an old DecTalk speech synthesizer" />
+            <div class="description">
+              AU student wins engineering award for talking robot sign language interpreter.
+              Read more about the <a href="somepage.html?ref=Slide%201">student's engineering award</a>.
+            </div>
+          </li>
+          <li class="slide">
+            <img src="images/slide2.jpg" alt="A large bronze tactile map with a speaker for audio output"/>
+            <div class="description">
+              AU installs universally designed maps at multiple locations on campus.
+              See all <a href="somepage.html?ref=Slide%201">campus map locations</a>.
+            </div>
+          </li>
+          <li class="slide">
+            <img src="images/slide3.jpg" alt="Braille dots embossed into the top of an aluminum beer can" />
+            <div class="description">
+              Group of AU students successfully advocates for Braille on beer cans.
+              Read more about <a href="somepage.html?ref=Slide%201">Braille and beer</a>.
+            </div>
+          </li>
+        </ul>
+      </div>
   
       <div class="section">
         <h2>Welcome!</h2>
@@ -195,7 +222,7 @@
       </div>
     </main>
 
-    <aside role="complementary" aria-label="Application Form">
+    <div id="appForm" role="form" aria-label="Application Form">
 
       <h2>Apply Now!</h2>
 
@@ -265,7 +292,7 @@
           <input id="submit" type="submit" name="submit" value="Submit" />
         </div>
       </form>
-    </aside>
+    </div>
 
     <footer role="contentinfo">
     Copyright &copy;2002 - 2015 University of Washington. Permission is granted to copy these materials for educational, noncommercial purposes provided the source is acknowledged. This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and was updated in 2009 with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement. 

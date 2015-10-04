@@ -6,9 +6,9 @@
  */
   
 ul#menu {	
-  margin: 0;
+  margin: 0 0.75em;
 	padding: 0;
-	z-index: 30
+	z-index: 30;
 }
 #menu > li {	
 	margin: 0;
@@ -38,7 +38,8 @@ ul#menu {
 	width: 12em;
   position: absolute;
 	border: 1px solid #AAA;
-	border-right: 2px solid #999
+	border-right: 2px solid #999;
+	z-index: 30; 
 }
 #menu li ul li { 
   margin: 0;

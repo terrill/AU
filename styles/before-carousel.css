@@ -9,7 +9,9 @@
   position: relative;
   background-color: #000;
   text-align: center;
-  margin: 10px 0 10px;
+  margin: 0 0 10px;
+  width: 100%;
+  min-width: 720px;
 }
 #carousel .slide { 
   display: none;
@@ -29,7 +31,7 @@
 }
 #carousel .slide.current {
   display: block;
-  z-index: 500;
+  z-index: 10;
 }
 /* 
  * 
@@ -41,9 +43,10 @@
 .btn-prev,
 .btn-next {
   position: absolute;
-  z-index: 700;
+  z-index: 20;
   top: 147px;
   border: 0;
+  padding: 0;
   background-color: #cccce0;
   transition: padding .4s ease-out;
 }
@@ -57,8 +60,8 @@
 }
 .btn-next:hover, .btn-next:focus,
 .btn-prev:hover, .btn-prev:focus {
-  padding-left: 2em;
-  padding-right: 2em;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* 
@@ -89,4 +92,17 @@ ul.lentils {
   background-color: #FF9; /* yellow */
 }
 
+/* 
+ * 
+ * Somewhat Responsive 
+ *
+ */
+
+@media (max-width: 1050px) { 
+  /* point at which Application form  drops below content */ 
+  #main { 
+    width: 720px;
+  }
+}
+    
 

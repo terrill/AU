@@ -6,9 +6,9 @@
  */
   
 ul#menu {	
-  margin: 0;
+  margin: 0 0.75em;
 	padding: 0;
-	z-index: 30
+	z-index: 30;
 }
 #menu > li {	
 	margin: 0;
@@ -27,7 +27,8 @@ ul#menu {
 #menu li a {
 	padding: 0.25em 1em;  
   display: block;
-	color: #39275b;
+	color: #39275b; /* for WCAG 2.0 AAA conformance */
+	color: #5a667a; /* for WCAG 2.0 AA conformance */
 	text-decoration: none;
 }
 #menu li ul { 
@@ -39,7 +40,8 @@ ul#menu {
 	width: 12em;
   position: absolute;
 	border: 1px solid #AAA;
-	border-right: 2px solid #999
+	border-right: 2px solid #999;
+	z-index: 30;
 }
 #menu li ul li { 
   margin: 0;
@@ -71,7 +73,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+/*
 .accessible-megamenu {
     position: relative;
     display:block;
@@ -334,3 +336,4 @@ limitations under the License.
     border-top-color: rgba(0,0,0, 0.3);
     border-bottom-color: #fff;
 }
+*/

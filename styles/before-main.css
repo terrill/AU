@@ -11,28 +11,24 @@
  * 
  */  
 
-#main_wrapper { 
-  position: relative;
-  height: auto;
-}
 #main { 
-  width: 75%; 
+  width: 73%; 
   clear: left;
 	float: left;
-	padding-right: 1em;
-	margin-bottom: 2em;
+	padding: 0 1%;
+	margin: 0.75em 0 2em;
 }
 #main p img { 
   float: left;
 	padding: 0 0.25em 0.25em 0;
 }
-#sidebar { 
-  width: 20%; 
-	float: right; 
+#appForm { 
+  width: 22%; 
+  float: right;
 	border: 2px solid #39275B;
 	background-color: #cccce0;
-	padding: 0 0.75em;
-	margin-bottom: 2em;
+	padding: 0 1%;
+	margin: 0.75em 0 2em;
 }
 #footer { 
   clear: both;
@@ -74,4 +70,5 @@ a:hover, a:focus, input:focus {
 img.hr { 
   margin: 1em 0;  
 }
+ 
  
