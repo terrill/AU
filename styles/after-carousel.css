@@ -74,23 +74,23 @@
  * 
  */
 ul.lentils { 
-  list-style-type: circle; 
+  list-style-type: none; 
+  margin-top: 0;
 }
 .lentils li { 
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin: 10px;
-  text-indent: 0;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  background-color: #FFF;
-  box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);
+  margin: 1em 0.5em;
 }
-.lentils li.active {
-  width: 20px;
-  height: 20px;
-  margin: 10px;
-  background-color: #FF9; /* yellow */
+.lentils button {
+  border: 2px solid #036;
+  background-color: #036;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #fff;
+}
+.lentils li.active button {
+  border-radius: .5em;
+  background-color: #FF9;
+  border-color: #F93;
+  color: #333;
 }

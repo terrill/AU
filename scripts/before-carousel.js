@@ -43,7 +43,11 @@ $(document).ready(function() {
   // add slide indicators (lentils) 
   var lentils = $('<ul>').addClass('lentils'); 
   for (var i=0; i<slideCount; i++) { 
-    var lentil = $('<li>');
+    var lentil = $('<li>')
+      .attr('data-slide',i)
+      .on('click',function() { 
+        showSlide($(this).data('slide'));
+      });
     lentils.append(lentil);
   } 
   $('#carousel').append(lentils); 

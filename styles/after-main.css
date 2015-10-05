@@ -61,17 +61,13 @@ a {
 
 /* 
  * Clear visible focus 
- * for mouse users (hover) 
- * and keyboard users (focus)
+ * for keyboard users
  *
  */
-a:hover, a:focus { 
-  color: #FFF;
-  background-color: #000;
-  text-decoration: none;
-}
-input:focus { 			
-  border-color: #CCCCE0;
+main :focus,
+form :focus, 
+footer :focus { 
+  border: 3px solid #6CF !important;
 }
 
 /* 

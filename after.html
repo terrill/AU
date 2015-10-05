@@ -106,30 +106,30 @@
 
       <div id="carousel" role="region" aria-describedby="carouselHeading">
         <h2 id="carouselHeading" class="clipped">Featured Story Slideshow</h2>
-        <ul>
-          <li class="slide">
-            <img src="images/slide1.jpg" 
-              alt="Robot with a friendly face, assembled with various scraps of hardware, and mounted on an old DecTalk speech synthesizer" />
-            <div class="description">
-              AU student wins engineering award for talking robot sign language interpreter.
-              Read more about the <a href="somepage.html?ref=Slide%201">student's engineering award</a>.
-            </div>
-          </li>
-          <li class="slide">
-            <img src="images/slide2.jpg" alt="A large bronze tactile map with a speaker for audio output"/>
-            <div class="description">
-              AU installs universally designed maps at multiple locations on campus.
-              See all <a href="somepage.html?ref=Slide%201">campus map locations</a>.
-            </div>
-          </li>
-          <li class="slide">
-            <img src="images/slide3.jpg" alt="Braille dots embossed into the top of an aluminum beer can" />
-            <div class="description">
-              Group of AU students successfully advocates for Braille on beer cans.
-              Read more about <a href="somepage.html?ref=Slide%201">Braille and beer</a>.
-            </div>
-          </li>
-        </ul>
+        <!-- not using a list for slides since only one slide is visible at a time --> 
+        <!-- therefore, screen readers announce "list of one item", potentially confusing --> 
+        <div class="slide" role="alert">
+          <img src="images/slide1.jpg" 
+            alt="Robot with a friendly face, assembled with various scraps of hardware, and mounted on an old DecTalk speech synthesizer" />
+          <div class="description">
+            AU student wins engineering award for talking robot sign language interpreter.
+            Read more about the <a href="somepage.html?ref=Slide%201">student's engineering award</a>.
+          </div>
+        </div>
+        <div class="slide" role="alert">
+          <img src="images/slide2.jpg" alt="A large bronze tactile map with a speaker for audio output"/>
+          <div class="description">
+            AU installs universally designed maps at multiple locations on campus.
+            See all <a href="somepage.html?ref=Slide%201">campus map locations</a>.
+          </div>
+        </div>
+        <div class="slide" role="alert">
+          <img src="images/slide3.jpg" alt="Braille dots embossed into the top of an aluminum beer can" />
+          <div class="description">
+            Group of AU students successfully advocates for Braille on beer cans.
+            Read more about <a href="somepage.html?ref=Slide%201">Braille and beer</a>.
+          </div>
+        </div>
       </div>
   
       <div class="section">
