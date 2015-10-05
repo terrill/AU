@@ -23,7 +23,7 @@
   
   $(document).ready(function() { 
 
-    // initialize by adding data-able-menu attribute to the menu's outer <ul> element     
+    // initalize any <ul> element that has a data-able-menu attribute
     $('ul').each(function (index, element) {
       if ($(element).data('able-menu') !== undefined) {
         new AbleMenu($(this),$(element));
@@ -36,14 +36,13 @@
 
     this.menu = $element;      
     this.setup();
-    // this.initialize();
       
   };
 
   AbleMenu.prototype.setup = function() {
 
     this.idPrefix = 'ablemenu_'; 
-    this.nextId = 1; 
+    this.menuItemId = 1; 
     
     this.timeout = 3000;
     this.timer = 0; 
@@ -74,19 +73,22 @@
       var $subMenu = $item.next('ul'); 
 
       // both the menu item and submenu need an id 
-      var itemId = thisObj.getId($item);
-      var subMenuId = thisObj.getId($subMenu);
-
+      var itemId = thisObj.idPrefix + '_link_' + thisObj.menuItemId;
+      var subMenuId = thisObj.idPrefix + '_sub_' + thisObj.menuItemId;
+      thisObj.menuItemId++; 
+      
       // add ARIA attributes 
       $item.attr({
-        'aria-owns': subMenuId,
-        'aria-controls': subMenuId,
+        'id': itemId,
+        'aria-owns': subMenuId, 
+        'aria-controls': subMenuId, 
         'aria-haspopup': 'true',
         'aria-expanded': 'false'
       })
       $subMenu.attr({
+        'id': subMenuId,
         'aria-expanded': 'false',
-        'aria-visible': 'false',
+        'aria-hidden': 'true',
         'aria-labelledby': itemId
       })      
 
@@ -102,13 +104,15 @@
         .on('keydown',function(event) { 
           thisObj.handleKeystroke(event);
         })
+        .on('click',function(event) { 
+          thisObj.handleClick(event);
+        })
         .parent().on('mouseleave',function(){
           clearTimeout(thisObj.timer);
           thisObj.timer = setTimeout(function(){
             thisObj.hideSubMenu();
           },thisObj.timeout);
         });
-
       // bind events to each submenu as well 
       $('#' + subMenuId).on('keydown',function(event) { 
         thisObj.moveFocusInSubMenu(event);
@@ -119,21 +123,51 @@
     $(document).on('click',function() { 
       thisObj.hideSubMenu(); 
     });
-  }
-
-  AbleMenu.prototype.getId = function($element) {
-     
-     if (($element).attr('id') !== undefined) { 
-       // element already has an id. Return it. 
-       return $element.attr('id');        
-     }
-     else { 
-       // assign an id to the element 
-       var id = this.idPrefix + this.nextId; 
-       $element.attr('id',id);
-       this.nextId++;
-       return id;
-     }
+    // add toggle for help text 
+    var helpButton = $('<button>')
+      .attr({
+        'type': 'button', 
+        'title': 'Show menu keyboard shortcuts'
+      })
+      .on('click',function() {
+        if ($('#nav-help').is(':visible')) {  
+          $('#nav-help').hide();
+          $(this).attr('title','Show menu keyboard shortcuts');
+        }
+        else { 
+          $('#nav-help').show();
+          $(this).attr('title','Hide menu keyboard shortcuts');
+        }
+      });
+    var helpIcon = $('<img>').attr({ 
+      'src' : 'images/help.png',
+      'alt' : '',
+      'aria-role' : 'presentation'
+    });
+    helpButton.html(helpIcon);
+    $('#main-nav').prepend(helpButton); 
+    
+    // add help text, hidden by default
+    var help = $('<div>').attr({
+      'id': 'nav-help', 
+      'role': 'alert'
+    });
+    var helpHeading = $('<h2>').text('Main menu keyboard shortcuts'); 
+    var helpList = $('<ul>'); 
+    var helpItems = []; 
+    helpItems[0] = '<strong>Tab</strong> or <strong>left/right arrow</strong> to move through menu bar';
+    helpItems[1] = '<strong>Space</strong> to follow a link to an external page'; 
+    helpItems[2] = '<strong>Enter</strong> or <strong>down arrow</strong> to open a submenu'; 
+    helpItems[3] = '<strong>Up/down arrow</strong> to move through submenu items';
+    helpItems[4] = '<strong>The first character</strong> of any submenu item to jump to that item'; 
+    helpItems[5] = '<strong>Escape</strong> to close a submenu';
+    for (var i=0; i<helpItems.length; i++) { 
+      var helpItem = $('<li>').html(helpItems[i]);
+      helpList.append(helpItem); 
+    }
+    help.append(helpHeading, helpList);
+    $('#main-nav').prepend(help);
+    
   }
 
   AbleMenu.prototype.handleKeystroke = function( e ) {
@@ -142,7 +176,6 @@
 
       case this.keys.enter :
       case this.keys.down  :
-
         $(e.currentTarget).attr('aria-expanded', 'true');
         this.subMenu = $(e.currentTarget).next('ul')
         this.showSubMenu();
@@ -162,11 +195,22 @@
         return false;
 
       case this.keys.spacebar:
-
+      
+        // Bypass submenu and follow the link to the top-level menu item. 
         window.location.href = $(e.currentTarget).attr('href');
         return false;
     }
 
+  };
+
+  AbleMenu.prototype.handleClick = function( e ) {
+
+    $(e.currentTarget).attr('aria-expanded', 'true');
+    this.subMenu = $(e.currentTarget).next('ul')
+    this.showSubMenu();
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
   };
 
   AbleMenu.prototype.moveFocusInSubMenu = function(e) {
@@ -244,18 +288,33 @@
   AbleMenu.prototype.showSubMenu = function() { 
 
     this.subMenu
-      .attr( 'aria-expanded', 'true' )
+      .attr({
+        'aria-expanded': 'true',
+        'aria-hidden': 'false'
+      })
       .show()
       .find('a')
       .eq(0)
       .focus();
+      
+    this.subMenu.prev('a').attr('aria-expanded','true');
     
     this.subMenuAnchors = this.subMenu.find('a')
   }
   
   AbleMenu.prototype.hideSubMenu = function() { 
     if (this.subMenu) { 
-      this.subMenu.hide(); 
+      this.subMenu
+        .attr({
+          'aria-expanded': 'false',
+          'aria-hidden': 'true'
+        })
+        .hide(); 
+      this.subMenu.prev('a').attr('aria-expanded','false');
+      
+      // place focus on parent anchor 
+      this.subMenu.closest('a').focus();
+      
       this.subMenu = null;
       this.index.submenu = 0;
     }
