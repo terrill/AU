@@ -29,7 +29,7 @@
 	font-weight: normal;
 	text-align: left;
 	width: 50%;
-	top: 25%;
+	top: 10%;
 	left: 25%;
 	margin-left: auto;
 	margin-right: auto;
@@ -38,11 +38,15 @@
 	z-index: 100;
 	display: none;
 }
-.modalHeading { 
+h1#modalHeading { 
   font-size: 1.2em;
   font-weight: bold;
   text-align: center;
   margin: 0.5em 0.25em 1em;
+}
+#modalContent ol { 
+  width: 30em;
+  margin: 0 auto;
 }
 #modalXButton { 
   position: absolute;
