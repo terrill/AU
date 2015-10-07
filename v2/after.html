@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Accessible University Mock Site - Accessible Version</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+	<style type="text/css">
+		body { 
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 1em;
+			color: black;
+			background-color: #39275B;
+		}
+		#content { 
+			width: 80%;
+			margin: 0 auto;
+			padding: 1em;
+			background: white;
+			border-left: 2px solid black;
+		}
+		#main { 
+			width: 75%;
+			float: left;
+			padding-right: 1em;
+			margin-bottom: 2em;
+		}
+		#footer { 
+			font-size: 0.9em;
+			clear: both;
+			width: 100%;
+			margin-top: 1em;
+			padding: 1em 0.5em;
+			border-top: 3px solid #514273;
+		}
+		h1 { 
+			margin: 0;
+			padding: 0;
+		}
+		h2 { 
+			clear: left;
+			font-weight: normal;
+			font-size: 1.6em;
+			margin-bottom: 0.75em;
+		}
+		.section { 
+			margin-left: 0.25em;
+			padding-bottom: 1em;
+			background: url('images/line_gradient.gif') bottom center no-repeat;
+		}
+		.section img { 
+			float: left;
+			padding: 0 0.5em 0; 
+		}
+		#sidebar { 
+			width: 20%;
+			float: right;
+			border: 2px solid #39275B;
+			background-color: #cccce0;
+			padding: 0 0.75em;
+			margin-bottom: 2em;
+		}
+		table#enrollment { 
+			background-color: black;
+			margin-bottom: 1em;
+		}
+		table#enrollment th, table#enrollment td { 
+			background-color: white;
+			padding: 1px;
+			width: 3em;
+			text-align: center;
+		}
+		a:hover, a:focus { 
+			color: #FFF;
+			background-color: #000;
+			text-decoration: none;
+		}
+		/* Application form styles */
+		form > div { 
+			margin: 1em 0;
+		}
+		form input[type="text"] { 
+			width: 100%;
+		}
+		#sidebar h2 { 
+			font-weight: bold;
+			font-size: 1.2em;
+		}
+		.required { 
+			font-weight: bold;
+		}
+		fieldset { 
+			border: none;
+			margin-left: 0;
+			padding-left: 0;
+		}
+		div#majors { 
+			width: 10em;
+		}
+		form div.major {
+			display: block;
+			position: relative;
+			margin: 0;
+			width: 10em;
+		}
+		.major input {
+			float: right;
+			position: absolute;
+			right: 0;
+		}
+		legend { 
+			margin-left: 0;
+			font-weight: bold;
+		}
+		#errorMsg { 
+			background-color: #FFFFCC;
+			border: 2px solid #39275B;
+			padding: 0.25em 0.75em;
+			font-weight: bold;
+			margin: 1em 0;
+			display: none;
+		}		
+		#captcha h2 { 
+			font-size: 1.1em;
+			margin-bottom: 0.25em;
+		}
+		#captcha_label { 
+			display: block;
+		}
+		#captcha p { 
+			margin-top: 0.25em;
+		}
+		/* Dynamic menu styles */
+		#menu-1 { 
+			/* background-color: white; */
+			border-style: none !important;
+			width: 30em;
+		}
+		div.yui3-menu-content { 
+			/* remove border and background from menu container box, so only the individual menu items show */
+			border-top-style: none !important;
+			border-right-style: none !important;		
+			border-bottom-style: none !important;
+			background-image: none !important; 
+		}
+		.yui3-skin-sam .yui3-menubuttonnav li { 
+			background: url('//yui.yahooapis.com/3.2.0/build/assets/skins/sam/sprite.png') repeat-x scroll 0 0 transparent;
+		}
+		.yui3-menu-content li .yui3-menu .yui3-menu-content ul li { 
+			/* override the background image on submenus */
+			background-color: white !important;
+			background-image: none !important;
+		}
+		.yui3-menu-content li .yui3-menu .yui3-menu-content { 
+			/* add a border to submenu container box */
+			border: 1px solid #999 !important;
+		}
+		/* somewhat responsive */
+		@media (max-width: 1175px) { 
+			#main { 
+				width: 70%;
+			}
+		}
+		@media (max-width: 985px) { 
+			#main { 
+				width: 65%;
+			}
+		}
+		@media (max-width: 850px) { 
+			#main { 
+				width: 60%;
+			}
+		}
+		@media (max-width: 750px) { 
+			#main, #sidebar { 
+				float: none;
+			}
+			#main { 
+				width: 100%;
+			}
+			#sidebar { 
+				margin-bottom: 1em;
+			}			
+		}				
+	</style>
+	<!-- Inaccessible Javascript menu replaced by YUI 3 MenuNav Node Plugin: 
+	http://developer.yahoo.com/yui/3/node-menunav/ -->
+	<script charset="utf-8" src="scripts/yui-min.js"></script>
+	<script type="text/javascript">
+		<!--
+		// Create new YUI instance, and populate it with the required modules
+		YUI().use('node-menunav', function(Y) {
+		// MenuNav available, and ready for use.
+			//	Use the "contentready" event to initialize the menu when the subtree of 
+			//	element representing the root menu (div id="menu-1") is ready to 
+			//	be scripted.
+			Y.on("contentready", function () {
+				//	The scope of the callback will be a Node instance representing 
+				//	the root menu (<div id="menu-1">).  Therefore, since "this"
+				//	represents a Node instance, it is possible to just call "this.plug"
+				//	passing in a reference to the MenuNav Node Plugin.
+				this.plug(Y.Plugin.NodeMenuNav);
+			}, "#menu-1");
+ 		});
+		-->
+	</script>
+	<!-- text captcha --> 
+	<script type="text/javascript">
+		function showCaptcha() { 
+			// create an array with a few questions 
+			var questions = new Array();
+			questions[0] = 'If a cow is purple, what color is it?';
+			questions[1] = '2 plus two equals ';
+			questions[2] = 'Sunday, bird, Friday. Which of these is not a day?';
+			var question = questions[Math.floor(Math.random() * questions.length)];
+			document.getElementById('captcha_label').innerHTML = question;
+		}
+		window.onload = showCaptcha;
+	</script>
+	<!-- form validation -->
+	<script type="text/javascript">
+		function showError(errorMessage) {			
+			var errorDiv = document.getElementById('errorMsg');
+			errorDiv.innerHTML = errorMessage;
+			errorDiv.style.display='block';
+			errorDiv.setAttribute('tabindex','0');
+			errorDiv.focus();
+		}
+		function validateEmail(email) {
+			var atPos=email.indexOf("@");
+			var dotPos=email.lastIndexOf(".");
+			//must contain at least an @ sign and a dot (.) 
+			//The @ must not be the first character 
+			//The last dot must at least be one character after the @ sign
+			if (atPos<1||dotPos-atPos<2) return false; 
+			else return true;
+		}
+		function validate (thisform) {
+			var userName = thisform.name.value;
+			var userEmail = thisform.email.value;
+			var captchaAnswer = thisform.captcha_answer.value;
+			var numErrors = 0;
+			var errorMessages = new Array();
+			if (userName==null||userName=="") { 
+				errorMessages[numErrors] = 'Name is required';
+				var firstBadField = 'name';
+				numErrors++;
+			}
+			if (userEmail==null||userEmail=="") { 
+				errorMessages[numErrors] = 'Email is required';
+				if (numErrors == 0) var firstBadField = 'email';
+				numErrors++;
+			}
+			else if (validateEmail(userEmail) == false) { 
+				errorMessages[numErrors] = 'You entered an invalid email address';
+				if (numErrors == 0) var firstBadField = 'email';
+				numErrors++;
+			}
+			if (captchaAnswer==null||captchaAnswer=="") { 
+				errorMessages[numErrors] = 'You must answer the security question at the bottom of the form';
+				if (numErrors == 0) var firstBadField = 'captcha_answer';
+				numErrors++;
+			}			
+			if (numErrors > 0) { 
+				if (numErrors == 1) { 
+					var errorMessage = 'ERROR: ' + errorMessages[0];
+					errorMessage += '. Please correct this error and submit again.';
+				}
+				else { 
+					var errorMessage = '<p>There were ' + numErrors + ' errors '; 
+					errorMessage += 'in the information you entered:</p> ';
+					errorMessage += '<ul>';
+					for (i=0;i<numErrors;i++) { 
+						errorMessage += '<li>' + errorMessages[i] + '</li>';
+					}
+					errorMessage += '</ul>';
+					errorMessage += '<p>Please correct these errors and submit again.</p>';
+				}
+				showError(errorMessage);
+				//set focus to the first field that requires correcting
+				if (firstBadField == 'name') thisform.name.focus();
+				else if (firstBadField == 'email') thisform.email.focus();
+				else if (firstBadField == 'captcha_answer') thisform.captcha_answer.focus();
+				//scroll viewport to top of page so error message is visible
+				window.scrollTo(0,0); 
+				return false;
+			}
+			else return true;
+		}
+		-->
+	</script>
+</head>
+<body>
+
+<!-- the yui3-skin-sam class must be applied to the parent of the YUI3 nav menu-->
+<div id="content" class="yui3-skin-sam">
+
+<div role="banner">
+	<h1><img id="logo" src="images/au123456789.gif" alt="Accessible University" 
+	width="441" height="90"/></h1>
+</div>
+
+<!--YUI nav menu -->
+<div id="menu" role="navigation" aria-label="Main menu">
+<div id="menu-1" class="yui3-menu yui3-menu-horizontal yui3-menubuttonnav" role="navigation"><!-- Bounding box -->
+	<div class="yui3-menu-content"><!-- Content box -->
+		<ul>
+			<li>
+				<a class="yui3-menu-label" href="#submenu-about"><em>About</em></a><!-- Submenu label -->
+				<div id="submenu-about" class="yui3-menu"><!-- Bounding box -->
+					<div class="yui3-menu-content"><!-- Content box -->
+						<ul>
+							<li class="yui3-menuitem"><!-- Bounding box -->
+								<a href="#" class="yui3-menuitem-content">News</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Governance</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Diversity</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Contact Us</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+
+			<li>
+				<a class="yui3-menu-label" href="#submenu-academics"><em>Academics</em></a>
+				<div id="submenu-academics" class="yui3-menu">
+					<div class="yui3-menu-content">
+						<ul>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Degree Programs</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">AU Faculty</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Distance Learning</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Libraries</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+
+			<li>
+				<a class="yui3-menu-label" href="#submenu-admissions"><em>Admissions</em></a>
+				<div id="submenu-admissions" class="yui3-menu">
+					<div class="yui3-menu-content">
+						<ul>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Undergraduate</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Graduate</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Tuition</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Financial Aid</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+
+			<li>
+				<a class="yui3-menu-label" href="#submenu-visitors"><em>Visitors</em></a>
+				<div id="submenu-visitors" class="yui3-menu">
+					<div class="yui3-menu-content">
+						<ul>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Events</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Campus Map</a>
+							</li>
+							<li class="yui3-menuitem">
+								<a href="#" class="yui3-menuitem-content">Parking</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+	
+		</ul>
+	</div>
+</div>
+</div>
+
+<!-- 
+	empty error message div, will be populated and announced to screen reader users  
+	if user attempts to submit application form with errors 
+-->
+<div id="errorMsg" role="alert"></div>
+
+<div id="main" role="main">
+
+<h2>Welcome!</h2>
+<div class="section">
+	<img src="images/p_au_g.jpg" alt="photo of a girl sitting cross-legged on a green lawn, reading a book"/>
+	<p>Accessible University (AU) is a fictional university, and this is its 
+	fictional home page. This page is designed to demonstrate a variety of 
+	common web design problems that result in visitors with disabilities 
+	being unable to access the content or features of a web page. 
+	Although the heading at the top of this section of the page 
+	suggests that AU may be a welcoming institution, 
+	the inaccessible design of this page sends the opposite message.
+	</p> 
+</div>
+
+<h2 lang="es">Bienvenido!</h2>
+<div class="section">
+	<img src="images/p_au_c.jpg" alt="A man and woman talk as they exit the building, books in hand"/>
+	<p lang="es">Accesible Universidad (UA) es una universidad ficticia, y esta es su
+	página de ficción. Esta página está diseñada para demostrar una variedad de
+	común de diseño web que se traducen en problemas de los visitantes con discapacidad
+	no poder acceder al contenido o las características de una página web.
+	Aunque el título en la parte superior de esta sección de la página
+	sugiere que AU puede ser una institución de bienvenida,
+	el diseño inaccesible de esta página envía el mensaje opuesto.
+	</p>
+</div>
+
+<h2>Can you spot the barriers?</h2>
+<div class="section">
+	<p>This page is an improved version, with 17 accessibility problems corrected. 
+	Details about all known problems are on the <a href="problems.html">List of Problems</a> page. 
+	To see the original problems, consult the <a href="before.html">Inaccessible version</a>.
+	</p>
+</div>
+
+
+<h2>AU Enrollment Trends</h2>
+<table id="enrollment" summary="This table shows enrollment over a two-year period by subject and gender. The academic years 2007-08 and 2008-09 are arranged in columns, with six subjects arranged as columns nested within the year columns. Total enrollment, and male and female enrollment percentages, are arranged in rows.">
+<tr>
+	<td style="width:6em">&nbsp;</td>
+	<th scope="col" id="y07-08" colspan="6">2007-08</th>
+	<th scope="col" id="y08-09" colspan="6">2008-09</th>
+</tr>
+<tr>
+   <td>&nbsp;</td>
+	<th scope="col" id="subj-cs1"><abbr title="Computer Science">CS</abbr></th>
+	<th scope="col" id="subj-eng1"><abbr title="English">Eng</abbr></th>
+	<th scope="col" id="subj-eco1"><abbr title="Economics">Eco</abbr></th>
+	<th scope="col" id="subj-phy1"><abbr title="Physics">Phy</abbr></th>
+	<th scope="col" id="subj-psy1"><abbr title="Psychology">Psy</abbr></th>
+	<th scope="col" id="subj-spa1"><abbr title="Spanish">Spa</abbr></th>
+	<th scope="col" id="subj-cs2"><abbr title="Computer Science">CS</abbr></th>
+	<th scope="col" id="subj-eng2"><abbr title="English">Eng</abbr></th>
+	<th scope="col" id="subj-eco2"><abbr title="Economics">Eco</abbr></th>
+	<th scope="col" id="subj-phy2"><abbr title="Physics">Phy</abbr></th>
+	<th scope="col" id="subj-psy2"><abbr title="Psychology">Psy</abbr></th>
+	<th scope="col" id="subj-spa2"><abbr title="Spanish">Spa</abbr></th>
+</tr>
+<tr>
+	<th scope="row" id="total">Total</th>
+	<!--2007-08 data-->
+	<td headers="y07-08 subj-cs1 total">84</td>
+	<td headers="y07-08 subj-eng1 total">126</td>
+	<td headers="y07-08 subj-eco1 total">43</td>
+	<td headers="y07-08 subj-phy1 total">32</td>
+	<td headers="y07-08 subj-psy1 total">112</td>
+	<td headers="y07-08 subj-spa1 total">59</td>
+	<!--2008-09 data-->
+	<td headers="y08-09 subj-cs2 total">82</td>
+	<td headers="y08-09 subj-eng2 total">140</td>
+	<td headers="y08-09 subj-eco2 total">45</td>
+	<td headers="y08-09 subj-phy2 total">34</td>
+	<td headers="y08-09 subj-psy2 total">101</td>
+	<td headers="y08-09 subj-spa2 total">64</td>
+</tr>
+<tr>
+	<th scope="row" id="male">% Male</th>
+	<!--2007-08 data-->
+	<td headers="y07-08 subj-cs1 male">89</td>
+	<td headers="y07-08 subj-eng1 male">84</td>
+	<td headers="y07-08 subj-eco1 male">73</td>
+	<td headers="y07-08 subj-phy1 male">69</td>
+	<td headers="y07-08 subj-psy1 male">20</td>
+	<td headers="y07-08 subj-spa1 male">47</td>
+	<!--2008-09 data-->
+	<td headers="y08-09 subj-cs2 male">87</td>
+	<td headers="y08-09 subj-eng2 male">80</td>
+	<td headers="y08-09 subj-eco2 male">69</td>
+	<td headers="y08-09 subj-phy2 male">69</td>
+	<td headers="y08-09 subj-psy2 male">22</td>
+	<td headers="y08-09 subj-spa2 male">48</td>
+</tr>
+<tr>
+	<th scope="row" id="female">% Female</th>
+	<!--2007-08 data-->
+	<td headers="y07-08 subj-cs1 female">11</td>
+	<td headers="y07-08 subj-eng1 female">16</td>
+	<td headers="y07-08 subj-eco1 female">27</td>
+	<td headers="y07-08 subj-phy1 female">31</td>
+	<td headers="y07-08 subj-psy1 female">80</td>
+	<td headers="y07-08 subj-spa1 female">53</td>
+	<!--2007-08 data-->
+	<td headers="y08-09 subj-cs2 female">13</td>
+	<td headers="y08-09 subj-eng2 female">20</td>
+	<td headers="y08-09 subj-eco2 female">31</td>
+	<td headers="y08-09 subj-phy2 female">31</td>
+	<td headers="y08-09 subj-psy2 female">78</td>
+	<td headers="y08-09 subj-spa2 female">52</td>
+</tr>
+</table>
+
+</div><!--end #main-->
+
+<div id="sidebar" role="complementary" aria-label="Application Form">
+
+<h2 id="applyNow">Apply Now!</h2>
+
+<form action="#" method="post" onsubmit="return validate(this)">
+	<div class="required">
+		<label for="name">Name: (required)</label><br/>
+		<input id="name" type="text" name="name" required/>
+	</div>
+	<div class="required">
+		<label for="email">Email: (required)</label><br/>
+		<input id="email" type="text" name="email" required/>
+	</div>
+	<div>
+		<label for="city">City:</label><br/>
+		<input type="text" name="city" id="city"/>
+	</div>
+	<div>
+		<label for="state">State/Province:</label><br/>
+		<input type="text" name="state" id="state"/>
+	</div>
+	<div>
+		<label for="zip">Zip/Postal Code:</label> <br/>
+		<input type="text" name="zip" id="zip"/>
+	</div>
+	<div>
+		<label for="country">Country:</label><br/>
+		<input type="text" name="country" id="country"/>
+	</div>
+
+	<fieldset id="majors">
+		<legend>Desired major(s):</legend>
+		<div class="major">
+			<label for="cs">Computer Science</label> 
+			<input type="checkbox" name="major_cs" id="cs"/>
+		</div>
+		<div class="major">
+			<label for="eng">Engineering</label> 
+			<input type="checkbox" name="major_eng" id="eng"/>
+		</div>
+		<div class="major">
+			<label for="eco">Economics</label> 
+			<input type="checkbox" name="major_econ" id="eco"/>
+		</div>
+		<div class="major">
+			<label for="phy">Physics</label> 
+			<input type="checkbox" name="major_phy" id="phy"/>
+		</div>
+		<div class="major">
+			<label for="psy">Psychology</label> 
+			<input type="checkbox" name="major_psy" id="psy"/>
+		</div>
+		<div class="major">
+			<label for="spa">Spanish</label>
+			<input type="checkbox" name="major_sp" id="spa"/>
+		</div>
+	</fieldset>
+
+	<div id="captcha">
+		<h2>Security Question</h2>
+		<label id="captcha_label" for="captcha_answer"></label>
+		<input type="text" id="captcha_answer" name="captcha_answer" required>
+	</div>
+	
+	<div>
+		<input type="submit" name="submit" value="Submit" />
+	</div>
+</form>
+
+</div><!--end #application-->
+<div id="footer" role="contentinfo">
+Copyright &copy;2002 - 2015 University of Washington. Permission is granted to copy these materials for educational, noncommercial purposes provided the source is acknowledged. This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and was updated in 2009 with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement. 
+</div> 
+
+</div><!--end #content-->
+</body>
+</html>

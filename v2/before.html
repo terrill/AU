@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Accessible University Mock Site - Inaccessible Version</title>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+	<style type="text/css">
+		body { 
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 1em;
+			color: black;
+			background-color: #39275B;
+		}
+		#content { 
+			width: 80%;
+			margin: 0 auto;
+			padding: 1em;
+			background-color: white;
+			border-left: 2px solid black;
+		}
+		#main_wrapper { 
+  		position: relative;
+  		height: auto;
+		}
+		#main { 
+			width: 75%; 
+			float: left;
+			padding-right: 1em;
+			margin-bottom: 2em;
+		}
+		#main p img { 
+			float: left;
+			padding: 0 0.25em 0.25em 0;
+		}
+		#sidebar { 
+			width: 20%; 
+			float: right; 
+			border: 2px solid #39275B;
+			background-color: #cccce0;
+			padding: 0 0.75em;
+			margin-bottom: 2em;
+		}
+		#footer { 
+  		clear: both;
+			font-size: 0.9em;
+			width: 100%;
+			padding: 1em 0.5em;
+			border-top: 3px solid #514273;
+		}
+		table#enrollment { 
+			background-color: black;
+			margin-bottom: 1em;
+		}
+		table#enrollment th, table#enrollment td { 
+			background-color: white;
+			padding: 1px;
+			width: 3em;
+			text-align: center;
+		}
+		a { 
+			color: blue;
+			outline: none;
+		}
+		/* application form styles */
+		form > div { 
+			margin: 1em 0;
+		}
+		form input[type="text"] { 
+			width: 100%;
+		}
+		input:focus { 			
+			border-color: #CCCCE0;
+		}
+		.required { 
+			color: #39275B;
+		}
+		div#majors { 
+			width: 10em;
+		}
+		form div.major {
+			display: block;
+			position: relative;
+			margin: 0;
+			width: 10em;
+		}
+		.major input {
+			float: right;
+			position: absolute;
+			right: 0;
+		}
+		#captcha h2 { 
+			font-size: 1.1em;
+			margin-bottom: 0.25em;
+		}
+		#captcha p { 
+			margin-top: 0.25em;
+		}
+		#captcha img {
+			display: block; 
+			margin-top: 0.5em;
+			border: 1px solid black;
+			max-width: 100%;
+		}		
+		#errorMask { 
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			opacity: 0.85;
+			filter:alpha(opacity=85);
+			z-index: 10;
+			display: none;
+		}
+		#errorMsg { 
+			background-color: #ffff66;
+			border: 5px solid #39275B;
+			padding: 0.25em;
+			font-weight: bold;
+			position: fixed;
+			text-align: center;
+			width: 200px;
+			top: 100px;
+			left: 10px; 
+			opacity: 1;
+			filter:alpha(opacity=100);
+			z-index: 100;
+			display: none;
+		}
+		/* Dynamic menu styles */
+		#menu {	
+			margin: 0;
+			padding: 0;
+			z-index: 30
+		}
+		#menu li {	
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			float: left;
+		}
+		#menu li a {
+			display: block;
+		}
+		#menu li img { 
+			border: 0;
+			margin: 0;
+			padding: 0;
+			width: 80px;
+			height: 27px;
+		}
+		#menu div {	
+			position: absolute;
+			display: none;
+			margin: 0;
+			padding: 0;
+			background-color: #EBEFE1;
+			border: 1px solid #868784;
+			font-size: 10px;
+			width: 100px; 
+		}
+		#menu div a	{	
+			position: relative;
+			display: block;
+			margin: 0;
+			padding: 5px 10px;
+			width: auto;
+			white-space: nowrap;
+			text-align: left;
+			text-decoration: none;
+			background: #EAEBD8;
+			font: 11px arial; 
+			color: #9BA6B5;
+		}
+		#menu div a:hover {	
+			background: #49A3FF;
+			color: #FFF
+		}
+		/* somewhat responsive */
+		@media (max-width: 1175px) { 
+			#main { 
+				width: 70%;
+			}
+		}
+		@media (max-width: 985px) { 
+			#main { 
+				width: 65%;
+			}
+		}
+		@media (max-width: 850px) { 
+			#main { 
+				width: 60%;
+			}
+		}
+		@media (max-width: 750px) { 
+			#main, #sidebar { 
+				float: none;
+			}
+			#main { 
+				width: 100%;
+			}
+			#sidebar { 
+				margin-bottom: 1em;
+			}			
+		}
+	</style>
+	<!-- Javascript menu based on Simple Javascript Drop Down Menu: 
+	http://javascript-array.com/scripts/simple_drop_down_menu/-->
+	<script type="text/javascript">
+		<!--
+		var timeout	= 3000; /* milliseconds */
+		var timer = 0;
+		var subMenu = 0;
+
+		// open hidden submenu
+		function showMenu(id) {	
+			// cancel close timer
+			cancelCloseTimer();
+			
+			// close previously open submenu
+			if (subMenu) subMenu.style.display = 'none';
+
+			// get new submenu and show it
+			subMenuId = 'submenu_' + id;
+			subMenu = document.getElementById(subMenuId);
+			subMenu.style.display = 'block';
+		}
+		// close submenu 
+		function close() {
+			if(subMenu) subMenu.style.display = 'none';
+		}
+
+		// go close timer
+		function closeTimer() {
+			timer = window.setTimeout(close, timeout);
+		}
+
+		// cancel close timer
+		function cancelCloseTimer() {
+			if(closeTimer) {
+				window.clearTimeout(timer);
+				timer = null;
+			}
+		}
+		// close subMenu when click-out
+		document.onclick = close; 
+		-->
+	</script>
+	<!-- form validation -->
+	<script type="text/javascript">
+		<!--
+		function showError() {
+			var errorDiv = document.getElementById('errorMsg');
+			var errorMask = document.getElementById('errorMask');
+			//add an event listener to capture when user clicks on errorMask 
+			if (errorMask.addEventListener) { 
+				errorMask.addEventListener('click',function() { 
+					//hide error message (and background mask)
+					errorDiv.style.display='none';
+					errorMask.style.display='none';
+				}, false);
+			}
+			else if (errorMask.attachEvent) { //do the same thing for IE 
+				errorMask.attachEvent('click',function() { 
+					errorDiv.style.display='none';
+					errorMask.style.display='none';
+				});
+			}
+			errorDiv.innerHTML = 'Your form has errors. Please correct, then resubmit.';
+			//position errorDiv in center of browser window
+			var winSize = getWindowSize();
+			var winWidth = winSize[0];
+			var winHeight = winSize[1];
+			var errorLeft = ((winWidth-200)/2) + 'px';
+			var errorTop = ((winHeight-200)/2) + 'px';
+			errorDiv.style.left=errorLeft;
+			errorDiv.style.top=errorTop;
+			errorDiv.style.display='block';
+			errorMask.style.display='block';
+		}
+		function validateEmail(email) {
+			var atPos=email.indexOf("@");
+			var dotPos=email.lastIndexOf(".");
+			//must contain at least an @ sign and a dot (.) 
+			//The @ must not be the first character 
+			//The last dot must at least be one character after the @ sign
+			if (atPos<1||dotPos-atPos<2) return false; 
+			else return true;
+		}
+		function validate (thisform) {
+			//returns true if all form input is valid
+			//otherwise calls showError() and returns false
+			var userName = thisform.name.value;
+			var userEmail = thisform.email.value;
+			var captcha = thisform.captcha.value;
+			var isValid = true; //until proven false
+			if (userName==null||userName=="") isValid = false;
+			else if (userEmail==null||userEmail=="") isValid = false;
+			else if (validateEmail(userEmail) == false) isValid = false;
+			else isValid = false; // user for sure entered the wrong captcha text 
+			if (isValid == false) {
+				showError();
+				return false;
+			}
+			else return true;
+		}
+		function getWindowSize() {
+			//returns an array of windows width and height
+			var windowSize = new Array();
+			//get available width
+			windowSize[0] = window.innerWidth != null? window.innerWidth : document.documentElement && document.documentElement.clientWidth ?       document.documentElement.clientWidth : document.body != null ? document.body.clientWidth : null;
+			//get available height
+			windowSize[1] = window.innerHeight != null? window.innerHeight : document.documentElement && document.documentElement.clientHeight ?  document.documentElement.clientHeight : document.body != null? document.body.clientHeight : null;
+			return windowSize;
+		}	
+		-->
+	</script>	
+</head>
+<body>
+
+<div id="content">
+
+<img id="logo" src="images/au123456789.gif" 
+	width="441" height="90"/>
+
+<ul id="menu">
+	<li><a href="#" onmouseover="showMenu('about')" onmouseout="closeTimer()"><img 
+src="images/tab1.gif"/></a>
+		<div id="submenu_about">
+			<a href="#">News</a>
+			<a href="#">Govrernance</a>
+			<a href="#">Diversity</a>
+			<a href="#">Contact Us</a>
+		</div>
+	</li>
+	<li><a href="#" onmouseover="showMenu('academics')" onmouseout="closeTimer()"><img 
+src="images/tab2.gif"/></a>
+		<div id="submenu_academics">
+			<a href="#">Degree Programs</a>
+			<a href="#">AU Faculty</a>
+			<a href="#">Distance Learning</a>
+			<a href="#">Libraries</a>
+		</div>
+	</li>
+	<li><a href="#" onmouseover="showMenu('admissions')" onmouseout="closeTimer()"><img 
+src="images/tab3.gif"/></a>
+		<div id="submenu_admissions">
+			<a href="#">Undergraduate</a>
+			<a href="#">Graduate</a>
+			<a href="#">Tuition</a>
+			<a href="#">Financial Aid</a>
+		</div>
+	</li>
+	<li><a href="#" onmouseover="showMenu('visitors')" onmouseout="closeTimer()"><img 
+src="images/tab4.gif"/></a>
+		<div id="submenu_visitors">
+			<a href="#">Events</a>
+			<a href="#">Campus Map</a>
+			<a href="#">Parking</a>
+		</div>
+	</li>
+</ul>
+<div style="clear:both"></div>
+
+<div id="main">
+
+<p><font size="5">Welcome!</font></p>
+<p><img src="images/p_au_g.jpg"/>
+Accessible University (AU) is a fictional university, and this is its 
+fictional home page. This page is designed to demonstrate a variety of 
+common web design problems that result in visitors with disabilities 
+being unable to access the content or features of a web page. 
+Although the heading at the top of this section of the page 
+suggests that AU may be a welcoming institution, 
+the inaccessible design of this page sends the opposite message.
+</p> 
+
+<div style="width:100%; text-align:center">
+<img src="images/line_gradient.gif" alt="horizontal line graphic"/>
+</div>
+
+<p><font size="5">Bienvenido!</font></p>
+<p><img src="images/p_au_c.jpg"/>
+Accesible Universidad (UA) es una universidad ficticia, y esta es su
+página de ficción. Esta página está diseñada para demostrar una variedad de
+común de diseño web que se traducen en problemas de los visitantes con discapacidad
+no poder acceder al contenido o las características de una página web.
+Aunque el título en la parte superior de esta sección de la página
+sugiere que AU puede ser una institución de bienvenida,
+el diseño inaccesible de esta página envía el mensaje opuesto.
+</p>
+
+<div style="width:100%; clear:both; text-align:center">
+<img src="images/line_gradient.gif" alt="horizontal line graphic"/>
+</div>
+
+<p><font size="5">Can you spot the barriers?</font></p>
+<p>There are at least 17 accessibility problems on this page. 
+To see a list of all known problems, <a href="problems.html">click here</a>. 
+To see a more accessible version of this same page, <a href="after.html">click here</a>.
+</p>
+
+<div style="width:100%; text-align:center">
+<img src="images/line_gradient.gif" alt="horizontal line graphic"/>
+</div>
+
+<p><font size="5">AU Enrollment Trends</font></p>
+<table id="enrollment">
+<tr>
+	<td style="width:6em">&nbsp;</td>
+	<td colspan="6" style="text-align:center"><b>2007-08</b></td>
+	<td colspan="6" style="text-align:center"><b>2008-09</b></td>
+</tr>
+<tr>
+   <td>&nbsp;</td>
+	<td><b>CS</b></td>
+	<td><b>Eng</b></td>
+	<td><b>Eco</b></td>
+	<td><b>Phy</b></td>
+	<td><b>Psy</b></td>
+	<td><b>Spa</b></td>
+	<td><b>CS</b></td>
+	<td><b>Eng</b></td>
+	<td><b>Eco</b></td>
+	<td><b>Phy</b></td>
+	<td><b>Psy</b></td>
+	<td><b>Spa</b></td>
+</tr>
+<tr>
+	<td><b>Total</b></td>
+	<!--2007-08 data-->
+	<td>84</td>
+	<td>126</td>
+	<td>43</td>
+	<td>32</td>
+	<td>112</td>
+	<td>59</td>
+	<!--2008-09 data-->
+	<td>82</td>
+	<td>140</td>
+	<td>45</td>
+	<td>34</td>
+	<td>101</td>
+	<td>64</td>
+</tr>
+<tr>
+	<td>% Male</td>
+	<!--2007-08 data-->
+	<td>89</td>
+	<td>84</td>
+	<td>73</td>
+	<td>69</td>
+	<td>20</td>
+	<td>47</td>
+	<!--2008-09 data-->
+	<td>87</td>
+	<td>80</td>
+	<td>69</td>
+	<td>69</td>
+	<td>22</td>
+	<td>48</td>
+</tr>
+<tr>
+	<td>% Female</td>
+	<!--2007-08 data-->
+	<td>11</td>
+	<td>16</td>
+	<td>27</td>
+	<td>31</td>
+	<td>80</td>
+	<td>53</td>
+	<!--2007-08 data-->
+	<td>13</td>
+	<td>20</td>
+	<td>31</td>
+	<td>31</td>
+	<td>78</td>
+	<td>52</td>
+</tr>
+</table>
+
+</div><!--end #main-->
+
+<div id="sidebar">
+
+<p style="font-size:1.2em; font-weight:bold">Apply Now!<br/>
+<span class="required" style="font-size:0.9em">(required fields are in blue)</span></p>
+
+<form action="#" method="post" onsubmit="return validate(this)">
+
+<div class="required">
+Name: <br/>
+<input type="text" name="name"/>
+</div>
+
+<div class="required">
+Email: <br/>
+<input type="text" name="email"/>
+</div>
+
+<div>
+City: <br/>
+<input type="text" name="city"/>
+</div>
+
+<div>
+State/Province: <br/>
+<input type="text" name="state"/>
+</div>
+
+<div>
+Zip/Postal Code: <br/>
+<input type="text" name="zip"/>
+</div>
+
+<div>
+Country: <br/>
+<input type="text" name="country"/>
+</div>
+
+<div><b>Desired major(s):</b></div>
+
+<div id="majors">
+	<div class="major">Computer Science <input type="checkbox" name="major_cs"/></div>
+	<div class="major">Engineering <input type="checkbox" name="major_eng"/></div>
+	<div class="major">Economics <input type="checkbox" name="major_econ"/></div>
+	<div class="major">Physics <input type="checkbox" name="major_phy"/></div>
+	<div class="major">Psychology <input type="checkbox" name="major_psy"/></div>
+	<div class="major">Spanish <input type="checkbox" name="major_sp"/></div>
+</div>
+
+<div id="captcha">
+	<b>Security Test</b>
+	<p>Please enter the two words you see below, separated by a space</p>
+	<input type="text" name="captcha">
+	<img src="images/captcha.png">
+</div>
+
+<div>
+<input type="submit" name="submit" value="Submit" />
+</div>
+
+</form>
+
+</div><!--end #sidebar-->
+
+<div id="footer">
+Copyright &copy;2002 - <?php echo date('Y');?> University of Washington. Permission is granted to copy these materials for educational, noncommercial purposes provided the source is acknowledged. This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and was updated in 2009 with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement. 
+</div> 
+
+</div><!--end #content-->
+
+<!--containers for error message--> 
+<div id="errorMask"></div>
+<div id="errorMsg"></div>
+
+</body>
+</html>
