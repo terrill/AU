@@ -140,7 +140,7 @@
     var helpIcon = $('<img>').attr({
       'src' : 'images/help.png',
       'alt' : '',
-      'aria-role' : 'presentation'
+      'role' : 'presentation'
     });
     helpButton.html(helpIcon);
     $('#main-nav').prepend(helpButton);
