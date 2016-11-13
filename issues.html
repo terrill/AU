@@ -6,87 +6,87 @@
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
 	<style type="text/css">
-		body { 
+		body {
 			font-family: Arial, Helvetica, sans-serif;
 			font-size: 1.1em;
 			color: black;
 			background-color: white;
 			margin: 0 1em;
 		}
-		#logo img { 
+		#logo img {
 			border: none;
 		}
 
-		h1 { 
+		h1 {
 			margin-left: 0.5em;
 			margin-top: 0;
 			font-size: 2em;
 		}
-		p, ol { 
+		p, ol {
 			line-height: 1.5em;
 		}
-		p { 
+		p {
 			margin-left: 1em;
 		}
 		ol {}
-		ol ul { 
+		ol ul {
 			list-style-type: disc;
 			margin-bottom: 0.75em;
 		}
-		li p { 
+		li p {
 			margin: 0 0 0.75em 0;
 		}
-		li { 
+		li {
 			padding-bottom: 0.75em;
 		}
-		ol ul li { 
+		ol ul li {
 			padding-bottom: 0;
 		}
-		li .label { 
+		li .label {
 			font-weight: bold;
 		}
-		.element, .attribute, .code { 
-			font-family: Courier, monospace; 
+		.element, .attribute, .code {
+			font-family: Courier, monospace;
 			font-size: 1.1em;
 			font-weight: bold;
 		}
-		.element { 
+		.element {
 			color: green;
 		}
-		.attribute { 
+		.attribute {
 			font-style: italic;
 			color: red;
 		}
-		.code { 
+		.code {
 			color: #CC7A00; /* orange */
 		}
-		.snippet { 
+		.snippet {
   		font-family: Courier, monospace;
 			color: #555;
 			margin-bottom: 0.5em;
 		}
-		#footer { 
+		#footer {
 			font-size: 0.9em;
 			width: 100%;
 			padding: 1em 0.5em;
 			border-top: 3px solid #514273;
 		}
-    div#ccLogo { 
+    div#ccLogo {
       float: left;
       padding: 0 1em 0.5em;
     }
-    footer p { 
+    footer p {
       clear: left;
-    }			
-    a { 
-      color: #039; 
+    }
+    a {
+      color: #039;
       text-decoration: underline;
       padding: 0 0.15em;
-    }	
-    a:hover, a:focus { 
+    }
+    a:hover, a:focus {
       color: #FFF;
-      background-color: #039; 
-      text-decoration: none;      
+      background-color: #039;
+      text-decoration: none;
     }
 	</style>
 </head>
@@ -101,22 +101,22 @@
 <h1>Accessible University: List of Accessibility Issues</h1>
 
 <p>This page summarizes the accessibility issues demonstrated on the Accessible University (AU) home page (<a href="before.html">Inaccessible Version</a>). With each issue, a solution is proposed. To see these accessibility solutions implemented, view the AU Home Page <a href="after.html">Accessible Version</a>.</p>
- 
+
 <ol>
 
-<li><span class="label">No headings</span>. Headings and subheadings help organize documents, including web pages, so that they are easy to read and understand. Visually, this page includes several headings. However, these headings are not marked up explicitly as headings using HTML heading tags (e.g., <span class="element">&lt;h1&gt;</span>, <span class="element">&lt;h2&gt;</span>). Instead, they are simply marked up as plain text that is bold and large. If HTML heading tags are used, screen reader users have access to this structural information. This helps them to gain a better understanding of how the document is organized. It also helps with navigation: Screen reader users can jump between headings in a document using a single keystroke, which is much more efficient than reading the entire page from beginning to end. 
+<li><span class="label">No headings</span>. Headings and subheadings help organize documents, including web pages, so that they are easy to read and understand. Visually, this page includes several headings. However, these headings are not marked up explicitly as headings using HTML heading tags (e.g., <span class="element">&lt;h1&gt;</span>, <span class="element">&lt;h2&gt;</span>). Instead, they are simply marked up as plain text that is bold and large. If HTML heading tags are used, screen reader users have access to this structural information. This helps them to gain a better understanding of how the document is organized. It also helps with navigation: Screen reader users can jump between headings in a document using a single keystroke, which is much more efficient than reading the entire page from beginning to end.
 </li>
 
-<li><span class="label">No alternate text on informative images</span>. There are several images on this page. Some are decorative, but the logo, the three photos that are featured in the carousel, and the carousel previous/next buttons all communicate information. Whenever an image communicates information, it requires alternate text so users who are unable to see the image have access to its content. 
+<li><span class="label">No alternate text on informative images</span>. There are several images on this page. Some are decorative, but the logo, the three photos that are featured in the carousel, and the carousel previous/next buttons all communicate information. Whenever an image communicates information, it requires alternate text so users who are unable to see the image have access to its content.
 </li>
 
 <li><span class="label">Missing or excessive alternate text on decorative images</span>. Screen reader users do not need access to images whose purpose is solely decorative. The example on this page is the horizontal line that appears multiple times on the page. The current <span class="attribute">alt</span> attribute for this image is &quot;horizontal line graphic&quot;, which is unnecessary information, and can be especially cumbersome to listen to when it's repeated multiple times on a page. One solution is to present all decorative images as background images in Cascading Style Sheets (CSS). Another is to provide an empty <span class="attribute">alt</span> attribute (<span class="code">alt=&quot;&quot;</span>) for all decorative images. This is standard markup that instructs screen readers to ignore the image.</li>
 
 <li><span class="label">Insufficient color contrast</span>. The navigation menu is difficult to see due to the choice of foreground and background colors. The W3C <a href="http://w3.org/TR/wcag20">Web Content Accessibility Guidelines (WCAG) 2.0</a> includes specific contrast ratios that must be met in order to meet the guidelines at various levels. Contrast can be easily checked with free tools like the <a href="https://www.paciellogroup.com/resources/contrastanalyser/">Colour Contrast Analyser</a> and the <a href="https://addons.mozilla.org/en-US/firefox/addon/wcag-contrast-checker/">WCAG Contrast Checker plugin for Firefox</a>.</li>
- 
-<li><p><span class="label">Inaccessible dropdown menu</span>. The navigation menu on this page is dynamic: Sub-menus appear when users hover over the menus with a mouse. However, these same menus do not appear for non-mousers. If a user navigates to the menu 
-by pressing tab, the sub-menus do not appear; nor do the main menu items send the user to a new page. They simply don't work. If they did work, screen reader users would depend on supplemental markup that informs them that an item has a submenu, and whether that submenu is expanded or collapsed. This supplemental markup can be provided using <a href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (ARIA)</a>. 
-ARIA is a W3C specification published in 2014 that is designed to communicate roles, states, and properties of user interface elements to assistive technologies. ARIA is essential for accessibility of today's modern web interfaces. The W3C has created a companion guide <a href="http://www.w3.org/TR/wai-aria-practices/">WAI-ARIA 1.0 Authoring Practices</a>, which includes a set of recommended design patterns for common widgets. This includes a <a href="http://www.w3.org/TR/wai-aria-practices/#menu">menu design pattern</a>, which was followed closely in creating the menu for the accessible version of the AU home page. For more details about accessible dropdown menus, see Terrill Thompson's blog post <a href="http://terrillthompson.com/blog/474">Accessible Dropdown Menus Revisited</a>. Terrill is technology accessibility specialist with AccessComputing, and created the Accessible University website. 
+
+<li><p><span class="label">Inaccessible dropdown menu</span>. The navigation menu on this page is dynamic: Sub-menus appear when users hover over the menus with a mouse. However, these same menus do not appear for non-mousers. If a user navigates to the menu
+by pressing tab, the sub-menus do not appear; nor do the main menu items send the user to a new page. They simply don't work. If they did work, screen reader users would depend on supplemental markup that informs them that an item has a submenu, and whether that submenu is expanded or collapsed. This supplemental markup can be provided using <a href="http://www.w3.org/TR/wai-aria/">Accessible Rich Internet Applications (ARIA)</a>.
+ARIA is a W3C specification published in 2014 that is designed to communicate roles, states, and properties of user interface elements to assistive technologies. ARIA is essential for accessibility of today's modern web interfaces. The W3C has created a companion guide <a href="http://www.w3.org/TR/wai-aria-practices/">WAI-ARIA 1.0 Authoring Practices</a>, which includes a set of recommended design patterns for common widgets. This includes a <a href="http://www.w3.org/TR/wai-aria-practices/#menu">menu design pattern</a>, which was followed closely in creating the menu for the accessible version of the AU home page. For more details about accessible dropdown menus, see Terrill Thompson's blog post <a href="http://terrillthompson.com/blog/474">Accessible Dropdown Menus Revisited</a>. Terrill is technology accessibility specialist with AccessComputing, and created the Accessible University website.
 </li>
 
 <li><p><span class="label">Insufficient visual cues</span>. This page includes visual cues that show mouse users when they're pointing to clickable items on the page such as links. However, this same functionality is not provided for keyboard users, and they would arguably benefit from it even more than mouse users. Without a clear visual indication of one's current location on the page, keyboard users can have a very difficult time getting their bearings as they tab through links and controls. Visual cues for mouse users are typically provided in CSS using the selector <span class="code">:hover</span>. The same visual cues can be replicated for keyboard users by using the selector <span class="code">:focus</span>. Here's an example in CSS:</p>
@@ -127,20 +127,20 @@ ARIA is a W3C specification published in 2014 that is designed to communicate ro
 	}</div>
 </li>
 
-<li><span class="label">Redundant, uninformative link text</span>. This page includes three links that say &quot;Click here&quot;. Screen reader users may encounter these links out of context. For example, many screen readers include functionality that enables users to quickly generate a list of links and navigate through that list. If links are presented out of context, such as in a list of links, they should be unique, and should be meaningful in-and-of-themselves. 
+<li><span class="label">Redundant, uninformative link text</span>. This page includes three links that say &quot;Click here&quot;. Screen reader users may encounter these links out of context. For example, many screen readers include functionality that enables users to quickly generate a list of links and navigate through that list. If links are presented out of context, such as in a list of links, they should be unique, and should be meaningful in-and-of-themselves.
 </li>
 
 <li>
-<p><span class="label">Color used to communicate information</span>. The links within the main content are distinguishable from other text by color alone. Look closely! They're difficult for most people to spot. Even if the color choice had been more dramatic, some users (for example, those who are color blind) would still be unable to distinguish link text from non-link text. This is why browsers underline links by default&amp;it's a good, accessible practice and designers should <strong>not</strong> override this feature by turning off link underlines in their style sheets.</p> 
+<p><span class="label">Color used to communicate information</span>. The links within the main content are distinguishable from other text by color alone. Look closely! They're difficult for most people to spot. Even if the color choice had been more dramatic, some users (for example, those who are color blind) would still be unable to distinguish link text from non-link text. This is why browsers underline links by default&amp;it's a good, accessible practice and designers should <strong>not</strong> override this feature by turning off link underlines in their style sheets.</p>
 
 <p>Also, in the application form, required fields are marked with blue text. Again, even if a more obvious color were chosen, some users would still be unable to identify which fields are required. The solution is to communicate information using other means, in addition to color. For example, the labels for required fields could appear in bold and be marked with a * or if space permits, with "(required)". Also, if markup is available to communicate the same information, use that. For example, in the case of required fields, use the HTML5 <span class="attribute">required</span> attribute, supplemented with <span class="attribute">aria-required="true"</span> for assistive technologies that don't fully support HTML5 attributes.</p>
-</li> 
+</li>
 
-<li><p><span class="label">Language not specified</span>. This page includes content in both English and Spanish. Leading screen readers support both of these languages (and many others), and can switch on the fly between languages if they know to do so. If they don't know to do so, an English-speaking screen reader will read the Spanish section using English pronunciation rules, which produces poor if not indecipherable Spanish. The technique for addressing this issue is to provide a <span class="attribute">lang</span> attribute on the <span class="element">&lt;html&gt;</span> element, with the value being the official language code for the primary language used in the document. For example, an English document would 
+<li><p><span class="label">Language not specified</span>. This page includes content in both English and Spanish. Leading screen readers support both of these languages (and many others), and can switch on the fly between languages if they know to do so. If they don't know to do so, an English-speaking screen reader will read the Spanish section using English pronunciation rules, which produces poor if not indecipherable Spanish. The technique for addressing this issue is to provide a <span class="attribute">lang</span> attribute on the <span class="element">&lt;html&gt;</span> element, with the value being the official language code for the primary language used in the document. For example, an English document would
 include this html tag:</p>
 
 <div class="snippet">&lt;html lang=&quot;en&quot;&gt;</div>
- 
+
 <p>If the web page includes content that differs from this primary language, the language of that section of content must also be identified in the code. For example, to markup a paragraph as being in Spanish, the paragraph tag would look like this:</p>
 
 <div class="snippet">&lt;p lang=&quot;es&quot;&gt;</div>
@@ -166,10 +166,10 @@ include this html tag:</p>
 	</ul>
 	<p>JavaScript-based form validation can be a useful feature, but it should be designed in a way that considers the needs of all users, including those who can't see the error message visually, and those who are unable to use a mouse. A better design would be one in which:</p>
 	<ul>
-  	<li>the capabilities of HTML5 are fully utilized, including the <span class="attribute">required</span> and <span class="attribute">pattern</span> attributes, as well as <span class="element">&lt;input&gt;</span> types such as <span class="attribute">type="email"</span> and  <span class="attribute">type="url"</span>. Using these features enables browsers to provide their own validation, which is likely to be supported by assistive technologies.</li>   
+  	<li>the capabilities of HTML5 are fully utilized, including the <span class="attribute">required</span> and <span class="attribute">pattern</span> attributes, as well as <span class="element">&lt;input&gt;</span> types such as <span class="attribute">type="email"</span> and  <span class="attribute">type="url"</span>. Using these features enables browsers to provide their own validation, which is likely to be supported by assistive technologies.</li>
 		<li>the error message includes enough detail so that all users know which fields have errors.</li>
 		<li>the error message is written to a container that is marked up with <span class="attribute">role=&quot;alert&quot;</span>. This is ARIA markup that results in screen readers announcing the message to users as soon as it appears, regardless of their current location on the page. For more on ARIA, see item #5.</li>
-		<li>the user's focus can be sent automatically to the first field on which a correction is needed</li>		
+		<li>the user's focus can be sent automatically to the first field on which a correction is needed</li>
 	</ul>
 </li>
 
@@ -177,7 +177,7 @@ include this html tag:</p>
 <p><span class="label">Missing ARIA landmark roles</span>. ARIA (defined in item #5) includes eight so-called <a href="http://www.w3.org/TR/wai-aria/roles#landmark_roles">landmark roles</a>, which are specific regions of the page identified according to their function. They are: application, banner, complementary (e.g., a sidebar), contentinfo (e.g., a footer), form, main, navigation, and search. By defining the landmark role of a block of content (for example <span class="attribute">role="main"</span> for the main content), screen reader users can quickly locate and jump to the section of thepage that meets their needs. The accessible version of the AU Home Page uses ARIA landmarks to mark the banner, main, navigation, form, and contentinfo sections of the page. The navigation menu additionally uses <span class="attribute">aria-label</span> to clearly communicate the function of the navigation menu (in this case, <span class="code">aria-label=&quot;Main menu&quot;</span>). This supplemental label is announced by screen readers and is especially helpful for distinguishing between navigation regions if there are more than one of these regions on a page.</p>
 
 <p>Some of the ARIA landmarks map directly to HTML5 elements. For example, <span class="attribute">role="main"</span> is the same as <span class="element">&lt;main&gt;</span> and <span class="attribute">role="navigation"</span> is the same as <span class="element">&lt;nav&gt;</span>. However, it's ok to use both to ensure support for older assistive technologies, which supported ARIA before supporting HTML5.</p>
-</li>  
+</li>
 
 <li><p><span class="label">Inaccessible modal window</span>. In the "Can You Spot the Barriers?" section of the AU home page, the link that opens the <em>Cheatsheet of Accessibility Issues</em> opens the content in a modal window, which appears in the foreground while background content is masked behind a dark transparency. This is not truly modal, however. If a keyboard user presses the Tab key they may discover that their focus remains in the background, and they may find that it's very difficult to tab to the dialog so they can dismiss it. Also, screen reader users are not aware that a dialog has appeared. Instead they're likely to be confused because they clicked on a link but nothing seemed to happen.</p>
 <p>Several steps are required in order to make a modal window accessible:</p>
@@ -185,7 +185,7 @@ include this html tag:</p>
   <li>When the window opens, focus should be placed on the first focusable element within the dialog. Then, JavaScript must be used to manage keyboard focus so users can only tab to focusable elements within the dialog. All background content should be inaccessible until the dialog is dismissed.</li>
   <li>There should be multiple means of closing the dialog, including a close button at the top of the dialog and an <strong>ok</strong> or <strong>cancel</strong> button at the bottom of the dialog. Pressing the escape key should also close the dialog.</li>
   <li>Screen reader users should be informed that a dialog has appeared. This can be accomplished by adding <span class="attribute">role="dialog"</span> or <span class="attribute">role="alertdialog"</span> to the dialog's outer container.</li>
-  <li>When the dialog  is open, all background content must be hidden from screen reader users by marking it with <span class="attribute">aria-hidden="true"</span>. Care must be taken to position the dialog high enough in the DOM that it is not nested inside a hidden element, as that would make the dialog invisible to screen reader users as well.</li> 
+  <li>When the dialog  is open, all background content must be hidden from screen reader users by marking it with <span class="attribute">aria-hidden="true"</span>. Care must be taken to position the dialog high enough in the DOM that it is not nested inside a hidden element, as that would make the dialog invisible to screen reader users as well.</li>
 </ul>
 <p>Additional details about accessible modal dialogs are available in Greg Kraus's blog post <a href="http://accessibility.oit.ncsu.edu/blog/2013/09/13/the-incredible-accessible-modal-dialog/">The Incredible Accessible Modal Dialog</a>. Note the links to updated versions within the blog post. Greg's <a href="https://github.com/gdkraus/accessible-modal-dialog">Accessible Modal Dialog</a> is available on GitHub, and was used with minor modifications in the accessible version of the AU home page.</p>
 </li>
@@ -194,12 +194,12 @@ include this html tag:</p>
 <li><p><span class="label">Inaccessible carousel</span>. Carousels or slideshows are common features on university home pages. Unless designed and coded with accessibility in mind, these features present a variety of accessibility issues:</p>
 <ul>
   <li>Keyboard users are unable to access all components</li>
-  <li>Screen reader users are unable to operate the controls or access and understand all content.</li>  
-  <li>People who are distracted by movement or who need more time to read the content are unable to pause the animation.</li>  
-</ul>  
+  <li>Screen reader users are unable to operate the controls or access and understand all content.</li>
+  <li>People who are distracted by movement or who need more time to read the content are unable to pause the animation.</li>
+</ul>
 <p>The W3C has developed an <a href="http://www.w3.org/WAI/tutorials/carousels/">Accessible Carousels Tutorial</a> which documents strategies for addressing these issues. The carousel in the accessible version of the AU home page demonstrates many of the solutions described in the W3C's tutorial.</p>
 </li>
-  
+
 <li><p><span class="label">Missing accessible table markup</span>. Data tables can be challenging for screen reader users to understand, particularly if they have many columns, or a complex layout with nested rows or columns, as is the case with the AU Enrollment Trends table.  Imagine reading a table from left to right and top to bottom, with no visual access to the column headers. When you're halfway through the table, will you remember which column you're in? This is not unlike what screen reader users experience as they try to read a data table unless the table includes semantic markup that explicitly defines the relationships between the table's parts. For example, table headers should be marked up with the <span class="element">&lt;th&gt;</span> element. Also, headers should include the <span class="attribute">scope</span> attribute, which identifies whether the cell is a row header (<span class="code">&lt;th scope=&quot;row&quot;</span>) or a column header (<span class="code">&lt;th scope=&quot;col&quot;</span>).</p>
 
 	<p>If the table includes nested rows or columns, the relationships between headers and cells become even more difficult to decipher. In these sorts of tables, there are typically two, three, or more headers that apply to every cell in the table. To explicitly express these relationships using HTML markup, each header needs a unique id (e.g., <span class="code">&lt;th scope=&quot;col&quot; id=&quot;col1&quot;&gt;</span>), and each data cell needs a <span class="attribute">headers</span> attribute which lists the id's of all headers that apply to that cell,  separated by a space (e.g., <span class="code">&lt;td headers=&quot;col1a col2a row1&quot;&gt;</span>). When a table includes all of this markup, screen reader users can easily ascertain their current position with a table, and their screen reader can announce all of the headers that apply to the current cell.</p>
@@ -219,8 +219,8 @@ include this html tag:</p>
         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
       </div>
       Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
-      <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p> 
-</footer> 
+      <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p>
+</footer>
 
 </body>
 </html>

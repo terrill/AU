@@ -95,9 +95,9 @@
         </li>
       </ul>
     </nav>
-  
-<!-- 
-	empty message div, will be populated dynamically 
+
+<!--
+	empty message div, will be populated dynamically
 	and its contents will be announced to screen reader users thanks to role="alert"
 -->
     <div id="errorMsg" role="alert"></div>
@@ -106,10 +106,10 @@
 
       <div id="carousel" role="region" aria-describedby="carouselHeading">
         <h2 id="carouselHeading" class="clipped">Featured Story Slideshow</h2>
-        <!-- not using a list for slides since only one slide is visible at a time --> 
-        <!-- therefore, screen readers announce "list of one item", potentially confusing --> 
+        <!-- not using a list for slides since only one slide is visible at a time -->
+        <!-- therefore, screen readers announce "list of one item", potentially confusing -->
         <div class="slide" role="alert">
-          <img src="images/slide1.jpg" 
+          <img src="images/slide1.jpg"
             alt="Robot with a friendly face, assembled with various scraps of hardware, and mounted on an old DecTalk speech synthesizer" />
           <div class="description">
             AU student wins engineering award for talking robot sign language interpreter.
@@ -131,17 +131,17 @@
           </div>
         </div>
       </div>
-  
+
       <div class="section">
         <h2>Welcome!</h2>
-        <p>Accessible University (AU) is a fictional university, and this is its 
-          fictional home page. This page is designed to demonstrate a variety of 
-          common web design problems that result in visitors with disabilities 
-          being unable to access the content or features of a web page. 
-          Although the heading at the top of this section of the page 
-          suggests that AU may be a welcoming institution, 
+        <p>Accessible University (AU) is a fictional university, and this is its
+          fictional home page. This page is designed to demonstrate a variety of
+          common web design problems that result in visitors with disabilities
+          being unable to access the content or features of a web page.
+          Although the heading at the top of this section of the page
+          suggests that AU may be a welcoming institution,
           the inaccessible design of this page sends the opposite message.
-        </p> 
+        </p>
       </div>
 
       <div class="section" lang="es">
@@ -158,8 +158,8 @@
 
       <div class="section">
         <h2>Can you spot the barriers?</h2>
-        <p>This page is an improved version, with 18 accessibility issues corrected. 
-          Details about all known issues are on the <a href="issues.html">List of Issues</a> page. 
+        <p>This page is an improved version, with 18 accessibility issues corrected.
+          Details about all known issues are on the <a href="issues.html">List of Issues</a> page.
           To see the original issues, consult the <a href="before.html">Inaccessible version</a>.
           See also our <a href="cheatsheet.html">Cheat Sheet of Accessibility Issues</a>.
         </p>
@@ -168,11 +168,11 @@
       <div class="section">
         <h2>AU Enrollment Trends</h2>
 
-        <!-- in HTML4 could have used the <table> summary attribute. No longer valid in HTML5 --> 
+        <!-- in HTML4 could have used the <table> summary attribute. No longer valid in HTML5 -->
         <div id="table-summary" class="clipped">
-          This table shows enrollment over a two-year period by subject and gender. 
-          The academic years 2007-08 and 2008-09 are arranged in columns, 
-          with six subjects arranged as columns nested within the year columns. 
+          This table shows enrollment over a two-year period by subject and gender.
+          The academic years 2007-08 and 2008-09 are arranged in columns,
+          with six subjects arranged as columns nested within the year columns.
           Total enrollment, and male and female enrollment percentages, are arranged in rows.
         </div>
 
@@ -262,7 +262,7 @@
 
       <form action="after.html?submitted=yes" method="post">
 
-        <!-- container for displaying form errors or other messages --> 
+        <!-- container for displaying form errors or other messages -->
         <div id="feedback" role="alert"></div>
 
         <div class="required">
@@ -294,23 +294,23 @@
           <legend>Desired major(s):</legend>
           <ul>
             <li>
-              <label for="cs">Computer Science</label> 
+              <label for="cs">Computer Science</label>
               <input type="checkbox" name="major_cs" id="cs"/>
             </li>
             <li>
-              <label for="eng">Engineering</label> 
+              <label for="eng">Engineering</label>
               <input type="checkbox" name="major_eng" id="eng"/>
             </li>
             <li>
-              <label for="eco">Economics</label> 
+              <label for="eco">Economics</label>
               <input type="checkbox" name="major_econ" id="eco"/>
             </li>
             <li>
-              <label for="phy">Physics</label> 
+              <label for="phy">Physics</label>
               <input type="checkbox" name="major_phy" id="phy"/>
             </li>
             <li>
-              <label for="psy">Psychology</label> 
+              <label for="psy">Psychology</label>
               <input type="checkbox" name="major_psy" id="psy"/>
             </li>
             <li>
@@ -321,7 +321,7 @@
         </fieldset>
 
         <div id="captcha"></div>
-	
+
         <div>
           <input id="submit" type="submit" name="submit" value="Submit" />
         </div>
@@ -333,15 +333,15 @@
         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
       </div>
       Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
-      <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p> 
-    </footer> 
+      <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p>
+    </footer>
 
   </div><!--end #content-->
-  
-  <!-- container for displaying form errors --> 
+
+  <!-- container for displaying form errors -->
   <div id="error" role="alert"></div>
-  
-  <!--containers for displaying modal content--> 
+
+  <!--containers for displaying modal content-->
   <div id="modalMask"></div>
   <div id="modalContent" role="dialog" aria-labelledby="modalHeading">
     <h1 id="modalHeading">Eighteen Accessibility Issues</h1>
@@ -362,12 +362,12 @@
       <li>Missing ARIA landmark roles</li>
       <li>Inaccessible modal window</li>
       <li>Inaccessible carousel</li>
-      <li>Missing accessible table markup</li>      
+      <li>Missing accessible table markup</li>
       <li>Missing abbreviation tags</li>
-      <li>HTML fails validation</li>      
+      <li>HTML fails validation</li>
     </ol>
-    <button type="button" id="modalOkButton">OK</button>    
+    <button type="button" id="modalOkButton">OK</button>
   </div>
-  
+
 </body>
 </html>

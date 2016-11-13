@@ -1,11 +1,11 @@
-/* 
- * CSS for Accessible University Demo Site 
+/*
+ * CSS for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
  * before-carousel.css = Styles for inaccessible carousel
  */
-  
-#carousel { 
+
+#carousel {
   position: relative;
   background-color: #000;
   text-align: center;
@@ -13,31 +13,31 @@
   width: 100%;
   min-width: 720px;
 }
-#carousel .slide { 
+#carousel .slide {
   display: none;
   text-align: center;
   width: 580px;
   max-width: 100%;
   margin: 0 auto;
 }
-#carousel .slide .description { 
+#carousel .slide .description {
   font-size: 1.5em;
-  padding: 0.75em 1.5em;  
+  padding: 0.75em 1.5em;
 }
-#carousel .slide a { 
+#carousel .slide a {
   color: #CCC;
 }
-#carousel .slide img { 
+#carousel .slide img {
 }
 #carousel .slide.current {
   display: block;
   z-index: 10;
 }
-/* 
- * 
+/*
+ *
  * Prev/Next buttons
  *
- * 
+ *
  */
 
 .btn-prev,
@@ -64,16 +64,16 @@
   padding-right: 20px;
 }
 
-/* 
- * 
- * Slide Indicators (Lentils) 
+/*
  *
- * 
+ * Slide Indicators (Lentils)
+ *
+ *
  */
-ul.lentils { 
-  list-style-type: circle; 
+ul.lentils {
+  list-style-type: circle;
 }
-.lentils li { 
+.lentils li {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -92,17 +92,17 @@ ul.lentils {
   background-color: #FF9; /* yellow */
 }
 
-/* 
- * 
- * Somewhat Responsive 
+/*
+ *
+ * Somewhat Responsive
  *
  */
 
-@media (max-width: 1050px) { 
-  /* point at which Application form  drops below content */ 
-  #main { 
+@media (max-width: 1050px) {
+  /* point at which Application form  drops below content */
+  #main {
     width: 720px;
   }
 }
-    
+
 

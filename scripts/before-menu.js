@@ -1,15 +1,15 @@
-/* 
- * JavaScript for Accessible University Demo Site 
+/*
+ * JavaScript for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
- * before-menu.js = Inaccessible Dropdown Menu 
+ * before-menu.js = Inaccessible Dropdown Menu
  */
-  
-$(document).ready(function() { 
-  
+
+$(document).ready(function() {
+
   var timeout = 3000;
-  var timer = 0; 
-  var subMenu = null; 
+  var timer = 0;
+  var subMenu = null;
 
   $("#menu > li")
     .on('mouseenter',function(){
@@ -28,11 +28,11 @@ $(document).ready(function() {
     });
 
   // close subMenu when click-out
-  document.onclick = closeSubMenu; 
+  document.onclick = closeSubMenu;
 
-  function closeSubMenu() { 
-    if (subMenu) { 
-      subMenu.hide(); 
+  function closeSubMenu() {
+    if (subMenu) {
+      subMenu.hide();
       subMenu = null;
     }
   }

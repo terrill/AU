@@ -1,82 +1,81 @@
-/* 
- * CSS for Accessible University Demo Site 
+/*
+ * CSS for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
  * before-main.css = Styles for inaccessible version
  */
-  
-/* 
- * Overall structure 
- * (HTML does NOT use semantic elements) 
- * 
- */  
 
-#main { 
-  width: 73%; 
+/*
+ * Overall structure
+ * (HTML does NOT use semantic elements)
+ *
+ */
+
+#main {
+  width: 73%;
   clear: left;
 	float: left;
 	padding: 0 1%;
 	margin: 0.75em 0 2em;
 }
-#main p img { 
+#main p img {
   float: left;
 	padding: 0 0.25em 0.25em 0;
 }
-#appForm { 
-  width: 22%; 
+#appForm {
+  width: 22%;
   float: right;
 	border: 2px solid #39275B;
 	background-color: #cccce0;
 	padding: 0 1%;
 	margin: 0.75em 0 2em;
 }
-#footer { 
+#footer {
   clear: both;
 	font-size: 0.9em;
 	width: 100%;
 	padding: 1em 0.5em;
 	border-top: 3px solid #514273;
 }
-.heading { 
+.heading {
   font-size: 1.6em;
   font-weight: normal;
   margin: 0.75em 0;
 }
 
-/* 
- * Uses color alone to communicate "link" 
+/*
+ * Uses color alone to communicate "link"
  *
  */
-a { 
+a {
   color: #555;
 	text-decoration: none;
 }
 
-/* 
+/*
  * Provide additional visual cues to mouse users only
  *
  */
-#main p a:hover { 
+#main p a:hover {
   color: #39275b;
-  text-decoration: underline;  
+  text-decoration: underline;
 }
 
-/* 
+/*
  * Overrides browsers' visible focus indicator
  *
  */
-a:hover, a:focus, input:focus { 
+a:hover, a:focus, input:focus {
   outline: none;
   border-color: transparent;
 }
 
-/* 
+/*
  *
- * Misc styles 
+ * Misc styles
  *
  */
-img.hr { 
-  margin: 1em 0;  
+img.hr {
+  margin: 1em 0;
 }
- 
- 
+

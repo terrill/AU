@@ -1,15 +1,15 @@
-/* 
- * CSS for Accessible University Demo Site 
+/*
+ * CSS for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
  * main.css = Shared styles
  */
-  
-/* 
- * Overall structure 
- * 
- */  
-body { 
+
+/*
+ * Overall structure
+ *
+ */
+body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   color: black;
@@ -17,7 +17,7 @@ body {
   margin: 0;
   padding: 0;
 }
-#content { 
+#content {
   width: 80%;
   margin: 10px auto;
   padding: 1em;
@@ -25,106 +25,106 @@ body {
   border-left: 2px solid black;
 }
 
-/* 
- * HTML Elements 
+/*
+ * HTML Elements
  *
  */
-a { 
+a {
   color: #3E0087;
 }
 
-/* 
+/*
  * Shared Form Styles
  *
  */
 
-form > div { 
+form > div {
   margin: 1em 0;
 }
-form input[type="text"] { 
-  display: block; 
+form input[type="text"] {
+  display: block;
   width: 95%;
 }
 
-/* 
- * 
- * Custom Styles 
+/*
+ *
+ * Custom Styles
  *
  */
-.section img { 
+.section img {
   float: left;
-  padding: 0 0.5em 0; 
+  padding: 0 0.5em 0;
 }
-#errorMsg { 
+#errorMsg {
   background-color: #FFFFCC;
   border: 2px solid #39275B;
   padding: 0.25em 0.75em;
   font-weight: bold;
   margin: 1em 0;
   display: none;
-}   
+}
 
-/* 
+/*
  *
- * Enrollment Table 
+ * Enrollment Table
  *
  */
-table#enrollment { 
+table#enrollment {
   background-color: black;
   margin-bottom: 1em;
 }
-table#enrollment th, table#enrollment td { 
+table#enrollment th, table#enrollment td {
   background-color: white;
   padding: 1px;
   width: 3em;
   text-align: center;
 }
 
-/* 
+/*
  *
- * Footer 
+ * Footer
  *
  */
-div#ccLogo { 
+div#ccLogo {
   float: left;
   padding: 0 1em 0.5em 0;
 }
-#footer p, 
-footer p { 
+#footer p,
+footer p {
   clear: left;
 }
-#footer a, 
-footer a { 
+#footer a,
+footer a {
   color: #39275b;
-  text-decoration: underline;  
+  text-decoration: underline;
 }
 
-/* 
- * 
- * Somewhat Responsive 
+/*
+ *
+ * Somewhat Responsive
  *
  */
 
-@media (max-width: 1250px) { 
-  /* not wide enough for outside margins */ 
-  #content { 
+@media (max-width: 1250px) {
+  /* not wide enough for outside margins */
+  #content {
     width: 98%;
     margin:0;
     padding: 1em;
   }
 }
-@media (max-width: 1050px) { 
-  /* point at which Application form  drops below content */ 
-  #main { 
+@media (max-width: 1050px) {
+  /* point at which Application form  drops below content */
+  #main {
     width: 100%;
     max-width: 720px;
   }
-  #appForm { 
+  #appForm {
     float: left !important;
     width: 100% !important;
     max-width: 40em;
   }
 }
-    
-		
+
+
 

@@ -1,16 +1,16 @@
-/* 
- * CSS for Accessible University Demo Site 
+/*
+ * CSS for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
  * after-menu.css = Styles for accessible dropdown menu
  */
-  
-ul#menu {	
+
+ul#menu {
   margin: 0 0.75em;
 	padding: 0;
 	z-index: 30;
 }
-#menu > li {	
+#menu > li {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
@@ -18,23 +18,23 @@ ul#menu {
 	background-color: #E7ECD8;
   padding: 0;
 	margin: 0.25em;
-	border-left: 1px solid #BBB; 
-	border-top: 1px solid #AAA; 
+	border-left: 1px solid #BBB;
+	border-top: 1px solid #AAA;
 	border-right: 2px solid #999;
-	border-top-left-radius: 5px;	
-	border-top-right-radius: 5px;	
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 }
 #menu li a {
-	padding: 0.25em 1em;  
+	padding: 0.25em 1em;
   display: block;
 	color: #39275b; /* for WCAG 2.0 AAA conformance */
 	color: #5a667a; /* for WCAG 2.0 AA conformance */
 	text-decoration: none;
 }
-#menu li ul { 
+#menu li ul {
   display: none;
-  list-style-type: none;  
-	background-color: #E7ECD8;  
+  list-style-type: none;
+	background-color: #E7ECD8;
 	margin: 0;
 	padding: 0;
 	width: 12em;
@@ -43,44 +43,44 @@ ul#menu {
 	border-right: 2px solid #999;
 	z-index: 30;
 }
-#menu li ul li { 
+#menu li ul li {
   margin: 0;
   padding: 0;
   border-bottom: thin solid #CCC;
 }
-#menu li ul li a	{	
+#menu li ul li a	{
 }
-#menu a:hover, 
-#menu a:focus {	
+#menu a:hover,
+#menu a:focus {
   background: #39275b;
 	color: #FFF;
 	outline: none;
 }
 
-/* 
- * 
- * Keyboard Help 
- * 
+/*
+ *
+ * Keyboard Help
+ *
  */
-#nav-help { 
+#nav-help {
   display: none;
 }
-#nav-help h2 { 
-  margin: 0 1em; 
+#nav-help h2 {
+  margin: 0 1em;
   font-size: 1.2em;
   font-weight: bold;
-} 
-#main-nav button { 
+}
+#main-nav button {
   background-color: #FFF;
   border: none;
   float: left;
 }
-#main-nav button:hover, 
-#main-nav button:focus { 
+#main-nav button:hover,
+#main-nav button:focus {
   border: 2px solid #6CF;
   outline: none;
-} 
-#main-nav button img { 
+}
+#main-nav button img {
   width: 35px;
   height: 35px;
 }

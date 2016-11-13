@@ -1,36 +1,36 @@
-/* 
- * CSS for Accessible University Demo Site 
+/*
+ * CSS for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
  * after-main.css = Styles for accessible version
  */
-  
-/* 
- * Overall structure 
- * (HTML uses semantic elements) 
- * 
- */  
 
-main { 
-  width: 73%; 
+/*
+ * Overall structure
+ * (HTML uses semantic elements)
+ *
+ */
+
+main {
+  width: 73%;
   clear: left;
 	float: left;
 	padding: 0 1%;
 	margin: 0 0 2em;
 }
-main p img { 
+main p img {
   float: left;
 	padding: 0 0.25em 0.25em 0;
 }
-#appForm { 
-  width: 22%; 
-	float: right; 
+#appForm {
+  width: 22%;
+	float: right;
 	border: 2px solid #39275B;
 	background-color: #cccce0;
 	padding: 0 1%;
 	margin: 0.75em 0 2em;
 }
-footer { 
+footer {
   clear: both;
 	font-size: 0.9em;
 	width: 100%;
@@ -38,60 +38,60 @@ footer {
 	border-top: 3px solid #514273;
 }
 
-/* 
- * Standard HTML Elements 
+/*
+ * Standard HTML Elements
  *
  */
-h1 { 
+h1 {
   margin: 0;
   padding: 0;
 }
-h2 { 
+h2 {
   font-weight: normal;
   font-size: 1.6em;
   margin: 0.75em 0;
 }
-h3 { 
+h3 {
   font-size: 1.2em;
   margin: 0.5em 0;
 }
-a { 
+a {
 	text-decoration: underline;
 }
 
-/* 
- * Clear visible focus 
+/*
+ * Clear visible focus
  * for keyboard users
  *
  */
 main :focus,
-form :focus, 
-footer :focus { 
+form :focus,
+footer :focus {
   border: 3px solid #6CF !important;
 }
 
-/* 
- * Horizontal line moved to CSS background since its purely decorative  
+/*
+ * Horizontal line moved to CSS background since its purely decorative
  *
  */
-.section { 
+.section {
   margin-left: 0.25em;
   padding-bottom: 1em;
   background: url('../images/line_gradient.gif') bottom left no-repeat;
 }
-.section:last-child { 
-  background: none;  
+.section:last-child {
+  background: none;
 }
 
 
-/* 
- * Visibly hidden content, for screen readers only		
+/*
+ * Visibly hidden content, for screen readers only
  *
  */
-.clipped { 
+.clipped {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-		
+

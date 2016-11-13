@@ -1,25 +1,25 @@
-/* 
- * CSS for Accessible University Demo Site 
+/*
+ * CSS for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
  * after-form.css = Styles unique to inaccessible form
- *    (shared form styles are in main.css) 
+ *    (shared form styles are in main.css)
  */
-  
-form h2 { 
+
+form h2 {
   font-weight: bold;
   font-size: 1.2em;
 }
-form input[type="email"] { 
-  display: block; 
+form input[type="email"] {
+  display: block;
   width: 95%;
 }
-fieldset { 
+fieldset {
   border: none;
   margin-left: 0;
   padding-left: 0;
 }
-legend { 
+legend {
   margin-left: 0;
   font-weight: bold;
 }
@@ -36,42 +36,42 @@ legend {
 	position: absolute;
 	right: 0;
 }
-.required { 
+.required {
   font-weight: bold;
 }
- 
-/* 
+
+/*
  *
- * Text CAPTCHA 
- * 
+ * Text CAPTCHA
+ *
  */
-#captcha h2 { 
+#captcha h2 {
   font-size: 1.1em;
   margin-bottom: 0.25em;
 }
-#captcha_label { 
+#captcha_label {
   display: block;
   margin: 0.75em 0;
 }
-#captcha p { 
+#captcha p {
   margin-top: 0.25em;
 }
 
-/* 
- * 
- * Error Message or other feedback 
- * 
+/*
+ *
+ * Error Message or other feedback
+ *
  */
-#feedback { 
-  background-color: #FFC; 
+#feedback {
+  background-color: #FFC;
   font-weight: bold;
-  padding: 0.75em; 
+  padding: 0.75em;
   border: 1px solid #2A194C;
   display: none;
 }
-#feedback h3 { 
+#feedback h3 {
   font-size: 1.1em;
   font-weight: bold;
 }
 
-		
+

@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<title>Table Exercise</title>
 	<style>
-		body { 
+		body {
 			margin: 0 1em;
 			font-family: Arial, Helvetica, sans-serif;
 			color: black;
@@ -14,49 +14,49 @@
 			line-height: 1.5em;
 			width: 75%;
 		}
-		h1 { 
-			line-height: 1em; 
+		h1 {
+			line-height: 1em;
 		}
-		.question { 
+		.question {
 			border: thin solid #000000;
 			background-color: #ffc;
 			margin-bottom: 1em;
 			padding: 1em;
 		}
-		.accessible { 
+		.accessible {
 			display: none;
 		}
-		.unreadable tr, .unreadable th, .unreadable td { 
+		.unreadable tr, .unreadable th, .unreadable td {
 			display: inline;
 		}
-		.unreadable table, .unreadable tr, .unreadable th, .unreadable td { 
+		.unreadable table, .unreadable tr, .unreadable th, .unreadable td {
 			border: none;
 			font-weight: normal;
 			margin: 0;
 			padding: 0;
 		}
-		.readable table { 
+		.readable table {
 		  text-align: center;
 		  border: 1px solid #000;
 		}
-		.readable th, .readable td { 
+		.readable th, .readable td {
 		  border: 1px solid #000;
   		padding: 1em;
   		text-align: center;
 		}
-		.readable th { 
+		.readable th {
 		  font-weight: bold;
 		}
 	</style>
 	<script>
-		function swapTableStyle(style) { 
+		function swapTableStyle(style) {
 			var table = document.getElementsByTagName('table')[0];
 			var span = document.getElementById('adj');
-			if (table.getAttribute('class') == 'unreadable') { 
+			if (table.getAttribute('class') == 'unreadable') {
 				table.setAttribute('class','readable');
 				document.getElementById('adj').innerHTML = 'more difficult to read';
 			}
-			else { 
+			else {
 				table.setAttribute('class','unreadable');
 				document.getElementById('adj').innerHTML = 'easier to read';
 			}
@@ -66,9 +66,9 @@
 <body>
 
 <h1>Table Exercise</h1>
-	
+
 <p class="question"><strong>Question 1.</strong> Based on the following IRS Tax Table, if you are single and earned $35 income in the last year, how much tax do you owe? </p>
-	
+
 <table class="unreadable">
   <tr>
    <th colspan="2">If your taxable income is</th>
@@ -130,7 +130,7 @@
     <td>9</td>
     <td>9</td>
   </tr>
- </table>	
+ </table>
 </div>
 
 <p><a href="#" onclick="swapTableStyle()">Make table <span id="adj">easier to read</span></a>.</p>
