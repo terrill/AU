@@ -87,8 +87,6 @@
       })
       $subMenu.attr({
         'id': subMenuId,
-        'aria-expanded': 'false',
-        'aria-hidden': 'true',
         'aria-labelledby': itemId
       })
 
@@ -228,8 +226,7 @@
 
         }
         this.index.submenu = 0;
-        this.subMenu.attr( 'aria-expanded', 'false' )
-          .parent().children('a').first().attr('aria-expanded', 'false');
+        this.subMenu.parent().children('a').first().attr('aria-expanded', 'false');
         e.preventDefault();
         return false;
 
@@ -248,16 +245,14 @@
       case this.keys.left:
         this.subMenu.hide().parent().prev().children('a').first().focus();
         this.index.submenu = 0;
-        this.subMenu.attr( 'aria-expanded', 'false' )
-          .parent().children('a').first().attr('aria-expanded', 'false');
+        this.subMenu.parent().children('a').first().attr('aria-expanded', 'false');
         e.preventDefault();
         return false;
 
       case this.keys.right:
         this.subMenu.hide().parent().next().children('a').first().focus();
         this.index.submenu = 0;
-        this.subMenu.attr( 'aria-expanded', 'false' )
-          .parent().children('a').first().attr('aria-expanded', 'false');
+        this.subMenu.parent().children('a').first().attr('aria-expanded', 'false');
         e.preventDefault();
         return false;
 
@@ -267,8 +262,7 @@
         return false;
 
       case this.keys.esc:
-        this.subMenu.attr('aria-expanded', 'false' )
-          .hide().parent().children('a').first().attr('aria-expanded', 'false').focus();
+        this.subMenu.hide().parent().children('a').first().attr('aria-expanded', 'false').focus();
         e.preventDefault();
         return false;
 
@@ -287,15 +281,7 @@
 
   AbleMenu.prototype.showSubMenu = function() {
 
-    this.subMenu
-      .attr({
-        'aria-expanded': 'true',
-        'aria-hidden': 'false'
-      })
-      .show()
-      .find('a')
-      .eq(0)
-      .focus();
+    this.subMenu.show().find('a').eq(0).focus();
 
     this.subMenu.prev('a').attr('aria-expanded','true');
 
@@ -304,12 +290,7 @@
 
   AbleMenu.prototype.hideSubMenu = function() {
     if (this.subMenu) {
-      this.subMenu
-        .attr({
-          'aria-expanded': 'false',
-          'aria-hidden': 'true'
-        })
-        .hide();
+      this.subMenu.hide();
       this.subMenu.prev('a').attr('aria-expanded','false');
 
       // place focus on parent anchor
