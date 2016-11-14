@@ -11,7 +11,7 @@ $(document).ready(function(event) {
     var heading = $('<div>').addClass('errorHeading').text('ERROR');
     var errorMsg = $('<p>')
       .text('Your form has errors. Please correct them and resubmit.');
-    $('#error').append(heading,errorMsg).show();
+    $('#error').html(heading).append(errorMsg).show();
     $(document).scrollTop(1); // scroll up so users can see the message!
     event.preventDefault();
   });
