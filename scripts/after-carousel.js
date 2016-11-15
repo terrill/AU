@@ -74,7 +74,7 @@ function showSlide(index) {
   $('span.current-slide').remove();
   // and show the new one
   // also add an aria-live attribute so screen readers will announce the slide's contents
-  $('.slide').eq(index).addClass('current').attr('aria-live','polite');
+  $('.slide').eq(index).addClass('current').attr('aria-live','assertive');
 
   // also update the slide indicator
   $('.lentils li.active').removeClass('active');
