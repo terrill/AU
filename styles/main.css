@@ -73,9 +73,6 @@ table#enrollment {
   background-color: black;
   margin-bottom: 1em;
 }
-table#enrollment caption {
-
-}
 table#enrollment th, table#enrollment td {
   background-color: white;
   padding: 1px;
