@@ -64,12 +64,14 @@
       spacebar :   32
     };
 
+    this.listItem = $(this.menu).find('li').attr('role', "presentation");
     this.menuItem = $(this.menu).children('li').children('a');
 
     var thisObj = this;
     this.menuItem.each(function() {
 
       var $item = $(this);
+      //$item.parent().attr('role', "presentation");
       var $subMenu = $item.next('ul');
 
       // both the menu item and submenu need an id
