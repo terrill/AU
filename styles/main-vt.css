@@ -1,0 +1,19 @@
+@import url(../font/fonts.css);
+body {
+    background-color: #861F41;
+    font-family: Acherus,sans-serif;
+}
+a {
+    color: #861F41;
+}
+#footer a,
+footer a {
+    color: #861F41;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "gineso-condensed", sans-serif;
+}
+table tbody tr:nth-child(n+1):nth-child(-n+2), table tbody tr:nth-child(3) td:first-child {
+    font-family: "gineso-condensed", sans-serif;
+}
