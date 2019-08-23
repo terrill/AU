@@ -71,7 +71,6 @@
     this.menuItem.each(function() {
 
       var $item = $(this);
-      //$item.parent().attr('role', "presentation");
       var $subMenu = $item.next('ul');
 
       // both the menu item and submenu need an id
