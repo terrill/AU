@@ -1,0 +1,14 @@
+@import url(../font/fonts.css);
+#appForm {
+    border: 2px solid #861F41;
+    background-color: #E5E1E6;
+}
+#footer {
+    border-top: 3px solid #E87722;
+}
+.heading {
+    font-family: "gineso-condensed", sans-serif;
+}
+a {
+    color: #861F41;
+}

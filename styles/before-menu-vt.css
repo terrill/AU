@@ -1,0 +1,6 @@
+#menu > li {
+    background-color: rgba(229,225,230,.5);/*#D7D2CB;*/
+}
+#menu li a {
+    color: #E87722;
+}

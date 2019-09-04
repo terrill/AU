@@ -12,11 +12,19 @@
 	<link href="styles/before-form.css" rel="stylesheet">
 	<link href="styles/before-modal.css" rel="stylesheet">
 	<link href="styles/before-carousel.css" rel="stylesheet">
+
+  <link href="styles/main-vt.css" rel="stylesheet">
+  <link href="styles/before-main-vt.css" rel="stylesheet">
+  <link href="styles/before-menu-vt.css" rel="stylesheet">
+  <link href="styles/before-form-vt.css" rel="stylesheet">
+  <link href="styles/before-carousel-vt.css" rel="stylesheet">
+
   <script src="scripts/jquery-1.11.3.min.js"></script>
 	<script src="scripts/before-menu.js"></script>
 	<script src="scripts/before-form.js"></script>
 	<script src="scripts/before-modal.js"></script>
 	<script src="scripts/before-carousel.js"></script>
+	<script src="scripts/before-countdown.js"></script>
 </head>
 <body>
   <div id="content">
@@ -91,6 +99,9 @@
       </div>
 
       <div class="heading">Welcome!</div>
+
+      <img id="gif" class="nlSABoG9CSaJpsufv8WW9 _3vYn8QjoEvrXxHyqdn9ddZ _2XBDTIVigBJDybhZvL-hU3" src="https://media.giphy.com/media/600ZssZNotyYcZ4GQa/200w.webp" srcset="https://media.giphy.com/media/600ZssZNotyYcZ4GQa/200w.webp 200w,https://media.giphy.com/media/600ZssZNotyYcZ4GQa/giphy.webp 480w," width="100%" alt="Dancing Hokie Bird macot">
+
       <p>Accessible University (AU) is a fictional university, and this is its
         fictional home page. This page is designed to demonstrate a variety of
         common web design problems that result in visitors with disabilities
@@ -100,7 +111,7 @@
         the inaccessible design of this page sends the opposite message.
       </p>
 
-      <img class="hr" src="images/line_gradient.gif" alt="horizontal line graphic">
+      <img class="hr" src="images/line_gradient-vt.gif" alt="horizontal line graphic">
 
       <div class="heading">Bienvenido!</div>
       <p>Accesible Universidad (UA) es una universidad ficticia, y esta es su
@@ -112,7 +123,7 @@
         el diseño inaccesible de esta página envía el mensaje opuesto.
       </p>
 
-      <img class="hr" src="images/line_gradient.gif" alt="horizontal line graphic">
+      <img class="hr" src="images/line_gradient-vt.gif" alt="horizontal line graphic">
 
       <div class="heading">Can you spot the barriers?</div>
       <p>There are at least 18 accessibility issues on this page.
@@ -121,7 +132,7 @@
         For a cheat sheet of accessibility issues, <a href="cheatsheet.html">click here</a>.
       </p>
 
-      <img class="hr" src="images/line_gradient.gif" alt="horizontal line graphic">
+      <img class="hr" src="images/line_gradient-vt.gif" alt="horizontal line graphic">
 
       <div class="heading">AU Enrollment Trends</div>
       <table id="enrollment">
@@ -197,14 +208,19 @@
           <td>52</td>
         </tr>
       </table>
+      <audio autoplay loop>
+            <source src="audio/hokie-fight-song.mp3">
+      </audio>
 
     </div><!--end #main-->
 
     <div id="appForm">
 
       <div class="heading">Apply Now!</div>
-        <p class="required reqExample">(required fields are in blue)</p>
-
+      <p>Deadline: Jan, 1, 2020
+        <div>Countdown: <span id="countdown"></span></div>
+      </p>
+        <p class="required reqExample">(required fields are in maroon)</p>
       <form action="#" method="post">
 
         <!-- container for displaying form errors -->
@@ -270,7 +286,8 @@
       <div id="ccLogo">
         <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
       </div>
-      Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+      Accessible University by <a href="http://washington.edu/accesscomputing/AU">University of Washington</a> and modified by
+      <a href="https://vt/edu">Virginia Tech</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
       <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grant #CNS-054061S). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p>
     </div>
 
