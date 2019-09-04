@@ -1,11 +1,27 @@
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 1, 2020 15:37:25").getTime();
 
-// Update the count down every 1 second
+$(document).ready(function() {
+// Get today's date and time
+var date = new Date();
+
+// Set the date we're counting down to
+var future = new Date(date.getTime());
+future.setFullYear(date.getFullYear() + 1);
+var countDownDate = future.getTime();
+
+// Element we're pasting the result into
+var countdown = document.getElementById("countdown");
+
+updateCountdown();
+
+// Update the count down every 1 minute
 var x = setInterval(function() {
+  updateCountdown();
+}, 1000*60);
+
+function updateCountdown() {
 
   // Get today's date and time
-  var now = new Date().getTime();
+  var now = Date.now();
 
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
@@ -14,15 +30,16 @@ var x = setInterval(function() {
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Display the result in the element with id="demo"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+  // Display the result
+  countdown.innerHTML = days + "d " + hours + "h "
+  + minutes + "m";
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    countdowninnerHTML = "EXPIRED";
   }
-}, 1000);
+}
+
+});
