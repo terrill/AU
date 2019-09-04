@@ -64,6 +64,7 @@
       spacebar :   32
     };
 
+    this.listItem = $(this.menu).find('li').attr('role', "presentation");
     this.menuItem = $(this.menu).children('li').children('a');
 
     var thisObj = this;
