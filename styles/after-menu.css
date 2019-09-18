@@ -70,9 +70,12 @@ ul#menu {
   font-size: 1.2em;
   font-weight: bold;
 }
+#nav-help ul {
+  clear: left;
+}
 #main-nav button {
   background-color: #FFF;
-  border: none;
+  border: 2px solid transparent;
   float: left;
 }
 #main-nav button:hover,

@@ -124,16 +124,24 @@
     var helpButton = $('<button>')
       .attr({
         'type': 'button',
-        'title': 'Show menu keyboard shortcuts'
+        'title': 'Show menu keyboard shortcuts',
+        'aria-controls': 'nav-help',
+        'aria-expanded': 'false'
       })
       .on('click',function() {
         if ($('#nav-help').is(':visible')) {
           $('#nav-help').hide();
-          $(this).attr('title','Show menu keyboard shortcuts');
+          $(this).attr({
+            'title': 'Show menu keyboard shortcuts',
+            'aria-expanded': 'false'
+          });
         }
         else {
           $('#nav-help').show();
-          $(this).attr('title','Hide menu keyboard shortcuts');
+          $(this).attr({
+            'title': 'Hide menu keyboard shortcuts',
+            'aria-expanded': 'true'
+          });
         }
       });
     var helpIcon = $('<img>').attr({
@@ -146,8 +154,7 @@
 
     // add help text, hidden by default
     var help = $('<div>').attr({
-      'id': 'nav-help',
-      'role': 'alert'
+      'id': 'nav-help'
     });
     var helpHeading = $('<h2>').text('Main menu keyboard shortcuts');
     var helpList = $('<ul>');
@@ -163,7 +170,7 @@
       helpList.append(helpItem);
     }
     help.append(helpHeading, helpList);
-    $('#main-nav').prepend(help);
+    $('#main-nav button').after(help);
 
   }
 
