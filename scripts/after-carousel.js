@@ -68,19 +68,22 @@ $(document).ready(function() {
 function showSlide(index) {
 
   // hide the current visible slide
-  $('.slide:visible')
-    .removeClass('current')
-    .removeAttr('aria-live');
+  $('.slide:visible').removeClass('current')
   $('span.current-slide').remove();
   // and show the new one
-  // also add an aria-live attribute so screen readers will announce the slide's contents
-  $('.slide').eq(index).addClass('current').attr('aria-live','assertive');
+  $('.slide').eq(index).addClass('current');
 
   // also update the slide indicator
   $('.lentils li.active').removeClass('active');
   $('.lentils li').eq(index)
     .addClass('active')
     .find('button').append('<span class="clipped current-slide">(current slide)</span>');
+
+  // and update the live region so screen reader users know the slide has changed.
+  var numSlides = $('#carousel div.slide').length;
+  var slideNum = index + 1;
+  var msg = 'Now showing slide ' + slideNum + ' of ' + numSlides;
+  $('#slideStatus').text(msg);
 }
 
 function updateIndex(index,direction,count) {

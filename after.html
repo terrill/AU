@@ -108,6 +108,9 @@
 
       <div id="carousel" role="region" aria-describedby="carouselHeading">
         <h2 id="carouselHeading" class="clipped">Featured Story Slideshow</h2>
+        <!-- empty live region will announce that a slide has changed -->
+        <div id="slideStatus" aria-live="polite"></div>
+
         <!-- not using a list for slides since only one slide is visible at a time -->
         <!-- therefore, screen readers announce "list of one item", potentially confusing -->
         <div class="slide">
