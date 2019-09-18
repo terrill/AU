@@ -80,7 +80,6 @@
       // add ARIA attributes
       $item.attr({
         'id': itemId,
-        'aria-owns': subMenuId,
         'aria-controls': subMenuId,
         'aria-haspopup': 'true',
         'aria-expanded': 'false'
