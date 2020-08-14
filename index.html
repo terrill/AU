@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Accessible University 3.0</title>
+	<title>Accessible University Demo Site</title>
 	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
 	<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
 	<style>
@@ -12,6 +12,8 @@
 			color: black;
 			background-color: white;
 			margin: 0 1em;
+			width: 70em;
+			max-width: 95%;
 		}
 		header img {
 			border: none;
@@ -81,33 +83,55 @@
 
 <main>
 
-<h1>Accessible University 3.0</h1>
+  <h1>Accessible University</h1>
 
-<p>Accessible University (AU) is a fictional university home page designed to demonstrate a variety of common web design problems that result in visitors with disabilities being unable to access content or features. AU was originally developed by <a
+  <p>Accessible University (AU) is a fictional university home page designed to demonstrate a variety of common web design problems that result in visitors with disabilities being unable to access content or features. AU was originally developed by <a
 href="http://www.washington.edu/accessit">AccessIT</a> and is maintained by
 <a href="http://www.washington.edu/accesscomputing">AccessComputing</a>, both projects based out of
-the University of Washington. Use the AU site to</p>
+the University of Washington. Use the AU site to:</p>
 
-<ol>
-<li>demonstrate common web accessibility principles at trainings, presentations, and workshops on accessible web design.</li>
-<li>learn common web accessibility problems and solutions in an easy-to-understand way.</li>
-</ol>
+  <ol>
+    <li>Demonstrate common web accessibility principles at trainings, presentations, and workshops on accessible web design.</li>
+    <li>Learn common web accessibility problems and solutions in an easy-to-understand way.</li>
+  </ol>
 
-<div id="github-link">
-  <p>Now available on <a href="https://github.com/terrill/AU">GitHub</a></p>
-  <img src="images/octocat.jpg" alt="" width="100" height="83" role="presentation">
-</div>
+  <div id="github-link">
+    <p>Available on <a href="https://github.com/terrill/AU">GitHub</a></p>
+    <img src="images/octocat.jpg" alt="" width="100" height="83" role="presentation">
+  </div>
 
-<p class="announcement"><strong>NOTE:</strong> <a href="v2/index.html">Accessible University 2.0</a> is no longer maintained, but is still available for historic reference.</p>
+  <h2>Index of Accessible University Pages</h2>
 
-<h2>Index of Accessible University Pages</h2>
-
-<ol>
-<li>View the <a href="before.html">inaccessible home page</a> - This page demonstrates common web accessibility issues using the fictitious AU home page. See how many web accessibility problems you can identify. <strong>NOTE:</strong> Since the purpose of this page is to demonstrate inaccessible web design, certain features are inherently inaccessible to some groups of users.</li>
-<li>Review the page's <a href="issues.html">accessibility issues</a> - This page includes a list explaining all issues demonstrated on the AU home page, including their solutions and links to additional resources. Compare this list with the items you identified on your own in step one.</li>
- <li>View an <a href="after.html">accessible home page</a> - This is a modified version of the
+  <ol>
+    <li>View the <a href="before.html">inaccessible home page</a> - This page demonstrates common web accessibility issues using the fictitious AU home page. See how many web accessibility problems you can identify. <strong>NOTE:</strong> Since the purpose of this page is to demonstrate inaccessible web design, certain features are inherently inaccessible to some groups of users.</li>
+    <li>Review the page's <a href="issues.html">accessibility issues</a> - This page includes a list explaining all issues demonstrated on the AU home page, including their solutions and links to additional resources. Compare this list with the items you identified on your own in step one.</li>
+    <li>View an <a href="after.html">accessible home page</a> - This is a modified version of the
  Accessible University home page, with all the accessibility issues fixed.</li>
-</ol>
+  </ol>
+
+  <h2>Additional Files for Demonstrating Document Accessibility</h2>
+
+  <p>Each of the following files contains the same content, a syllabus from a fictional Introduction to Physics course, provided in different formats (HTML, PDF, and Word) with varying levels of accessibility. These files can be used for demonstrating document accessibility issues in presentations and workshops.</p>
+
+  <ul>
+    <li><a href="documents/syllabus.html">HTML version - Accessible</a></li>
+    <li><a href="documents/syllabus_NOTaccessible.docx">Word version - Not accessible</a></li>
+    <li><a href="documents/syllabus_accessible.docx">Word version - Accessible</a></li>
+    <li><a href="documents/syllabus_scanned.pdf">PDF version - Scanned</a></li>
+    <li><a href="documents/syllabus_untagged.pdf">PDF version - Untagged</a></li>
+    <li><a href="documents/syllabus_accessible.pdf">PDF version - Accessible</a></li>
+  </ul>
+
+  <p>The issues illustrated by this collection of files include:</p>
+  <ul>
+    <li>Alt text for images</li>
+    <li>Proper use of headings</li>
+    <li>Proper use of lists</li>
+    <li>Simple tables: Identifying column headers</li>
+    <li>Complex tables: Explicitly associating headers with table cells</li>
+    <li>Identifying foreign language content</li>
+    <li>Using an accessibility checker</li>
+  </ul>
 
 <h2>Image Credits</h2>
 
