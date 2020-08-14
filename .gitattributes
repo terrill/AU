@@ -7,3 +7,5 @@
 *.jpg binary
 *.gif binary
 *.ico binary
+*.docx binary
+*.pdf binary
