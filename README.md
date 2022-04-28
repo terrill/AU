@@ -10,7 +10,7 @@ See AU in action at [uw.edu/accesscomputing/AU](http://washington.edu/accesscomp
 
 ## Alternative Versions 
 
-Joel Smith of Duke University has created a version that uses the Twitter Bootstrap 
+Joel Crawford-Smith of Duke University has created a version that uses the Twitter Bootstrap 
 framework. See [Joel's live demo site](https://a11y-assessments.pages.oit.duke.edu/accessible-u/) or [Joel's project on GitHub](https://github.com/OpenAssessItToolkit/accessible_u). 
 
 ## Contributing
