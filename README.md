@@ -8,6 +8,11 @@ AU was originally developed by [AccessIT](http://washington.edu/accessit) and is
 
 See AU in action at [uw.edu/accesscomputing/AU](http://washington.edu/accesscomputing/AU). 
 
+## Alternative Versions 
+
+Joel Smith of Duke University has created a version that uses the Twitter Bootstrap 
+framework. See [Joel's live demo site](https://a11y-assessments.pages.oit.duke.edu/accessible-u/) or [Joel's project on GitHub](https://github.com/OpenAssessItToolkit/accessible_u). 
+
 ## Contributing
 
 We welcome your feedback about the web accessibility issues we're choosing to feature, as well as the solutions we're using in the accessible version. We also welcome feature requests. Please share your feedback as an  [Issue on GitHub](https://github.com/terrill/au/issues). 
