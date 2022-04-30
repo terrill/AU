@@ -46,9 +46,10 @@ ul#menu {
   padding: 0;
   border-bottom: thin solid #CCC;
 }
-#menu li ul li a	{
-}
 #menu a:hover {
   background: #39275b;
 	color: #FFF;
+}
+#menu a:focus { 
+	color: #BEBECF; 
 }
