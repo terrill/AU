@@ -2,309 +2,238 @@
  * JavaScript for Accessible University Demo Site
  * http://uw.edu/accesscomputing/AU
  *
- * after-menu.js = Accessible Dropdown menu (aka "Able Menu")
+ * after-menu.js = Accessible navigation menu dropdown submenus 
+ *  Adopted from the W3C WAI-ARIA Author Guide 1.2 
+ *  design dattern for "disclosure show/hide"
+ *  https://www.w3.org/TR/wai-aria-practices-1.2/examples/disclosure/disclosure-navigation.html
+ *
  */
 
 /*
- *  Able Menu is a simplified accessible dropdown menu, heavily influenced by:
+ *   This content is licensed according to the W3C Software License at
+ *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
  *
- *  W3C WAI-ARIA Design Pattern for "menu"
- *  http://www.w3.org/TR/wai-aria-practices/#menu
- *
- *  Adobe Accessible Mega Menu
- *  https://github.com/adobe-accessibility/Accessible-Mega-Menu
- *
- *  UW Dropdowns
- *  https://github.com/uweb/uw-2014/blob/master/js/uw.dropdowns.js
- *
+ *   Supplemental JS for the disclosure menu keyboard behavior
  */
 
-(function ($) {
+'use strict';
 
-  $(document).ready(function() {
+class DisclosureNav {
+  constructor(domNode) {
+    this.rootNode = domNode;
+    this.controlledNodes = [];
+    this.openIndex = null;
+    this.useArrowKeys = true;
+    this.topLevelNodes = [
+      ...this.rootNode.querySelectorAll(
+        '.main-link, button[aria-expanded][aria-controls]'
+      ),
+    ];
 
-    // initalize any <ul> element that has a data-able-menu attribute
-    $('ul').each(function (index, element) {
-      if ($(element).data('able-menu') !== undefined) {
-        new AbleMenu($(this),$(element));
+    this.topLevelNodes.forEach((node) => {
+      // handle button + menu
+      if (
+        node.tagName.toLowerCase() === 'button' &&
+        node.hasAttribute('aria-controls')
+      ) {
+        const menu = node.parentNode.querySelector('ul');
+        if (menu) {
+          // save ref controlled menu
+          this.controlledNodes.push(menu);
+
+          // collapse menus
+          node.setAttribute('aria-expanded', 'false');
+          this.toggleMenu(menu, false);
+
+          // attach event listeners
+          menu.addEventListener('keydown', this.onMenuKeyDown.bind(this));
+          node.addEventListener('click', this.onButtonClick.bind(this));
+          node.addEventListener('keydown', this.onButtonKeyDown.bind(this));
+        }
+      }
+      // handle links
+      else {
+        this.controlledNodes.push(null);
+        node.addEventListener('keydown', this.onLinkKeyDown.bind(this));
       }
     });
 
-  });
+    this.rootNode.addEventListener('focusout', this.onBlur.bind(this));
+  }
 
-  window.AbleMenu = function($element) {
+  controlFocusByKey(keyboardEvent, nodeList, currentIndex) {
+    switch (keyboardEvent.key) {
+      case 'ArrowUp':
+      case 'ArrowLeft':
+        keyboardEvent.preventDefault();
+        if (currentIndex > -1) {
+          var prevIndex = Math.max(0, currentIndex - 1);
+          nodeList[prevIndex].focus();
+        }
+        break;
+      case 'ArrowDown':
+      case 'ArrowRight':
+        keyboardEvent.preventDefault();
+        if (currentIndex > -1) {
+          var nextIndex = Math.min(nodeList.length - 1, currentIndex + 1);
+          nodeList[nextIndex].focus();
+        }
+        break;
+      case 'Home':
+        keyboardEvent.preventDefault();
+        nodeList[0].focus();
+        break;
+      case 'End':
+        keyboardEvent.preventDefault();
+        nodeList[nodeList.length - 1].focus();
+        break;
+    }
+  }
 
-    this.menu = $element;
-    this.setup();
+  // public function to close open menu
+  close() {
+    this.toggleExpand(this.openIndex, false);
+  }
 
-  };
+  onBlur(event) {
+    var menuContainsFocus = this.rootNode.contains(event.relatedTarget);
+    if (!menuContainsFocus && this.openIndex !== null) {
+      this.toggleExpand(this.openIndex, false);
+    }
+  }
 
-  AbleMenu.prototype.setup = function() {
+  onButtonClick(event) {
+    var button = event.target;
+    var buttonIndex = this.topLevelNodes.indexOf(button);
+    var buttonExpanded = button.getAttribute('aria-expanded') === 'true';
+    this.toggleExpand(buttonIndex, !buttonExpanded);
+  }
 
-    this.idPrefix = 'ablemenu_';
-    this.menuItemId = 1;
+  onButtonKeyDown(event) {
+    var targetButtonIndex = this.topLevelNodes.indexOf(document.activeElement);
 
-    this.timeout = 3000;
-    this.timer = 0;
-    this.subMenu = null;
+    // close on escape
+    if (event.key === 'Escape') {
+      this.toggleExpand(this.openIndex, false);
+    }
 
-    this.index = {
-      topmenu : 0,
-      submenu : 0
-    };
+    // move focus into the open menu if the current menu is open
+    else if (
+      this.useArrowKeys &&
+      this.openIndex === targetButtonIndex &&
+      event.key === 'ArrowDown'
+    ) {
+      event.preventDefault();
+      this.controlledNodes[this.openIndex].querySelector('a').focus();
+    }
 
-    this.keys = {
-      enter    :   13,
-      esc      :   27,
-      tab      :   9,
-      left     :   37,
-      up       :   38,
-      right    :   39,
-      down     :   40,
-      spacebar :   32
-    };
+    // handle arrow key navigation between top-level buttons, if set
+    else if (this.useArrowKeys) {
+      this.controlFocusByKey(event, this.topLevelNodes, targetButtonIndex);
+    }
+  }
 
-    this.menuItem = $(this.menu).children('li').children('a');
+  onLinkKeyDown(event) {
+    var targetLinkIndex = this.topLevelNodes.indexOf(document.activeElement);
 
-    var thisObj = this;
-    this.menuItem.each(function() {
+    // handle arrow key navigation between top-level buttons, if set
+    if (this.useArrowKeys) {
+      this.controlFocusByKey(event, this.topLevelNodes, targetLinkIndex);
+    }
+  }
 
-      var $item = $(this);
-      var $subMenu = $item.next('ul');
+  onMenuKeyDown(event) {
+    if (this.openIndex === null) {
+      return;
+    }
 
-      // both the menu item and submenu need an id
-      var itemId = thisObj.idPrefix + '_link_' + thisObj.menuItemId;
-      var subMenuId = thisObj.idPrefix + '_sub_' + thisObj.menuItemId;
-      thisObj.menuItemId++;
+    var menuLinks = Array.prototype.slice.call(
+      this.controlledNodes[this.openIndex].querySelectorAll('a')
+    );
+    var currentIndex = menuLinks.indexOf(document.activeElement);
 
-      // add ARIA attributes
-      $item.attr({
-        'id': itemId,
-        'aria-controls': subMenuId,
-        'aria-haspopup': 'true',
-        'aria-expanded': 'false'
-      })
-      $subMenu.attr({
-        'id': subMenuId,
-        'aria-labelledby': itemId
-      })
+    // close on escape
+    if (event.key === 'Escape') {
+      this.topLevelNodes[this.openIndex].focus();
+      this.toggleExpand(this.openIndex, false);
+    }
 
-      // bind events to each menu item
-      $(this)
-        .on('mouseenter',function(event) {
-          // close previously open submenu, then show new submenu
-          thisObj.hideSubMenu();
-          thisObj.subMenu = $(this).next('ul');
-          thisObj.showSubMenu();
-          clearTimeout(thisObj.timer);
-        })
-        .on('keydown',function(event) {
-          thisObj.handleKeystroke(event);
-        })
-        .on('click',function(event) {
-          thisObj.handleClick(event);
-        })
-        .parent().on('mouseleave',function(){
-          clearTimeout(thisObj.timer);
-          thisObj.timer = setTimeout(function(){
-            thisObj.hideSubMenu();
-          },thisObj.timeout);
+    // handle arrow key navigation within menu links, if set
+    else if (this.useArrowKeys) {
+      this.controlFocusByKey(event, menuLinks, currentIndex);
+    }
+  }
+
+  toggleExpand(index, expanded) {
+    // close open menu, if applicable
+    if (this.openIndex !== index) {
+      this.toggleExpand(this.openIndex, false);
+    }
+
+    // handle menu at called index
+    if (this.topLevelNodes[index]) {
+      this.openIndex = expanded ? index : null;
+      this.topLevelNodes[index].setAttribute('aria-expanded', expanded);
+      this.toggleMenu(this.controlledNodes[index], expanded);
+    }
+  }
+
+  toggleMenu(domNode, show) {
+    if (domNode) {
+      domNode.style.display = show ? 'block' : 'none';
+    }
+  }
+
+  updateKeyControls(useArrowKeys) {
+    this.useArrowKeys = useArrowKeys;
+  }
+}
+
+/* Initialize Disclosure Menus */
+
+window.addEventListener(
+  'load',
+  function () {
+    var menus = document.querySelectorAll('.disclosure-nav');
+    var disclosureMenus = [];
+
+    for (var i = 0; i < menus.length; i++) {
+      disclosureMenus[i] = new DisclosureNav(menus[i]);
+    }
+
+    // listen to arrow key checkbox
+    var arrowKeySwitch = document.getElementById('arrow-behavior-switch');
+    if (arrowKeySwitch) {
+      arrowKeySwitch.addEventListener('change', function () {
+        var checked = arrowKeySwitch.checked;
+        for (var i = 0; i < disclosureMenus.length; i++) {
+          disclosureMenus[i].updateKeyControls(checked);
+        }
+      });
+    }
+
+    // fake link behavior
+    disclosureMenus.forEach((disclosureNav, i) => {
+      var links = menus[i].querySelectorAll('[href="#mythical-page-content"]');
+      var examplePageHeading = document.getElementById('mythical-page-heading');
+      for (var k = 0; k < links.length; k++) {
+        // The codepen export script updates the internal link href with a full URL
+        // we're just manually fixing that behavior here
+        links[k].href = '#mythical-page-content';
+
+        links[k].addEventListener('click', (event) => {
+          // change the heading text to fake a page change
+          var pageTitle = event.target.innerText;
+          examplePageHeading.innerText = pageTitle;
+
+          // handle aria-current
+          for (var n = 0; n < links.length; n++) {
+            links[n].removeAttribute('aria-current');
+          }
+          event.target.setAttribute('aria-current', 'page');
         });
-      // bind events to each submenu as well
-      $('#' + subMenuId).on('keydown',function(event) {
-        thisObj.moveFocusInSubMenu(event);
-      });
+      }
     });
-
-    // close subMenu when user clicks off-menu
-    $(document).on('click',function() {
-      thisObj.hideSubMenu();
-    });
-    // add toggle for help text
-    var helpButton = $('<button>')
-      .attr({
-        'type': 'button',
-        'title': 'Show menu keyboard shortcuts',
-        'aria-controls': 'nav-help',
-        'aria-expanded': 'false'
-      })
-      .on('click',function() {
-        if ($('#nav-help').is(':visible')) {
-          $('#nav-help').hide();
-          $(this).attr({
-            'title': 'Show menu keyboard shortcuts',
-            'aria-expanded': 'false'
-          });
-        }
-        else {
-          $('#nav-help').show();
-          $(this).attr({
-            'title': 'Hide menu keyboard shortcuts',
-            'aria-expanded': 'true'
-          });
-        }
-      });
-    var helpIcon = $('<img>').attr({
-      'src' : 'images/help.png',
-      'alt' : '',
-      'role' : 'presentation'
-    });
-    helpButton.html(helpIcon);
-    $('#main-nav').prepend(helpButton);
-
-    // add help text, hidden by default
-    var help = $('<div>').attr({
-      'id': 'nav-help'
-    });
-    var helpHeading = $('<h2>').text('Main menu keyboard shortcuts');
-    var helpList = $('<ul>');
-    var helpItems = [];
-    helpItems[0] = '<strong>Tab</strong> or <strong>left/right arrow</strong> to move through menu bar';
-    helpItems[1] = '<strong>Space</strong> to follow a link to an external page';
-    helpItems[2] = '<strong>Enter</strong> or <strong>down arrow</strong> to open a submenu';
-    helpItems[3] = '<strong>Up/down arrow</strong> to move through submenu items';
-    helpItems[4] = '<strong>The first character</strong> of any submenu item to jump to that item';
-    helpItems[5] = '<strong>Escape</strong> to close a submenu';
-    for (var i=0; i<helpItems.length; i++) {
-      var helpItem = $('<li>').html(helpItems[i]);
-      helpList.append(helpItem);
-    }
-    help.append(helpHeading, helpList);
-    $('#main-nav button').after(help);
-
-  }
-
-  AbleMenu.prototype.handleKeystroke = function( e ) {
-
-    switch ( e.keyCode ) {
-
-      case this.keys.enter :
-      case this.keys.down  :
-        $(e.currentTarget).attr('aria-expanded', 'true');
-        this.subMenu = $(e.currentTarget).next('ul')
-        this.showSubMenu();
-        e.preventDefault();
-        return false;
-
-      case this.keys.left :
-
-        $(e.currentTarget).parent().prev().children('a').first().focus();
-        e.preventDefault();
-        return false;
-
-      case this.keys.right :
-
-        $(e.currentTarget).parent().next().children('a').first().focus();
-        e.preventDefault();
-        return false;
-
-      case this.keys.spacebar:
-
-        // Bypass submenu and follow the link to the top-level menu item.
-        window.location.href = $(e.currentTarget).attr('href');
-        return false;
-    }
-
-  };
-
-  AbleMenu.prototype.handleClick = function( e ) {
-
-    $(e.currentTarget).attr('aria-expanded', 'true');
-    this.subMenu = $(e.currentTarget).next('ul')
-    this.showSubMenu();
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-  };
-
-  AbleMenu.prototype.moveFocusInSubMenu = function(e) {
-
-    switch ( e.keyCode ) {
-
-      case this.keys.tab:
-        if (e.shiftKey) {
-          // move to previous top-level menu item
-          this.subMenu.hide().parent().prev().children('a').first().focus();
-        }
-        else {
-          // move to next top-level menu item
-          this.subMenu.hide().parent().next().children('a').first().focus();
-
-        }
-        this.index.submenu = 0;
-        this.subMenu.parent().children('a').first().attr('aria-expanded', 'false');
-        e.preventDefault();
-        return false;
-
-      case this.keys.down:
-        this.index.submenu = this.index.submenu === this.subMenuAnchors.length-1 ? 0 : this.index.submenu + 1;
-        this.subMenuAnchors.eq( this.index.submenu ).focus();
-        e.preventDefault();
-        return false;
-
-      case this.keys.up :
-        this.index.submenu = this.index.submenu === 0 ? this.subMenuAnchors.length-1 : this.index.submenu - 1;
-        this.subMenuAnchors.eq( this.index.submenu ).focus();
-        e.preventDefault();
-        return false;
-
-      case this.keys.left:
-        this.subMenu.hide().parent().prev().children('a').first().focus();
-        this.index.submenu = 0;
-        this.subMenu.parent().children('a').first().attr('aria-expanded', 'false');
-        e.preventDefault();
-        return false;
-
-      case this.keys.right:
-        this.subMenu.hide().parent().next().children('a').first().focus();
-        this.index.submenu = 0;
-        this.subMenu.parent().children('a').first().attr('aria-expanded', 'false');
-        e.preventDefault();
-        return false;
-
-      case this.keys.spacebar:
-      case this.keys.enter:
-        window.location.href = $(e.currentTarget).attr('href')
-        return false;
-
-      case this.keys.esc:
-        this.subMenu.hide().parent().children('a').first().attr('aria-expanded', 'false').focus();
-        e.preventDefault();
-        return false;
-
-      default:
-        var chr = String.fromCharCode(e.which), exists = false;
-        // jump to the next menu item that starts with chr
-        this.subMenuAnchors.filter(function() {
-          exists = this.innerHTML.charAt(0) === chr;
-          return exists;
-        }).first().focus();
-
-        e.preventDefault(); // not sure we want to prevent other keys from functioning?
-        return !exists;
-    }
-  };
-
-  AbleMenu.prototype.showSubMenu = function() {
-
-    this.subMenu.show().find('a').eq(0).focus();
-
-    this.subMenu.prev('a').attr('aria-expanded','true');
-
-    this.subMenuAnchors = this.subMenu.find('a')
-  }
-
-  AbleMenu.prototype.hideSubMenu = function() {
-    if (this.subMenu) {
-      this.subMenu.hide();
-      this.subMenu.prev('a').attr('aria-expanded','false');
-
-      // place focus on parent anchor
-      this.subMenu.closest('a').focus();
-
-      this.subMenu = null;
-      this.index.submenu = 0;
-    }
-  }
-
-})(jQuery);
+  },
+  false
+);

@@ -5,17 +5,21 @@
  * after-menu.css = Styles for accessible dropdown menu
  */
 
+nav { 
+	margin-bottom: 3em;
+}
 ul#menu {
   margin: 0 0.75em;
 	padding: 0;
 	z-index: 30;
 }
 #menu > li {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 	float: left;
-	background-color: #E7ECD8;
+	background-color: #E9E9ED;
   padding: 0;
 	margin: 0.25em;
 	border-left: 1px solid #BBB;
@@ -23,6 +27,13 @@ ul#menu {
 	border-right: 2px solid #999;
 	border-top-left-radius: 5px;
 	border-top-right-radius: 5px;
+}
+#menu li button {
+	padding: 0.25em 2em 0.25em 1em;
+	font-size: 1em;
+	border: none;
+	color: #39275b; /* for WCAG 2.0 AAA conformance */
+	color: #5a667a; /* for WCAG 2.0 AA conformance */
 }
 #menu li a {
 	padding: 0.25em 1em;
@@ -34,8 +45,8 @@ ul#menu {
 #menu li ul {
   display: none;
   list-style-type: none;
-	background-color: #E7ECD8;
-	margin: 0;
+	background-color: #E9E9ED;
+	margin: 4px 0 0 0;
 	padding: 0;
 	width: 12em;
   position: absolute;
@@ -48,45 +59,27 @@ ul#menu {
   padding: 0;
   border-bottom: thin solid #CCC;
 }
-#menu li ul li a	{
+#menu li button::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-left: 0.5em solid transparent;
+		border-right: 0.5em solid transparent;
+		border-top: 0.5em solid #39275b; /* for WCAG 2.0 AAA conformance */	
+		border-top: 0.5em solid #5a667a; /* for WCAG 2.0 AA conformance */		
+		top: 0.65em;
+		right: 0.5em;
 }
+#menu button:hover,
+#menu button:focus,
 #menu a:hover,
 #menu a:focus {
   background: #39275b;
 	color: #FFF;
 	outline: none;
 }
-
-/*
- *
- * Keyboard Help
- *
- */
-#nav-help {
-  display: none;
-}
-#nav-help h2 {
-  margin: 0 1em;
-  font-size: 1.2em;
-  font-weight: bold;
-}
-#nav-help ul {
-  clear: left;
-}
-#main-nav button {
-  background-color: #FFF;
-  border: 2px solid transparent;
-  float: left;
-}
-#main-nav button:hover,
-#main-nav button:focus {
-  border: 2px solid #6CF;
-  outline: none;
-}
-#main-nav button img {
-  width: 35px;
-  height: 35px;
-}
-button::-moz-focus-inner {
-  border: 0;
+#menu li button:hover:after, 
+#menu li button:focus:after {
+	border-top: 0.5em solid white !important;
 }
