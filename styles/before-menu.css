@@ -15,7 +15,7 @@ ul#menu {
 	padding: 0;
 	list-style-type: none;
 	float: left;
-	background-color: #E7ECD8;
+	background-color: #E9E9ED;
   padding: 0;
 	margin: 0.25em;
 	border-left: 1px solid #BBB;
@@ -32,7 +32,7 @@ ul#menu {
 #menu li ul {
   display: none;
 	list-style-type: none;
-	background-color: #E7ECD8;
+	background-color: #E9E9ED;
 	margin: 0;
 	padding: 0;
 	width: 12em;
