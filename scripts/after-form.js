@@ -8,10 +8,12 @@
 $(document).ready(function() {
 
   // add text-based captcha to the #captcha container
-  // NOTE: This is just an example; no captcha validation actually occurs
-  // See problems.html for a discussion of captcha accessibility
+  // NOTE: This is just an example, not a real CAPTCHA 
+  // See issues.html for a discussion of captcha accessibility
 
-  var question = getQuestion();
+  var captchas = getCaptchas(); 
+  var captchaIndex = getCaptchaIndex(captchas.length);
+  var question = captchas[captchaIndex]['question']; 
   var captchaHeading = $('<h3>').text('Security Question');
   var captchaLabel = $('<label>').attr({
     'id': 'captcha_label',
@@ -25,25 +27,61 @@ $(document).ready(function() {
   });
   $('#captcha').append(captchaHeading,captchaLabel,captchaInput);
 
-  // handle form submission
-  // NOTE: This is just an example; normally this would be handled server-side
-  // In this example, all submissions are good submissions!
-  // Provide accessible information that indicates submission was successful
-  var formParams = document.location.search;
-  if (formParams.indexOf('submitted=yes') !== -1) {
-    $('title').text('Success! Accessible University');
-    var feedbackHeading = $('<h3>').text('Thank you!');
-    var feedbackText = $('<p>').text('Your application has been received.');
-    $('#feedback').append(feedbackHeading,feedbackText).show();
-  }
+  // handle form submission 
+  $('#submit').on('click',function(event) { 
+    var success, feedbackHeading, feedbackMsg, feedbackText; 
+    event.preventDefault();
+    if ($('#captcha_answer').val().toLowerCase() === captchas[captchaIndex]['answer']) { 
+      success = true; 
+    }
+    else { 
+      success = false; 
+    }
+    if (success) { 
+      $('title').text('Success! Accessible University');
+      feedbackHeading = $('<h3>').text('Thank you!');
+      feedbackMsg = 'Your application has been received.'
+      feedbackText = $('<p>').text(feedbackMsg);
+      $('#feedback').empty().append(feedbackHeading,feedbackText).show();
+      // Reset the form 
+      $('form input[type="text"]').val('');
+      $('form input[type="email"]').val('');
+      $('form input[type="checkbox"]').prop('checked',false);
+    }
+    else { 
+      $('title').text('Error with fom submission | Accessible University');
+      feedbackHeading = $('<h3>').text('Error');
+      feedbackMsg = 'Your answer to the security question was not correct. Please try again.';  
+      feedbackText = $('<p>').text(feedbackMsg);
+      $('#feedback').empty().append(feedbackHeading,feedbackText).show();
+      // Empty the captcha field, but not the other fields
+      // and place focus in the captcha field
+      $('#captcha_answer').empty().focus(); 
+    }
+  });
 });
 
-function getQuestion() {
+function getCaptchas() {
 
-  var questions = [];
-  questions[0] = 'If a cow is purple, what color is it?';
-	questions[1] = '2 plus two equals ';
-	questions[2] = 'Sunday, Bird, Friday. Which of these is not a day?';
-	var question = questions[Math.floor(Math.random() * questions.length)];
-	return question;
+  let captchas = [
+    { 
+      'question': 'If a cow is purple, what color is it?',
+      'answer': 'purple'
+    },
+    { 
+      'question': 'Sunday, cow, Friday. Which of these is not a day?',
+      'answer': 'cow'
+    },
+    { 
+      'question': 'Cow, pizza, car. Which of these has more than three letters?',
+      'answer': 'pizza'
+    }
+  ]
+	return captchas;
+}
+
+function getCaptchaIndex(numCaptchas) { 
+
+    // returns a random integer to use for randomly selected an item from the captchas array
+  return Math.floor(Math.random() * numCaptchas);
 }
