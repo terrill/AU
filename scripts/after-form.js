@@ -36,8 +36,16 @@ $(document).ready(function() {
 
   // handle form submission 
   $('#submit').on('click',function(event) { 
-    var success, feedbackHeading, feedbackMsg, feedbackText; 
-    // event.preventDefault();
+    var skippedField, success, feedbackHeading, feedbackMsg, feedbackText; 
+    event.preventDefault();
+    skippedField = checkRequiredFields(); 
+    if (skippedField) { 
+      // display the error message, and place focus in the skipped field 
+      $('#feedback').empty().text(skippedField['error']).show(); 
+      $('#' + skippedField['fieldId']).focus(); 
+      return false;
+    }
+    console.log('after checking for skipped fields');
     if ($('#captcha_answer').val().toLowerCase() === captchas[captchaIndex]['answer']) { 
       success = true; 
     }
@@ -91,4 +99,33 @@ function getCaptchaIndex(numCaptchas) {
 
     // returns a random integer to use for randomly selected an item from the captchas array
   return Math.floor(Math.random() * numCaptchas);
+}
+
+function checkRequiredFields() { 
+
+  // if a required field was skipped, returns an object with 'error' and 'fieldId'
+  // else returns false 
+
+  var required, skippedId, skippedLabel, result;
+
+  result = null; 
+
+  // get all required fields EXCEPT captcha (it's handled separately)
+  required = $('input[required]').not('#captcha_answer'); 
+  if (required.length > 0) { 
+    // step through all required fields to be sure they have content 
+    required.each(function() { 
+      if ($(this).val() == '') { 
+        // required field is empty. Get label for this field. 
+        skippedId = $(this).attr('id'); 
+        skippedLabel = $('label[for=' + skippedId + ']').text().replace(' *',''); 
+        result = { 
+          'error' : 'ERROR: ' + skippedLabel + ' is required.',
+          'fieldId' : skippedId
+        }; 
+        return false; // to break out of the each()  
+      }
+    });
+    return result;   
+  }
 }
