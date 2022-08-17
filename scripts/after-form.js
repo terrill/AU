@@ -14,7 +14,14 @@ $(document).ready(function() {
   var captchas = getCaptchas(); 
   var captchaIndex = getCaptchaIndex(captchas.length);
   var question = captchas[captchaIndex]['question']; 
-  var captchaHeading = $('<h3>').text('Security Question');
+  var captchaHeading = $('<h3>').attr({
+    class: 'required'
+  }).text('Security Question ');
+  var captchaStar = $('<span>').attr({
+    'class': 'star',
+    'aria-hidden': 'true'
+  }).text('*');
+  captchaHeading.append(captchaStar);
   var captchaLabel = $('<label>').attr({
     'id': 'captcha_label',
     'for': 'captcha_answer'
@@ -30,7 +37,7 @@ $(document).ready(function() {
   // handle form submission 
   $('#submit').on('click',function(event) { 
     var success, feedbackHeading, feedbackMsg, feedbackText; 
-    event.preventDefault();
+    // event.preventDefault();
     if ($('#captcha_answer').val().toLowerCase() === captchas[captchaIndex]['answer']) { 
       success = true; 
     }

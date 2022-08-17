@@ -10,6 +10,10 @@ form h2 {
   font-weight: bold;
   font-size: 1.2em;
 }
+form h3 { 
+  font-size: 1em;
+  line-height: 1em;
+}
 form input[type="email"] {
   display: block;
   width: 95%;
@@ -23,13 +27,25 @@ legend {
   margin-left: 0;
   font-weight: bold;
 }
+label { 
+  font-size: 1em;
+  line-height: 1em;
+  margin-bottom: 0.25em;
+  display: block;
+}
 #majors ul {
   list-style-type: none;
   display: block;
 	position: relative;
 	margin: 0;
-	padding-left: 0;
+	padding-left: 1em;
 	width: 10em;
+}
+#majors ul li { 
+  line-height: 1.5em;
+}
+#majors ul label { 
+  display: inline;
 }
 #majors li input {
   float: right;
@@ -37,7 +53,13 @@ legend {
 	right: 0;
 }
 .required {
-  font-weight: bold;
+  font-weight: bold;  
+}
+.required .star { 
+  color: #C00;
+  font-size: 2em;
+  display: inline-block;
+  vertical-align: middle; 
 }
 
 /*
@@ -51,7 +73,8 @@ legend {
 }
 #captcha_label {
   display: block;
-  margin: 0.75em 0;
+  margin: 0.75em 0.25em;
+  line-height: 1.35em;
 }
 #captcha p {
   margin-top: 0.25em;

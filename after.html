@@ -268,15 +268,19 @@
 
       <form action="after.html?submitted=yes" method="post">
 
+        <div class="required" aria-hidden="true">
+          <span class="star">*</span> = Required field
+        </div>
+
         <!-- container for displaying form errors or other messages -->
         <div id="feedback" role="alert"></div>
 
         <div class="required">
-          <label for="name">Name: (required)</label>
+          <label for="name">Name <span class="star" aria-hidden="true">*</span></label>
           <input id="name" type="text" name="name" required/>
         </div>
         <div class="required">
-          <label for="email">Email: (required)</label>
+          <label for="email">Email <span class="star" aria-hidden="true">*</span></label>
           <input id="email" type="email" name="email" required/>
         </div>
         <div>
