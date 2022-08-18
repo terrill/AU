@@ -99,32 +99,5 @@ footer a {
   text-decoration: underline;
 }
 
-/*
- *
- * Somewhat Responsive
- *
- */
-
-@media (max-width: 1250px) {
-  /* not wide enough for outside margins */
-  #content {
-    width: 98%;
-    margin:0;
-    padding: 1em;
-  }
-}
-@media (max-width: 1050px) {
-  /* point at which Application form  drops below content */
-  #main {
-    width: 100%;
-    max-width: 720px;
-  }
-  #appForm {
-    float: left !important;
-    width: 100% !important;
-    max-width: 40em;
-  }
-}
-
 
 

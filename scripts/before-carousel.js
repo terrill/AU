@@ -15,30 +15,21 @@ $(document).ready(function() {
   var currentIndex = 0;
 
   // add previous/next buttons
-  var navButtons = $('<div>');
-  var prevIcon = $('<img>').attr({
-    'src': 'images/arrow-left.png'
-  });
-  var nextIcon = $('<img>').attr({
-    'src': 'images/arrow-right.png'
-  });
+  var navButtons = $('#controls'); 
   var prevButton = $('<div>')
     .addClass('btn-prev')
     .on('click',function() {
       currentIndex = updateIndex(currentIndex,'prev',slideCount);
       showSlide(currentIndex);
-    })
-    .html(prevIcon);
+    });
   var nextButton = $('<div>')
     .addClass('btn-next')
     .on('click',function() {
       currentIndex = updateIndex(currentIndex,'next',slideCount);
       showSlide(currentIndex);
-    })
-    .html(nextIcon);
+    });
 
   navButtons.append(prevButton,nextButton);
-  $('#carousel').append(navButtons);
 
   // add slide indicators (lentils)
   var lentils = $('<ul>').addClass('lentils');

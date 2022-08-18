@@ -9,25 +9,26 @@
   position: relative;
   background-color: #000;
   text-align: center;
-  margin: 0 0 10px;
+  margin: 0;
   width: 100%;
-  min-width: 720px;
+  max-width: 100%;
 }
 #carousel .slide {
   display: none;
+  position: relative; 
   text-align: center;
-  width: 580px;
-  max-width: 100%;
-  margin: 0 auto;
+  color: #f0f2f5;
 }
-#carousel .slide .description {
-  font-size: 1.5em;
-  padding: 0.75em 1.5em;
-}
-#carousel .slide a {
-  color: #CCC;
+#carousel .slide .caption {
+  font-size: 2.5em;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
 }
 #carousel .slide img {
+  width: 100%;
+  object-fit: cover;
 }
 #carousel .slide.current {
   display: block;
@@ -43,25 +44,22 @@
 .btn-prev,
 .btn-next {
   position: absolute;
+  width: 0; 
+  height: 0;
   z-index: 20;
-  top: 147px;
-  border: 0;
-  padding: 0;
-  background-color: #cccce0;
-  transition: padding .4s ease-out;
+  top: 30%;  
 }
 .btn-prev {
-  left:0;
-  border-radius: 0 .25em .25em 0;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;   
+  border-right: 40px solid #E9E9ED;   
+  left: 5px;
 }
 .btn-next {
-  right:0;
-  border-radius: .25em 0 0 .25em;
-}
-.btn-next:hover, .btn-next:focus,
-.btn-prev:hover, .btn-prev:focus {
-  padding-left: 20px;
-  padding-right: 20px;
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;  
+  border-left: 40px solid #E9E9ED;
+  right: 5px;
 }
 
 /*
@@ -100,9 +98,11 @@ ul.lentils {
 
 @media (max-width: 1050px) {
   /* point at which Application form  drops below content */
+  /*
   #main {
     width: 720px;
   }
+  */
 }
 
 
