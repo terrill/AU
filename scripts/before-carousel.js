@@ -44,7 +44,21 @@ $(document).ready(function() {
   $('#carousel').append(lentils);
 
   // show the first one
-  showSlide(0);
+  var slides = $('#slides > div.slide'); 
+  var slideIndex = 0; 
+  showSlide(slideIndex);
+
+  // Auto-advance slides 
+  setInterval(function() { 
+    if (slideIndex == (slides.length-1)) { 
+      // this is the the last slide. reset 
+      slideIndex = 0; 
+    }
+    else { 
+      slideIndex++; 
+    }
+    showSlide(slideIndex); 
+  }, 3000);
 });
 
 function showSlide(index) {
