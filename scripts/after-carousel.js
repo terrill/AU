@@ -7,6 +7,15 @@
 
 $(document).ready(function() {
 
+  // handle keydown on any element with role="button" as a click 
+  $('[role="button"]').on('keydown',function(event) { 
+    // Keypresses other then Enter and Space should not trigger a click
+    if (event.code === 'Enter' || event.code === 'Space') {
+      event.preventDefault(); 
+      $(this).click();
+    }
+  });
+
   // get all slides
   var $slides = $('.slide');
   var slideCount = $slides.length;
@@ -14,48 +23,37 @@ $(document).ready(function() {
   // save a pointer to the current slide
   var currentIndex = 0;
 
-  // add previous/next buttons
-  var navButtons = $('<div>');
-  var prevIcon = $('<img>').attr({
-    'src': 'images/arrow-left.png',
-    'alt': 'Previous slide'
-  });
-  var nextIcon = $('<img>').attr({
-    'src': 'images/arrow-right.png',
-    'alt': 'Next slide'
-  });
-  var prevButton = $('<button>')
-    .attr('type','button')
-    .addClass('btn-prev')
-    .on('click',function() {
-      currentIndex = updateIndex(currentIndex,'prev',slideCount);
+  // add handlers for previous/next buttons
+  var prevButton = $('#btn-prev'); 
+  prevButton.on('click',function() {
+      currentIndex = updateIndex(currentIndex,'prev',slideCount);      
       showSlide(currentIndex);
-    })
-    .html(prevIcon);
-  var nextButton = $('<button>')
-    .attr('type','button')
-    .addClass('btn-next')
-    .on('click',function() {
+    });
+  var nextButton = $('#btn-next');
+  nextButton.on('click',function() {
       currentIndex = updateIndex(currentIndex,'next',slideCount);
       showSlide(currentIndex);
-    })
-    .html(nextIcon);
-
-  navButtons.append(prevButton,nextButton);
-  $('#carousel').append(navButtons);
+    });
 
   // add slide indicators (lentils)
   var lentils = $('<ul>').addClass('lentils');
   for (var i=0; i<slideCount; i++) {
+    var slideNumber = i + 1;
+    var slideLabel = 'Slide ' + slideNumber;
     var lentil = $('<li>');
-    var lentilButton = $('<button>').attr({
-      'data-slide' : i
-    }).on('click',function() {
+    var lentilButton = $('<span>').attr({
+      'role': 'button',
+      'tabindex': '0',
+      'data-slide' : i,
+      'aria-label' : slideLabel 
+    })
+    .text(i)
+    .on('click',function() { 
+      // Remove aria-current for all lentils except this one 
+      $('ul.lentils span[aria-current="true"]').removeAttr('aria-current');      
+      $(this).attr('aria-current','true'); 
       showSlide($(this).data('slide'));
     });
-    var slideNumber = i + 1;
-    var lentilHTML = '<span class="clipped">Slide </span> ' + slideNumber;
-    lentilButton.html(lentilHTML);
     lentil.html(lentilButton);
     lentils.append(lentil);
   }

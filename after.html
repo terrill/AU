@@ -106,36 +106,34 @@
 
     <main role="main">
 
-      <div id="carousel" role="region" aria-describedby="carouselHeading">
-        <h2 id="carouselHeading" class="clipped">Featured Story Slideshow</h2>
-        <!-- empty live region will announce that a slide has changed -->
-        <div id="slideStatus" aria-live="polite"></div>
-
-        <!-- not using a list for slides since only one slide is visible at a time -->
-        <!-- therefore, screen readers announce "list of one item", potentially confusing -->
-        <div class="slide">
-          <img src="images/slide1.jpg"
-            alt="Robot with a friendly face, assembled with various scraps of hardware, and mounted on an old DecTalk speech synthesizer" />
-          <div class="description">
-            AU student wins engineering award for talking robot sign language interpreter.
-            Read more about the <a href="somepage.html?ref=Slide%201">student's engineering award</a>.
+      <section id="carousel" aria-label="Slideshow" aria-roledescription="carousel">
+        <div id="controls">
+          <div role="button" id="btn-prev" aria-label="Previous" aria-controls="slides" tabindex="0"></div>
+          <div role="button" id="btn-next" aria-label="Next" aria-controls="slides" tabindex="0"></div>          
+        </div>
+        <div id="slides" aria-live="polite">
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <img src="images/carousel/slide1.jpg" 
+              alt="An old brick building reflected in the glass exterior of a modern building">
+            <div class="caption">A modern shool</div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <img src="images/carousel/slide2.jpg" 
+              alt="An old brick building is covered in ivy"/>
+            <div class="caption">rooted in its history</div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <img src="images/carousel/slide3.jpg" 
+              alt="In a library, a long wooden bookshelf sits beneath towering stone walls"/>
+            <div class="caption">with opportunities to learn</div>
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <img src="images/carousel/slide4.jpg" 
+              alt="Students sitting on a green lawn beneath old cherry trees trees"/>
+            <div class="caption">and grow.</div>
           </div>
         </div>
-        <div class="slide">
-          <img src="images/slide2.jpg" alt="A large bronze tactile map with a speaker for audio output"/>
-          <div class="description">
-            AU installs universally designed maps at multiple locations on campus.
-            See all <a href="somepage.html?ref=Slide%201">campus map locations</a>.
-          </div>
-        </div>
-        <div class="slide">
-          <img src="images/slide3.jpg" alt="Braille dots embossed into the top of an aluminum beer can" />
-          <div class="description">
-            Group of AU students successfully advocates for Braille on beer cans.
-            Read more about <a href="somepage.html?ref=Slide%201">Braille and beer</a>.
-          </div>
-        </div>
-      </div>
+      </section>
 
       <div class="section">
         <h2>Welcome!</h2>

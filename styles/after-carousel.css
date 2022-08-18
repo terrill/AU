@@ -5,33 +5,40 @@
  * after-carousel.css = Styles for accessible carousel
  */
 
-#carousel {
+/*
+ * CSS for Accessible University Demo Site
+ * http://uw.edu/accesscomputing/AU
+ *
+ * before-carousel.css = Styles for inaccessible carousel
+ */
+
+ #carousel {
   position: relative;
   background-color: #000;
   text-align: center;
-  margin: 0 0 10px;
+  margin: 0;
   width: 100%;
-  min-width: 720px;
-}
-#carousel ul {
-  padding: 0;
+  max-width: 100%;
 }
 #carousel .slide {
   display: none;
+  position: relative; 
   text-align: center;
-  width: 580px;
-  max-width: 100%;
-  margin: 0 auto;
+  color: #f0f2f5;
 }
-#carousel .slide .description {
-  font-size: 1.5em;
-  padding: 0.75em 1.5em;
-  color: #CCC;
-}
-#carousel .slide a {
-  color: #CCC;
+#carousel .slide .caption {
+  font-size: 2.5em;
+  position: absolute;
+  bottom: 0; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  background-color: black;
+  padding: 0.1em 0.5em;
+  opacity: .75;
 }
 #carousel .slide img {
+  width: 100%;
+  object-fit: cover;
 }
 #carousel .slide.current {
   display: block;
@@ -43,28 +50,28 @@
  *
  *
  */
-.btn-prev,
-.btn-next {
+
+ 
+#carousel #controls div[role="button"] {
   position: absolute;
+  width: 0; 
+  height: 0;
+  top: 30%;
   z-index: 20;
-  top: 147px;
-  border: 0;
-  padding: 0;
-  background-color: #cccce0;
-  transition: padding .4s ease-out;
+  background-color: #24194C;
+  outline: 5px solid #539;
 }
-.btn-prev {
-  left:0;
-  border-radius: 0 .25em .25em 0;
+#btn-prev {
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;   
+  border-right: 40px solid #E9E9ED;   
+  left: 15px;
 }
-.btn-next {
-  right:0;
-  border-radius: .25em 0 0 .25em;
-}
-.btn-next:hover, .btn-next:focus,
-.btn-prev:hover, .btn-prev:focus {
-  padding-left: 2em;
-  padding-right: 2em;
+#btn-next {
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;  
+  border-left: 40px solid #E9E9ED;
+  right: 15px;
 }
 
 /*
@@ -74,23 +81,29 @@
  *
  */
 ul.lentils {
-  list-style-type: none;
-  margin-top: 0;
+  list-style-type: circle;
 }
 .lentils li {
   display: inline-block;
-  margin: 1em 0.5em;
+  width: 28px;
+  height: 28px;
+  margin: 10px;
+  text-indent: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background-color: #FFF;
+  box-shadow: inset 1px 1px 1px 1px rgba(0,0,0,0.5);  
 }
-.lentils button {
-  border: 2px solid #036;
-  background-color: #036;
-  font-size: 1.5em;
+.lentils li span { 
+  display: inline-block;
+  font-size: 1.2em;
   font-weight: bold;
-  color: #fff;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
 }
-.lentils li.active button {
-  border-radius: .5em;
-  background-color: #FF9;
-  border-color: #F93;
-  color: #333;
+.lentils li.active {
+  background-color: #FF9; /* yellow */
+  outline: 5px solid skyblue;
 }

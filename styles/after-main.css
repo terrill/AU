@@ -67,7 +67,7 @@ a {
 main :focus,
 form :focus,
 footer :focus {
-  border: 3px solid #6CF !important;
+  outline: 3px solid #6CF !important;
 }
 
 /*
@@ -94,4 +94,28 @@ footer :focus {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+/*
+ *
+ * Somewhat Responsive
+ *
+ */
 
+ @media (max-width: 1250px) {
+  /* not wide enough for outside margins */
+  #content {
+    width: 98%;
+    margin:0;
+    padding: 1em;
+  }
+}
+@media (max-width: 1050px) {
+  /* point at which Application form  drops below content */
+  main {
+    width: 100%;
+  }
+  #appForm {
+    float: left !important;
+    width: 100% !important;
+    max-width: 40em;
+  }
+}

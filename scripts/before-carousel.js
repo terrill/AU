@@ -14,22 +14,17 @@ $(document).ready(function() {
   // save a pointer to the current slide
   var currentIndex = 0;
 
-  // add previous/next buttons
-  var navButtons = $('#controls'); 
-  var prevButton = $('<div>')
-    .addClass('btn-prev')
-    .on('click',function() {
+  // add handlers for previous/next buttons
+  var prevButton = $('#btn-prev'); 
+  prevButton.on('click',function() {
       currentIndex = updateIndex(currentIndex,'prev',slideCount);      
       showSlide(currentIndex);
     });
-  var nextButton = $('<div>')
-    .addClass('btn-next')
-    .on('click',function() {
+  var nextButton = $('#btn-next');
+  nextButton.on('click',function() {
       currentIndex = updateIndex(currentIndex,'next',slideCount);
       showSlide(currentIndex);
     });
-
-  navButtons.append(prevButton,nextButton);
 
   // add slide indicators (lentils)
   var lentils = $('<ul>').addClass('lentils');
@@ -63,8 +58,6 @@ $(document).ready(function() {
 });
 
 function showSlide(index) {
-
-console.log('showing slide ' + index);  
 
   // hide the current visible slide
   $('.slide:visible').removeClass('current');

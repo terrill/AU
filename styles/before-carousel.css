@@ -41,21 +41,21 @@
  *
  */
 
-.btn-prev,
-.btn-next {
+#btn-prev,
+#btn-next {
   position: absolute;
   width: 0; 
   height: 0;
   z-index: 20;
   top: 30%;  
 }
-.btn-prev {
+#btn-prev {
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;   
   border-right: 40px solid #E9E9ED;   
   left: 5px;
 }
-.btn-next {
+#btn-next {
   border-top: 40px solid transparent;
   border-bottom: 40px solid transparent;  
   border-left: 40px solid #E9E9ED;
@@ -90,19 +90,6 @@ ul.lentils {
   background-color: #FF9; /* yellow */
 }
 
-/*
- *
- * Somewhat Responsive
- *
- */
 
-@media (max-width: 1050px) {
-  /* point at which Application form  drops below content */
-  /*
-  #main {
-    width: 720px;
-  }
-  */
-}
 
 
