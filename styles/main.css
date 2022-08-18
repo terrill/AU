@@ -70,15 +70,24 @@ form input[type="text"] {
  *
  */
 table#enrollment {
-  background-color: black;
+  border: 1px solid black;
+  border-collapse: collapse;
   margin-bottom: 1em;
 }
 table#enrollment th, table#enrollment td {
-  background-color: white;
-  padding: 1px;
+  border: 1px solid black;
+  padding: 0.75em;
   width: 3em;
   text-align: center;
 }
+table td.corner { 
+  border-left: 1px solid white !important;
+  border-top: 1px solid white !important;
+}
+table#enrollment th { 
+  background-color: #f0ecf9;
+}
+
 
 /*
  *

@@ -173,90 +173,57 @@
 
       <div class="section">
         <h2>AU Enrollment Trends</h2>
-
-        <!-- in HTML4 could have used the <table> summary attribute. No longer valid in HTML5 -->
-        <div id="table-summary" class="clipped">
-          This table shows enrollment over a two-year period by subject and gender.
-          The academic years 2007-08 and 2008-09 are arranged in columns,
-          with six subjects arranged as columns nested within the year columns.
-          Total enrollment, and male and female enrollment percentages, are arranged in rows.
-        </div>
-
+        
         <table id="enrollment" aria-describedby="table-summary">
-          <caption class="clipped">AU Enrollment Trends</caption>
+          <caption>The following table shows undergraduate and graduate enrollment over a two-year period by subject.</caption>
           <thead>
             <tr>
-              <td style="width:6em">&nbsp;</td>
-              <th scope="col" id="y07-08" colspan="6">2007-08</th>
-              <th scope="col" id="y08-09" colspan="6">2008-09</th>
+              <td class="corner" style="width:6em" rowspan="2"></td>
+              <th scope="col" id="year1" colspan="5">Last Year</th>
+              <th scope="col" id="year2" colspan="5">This Year</th>
             </tr>
             <tr>
-              <td>&nbsp;</td>
               <th scope="col" id="subj-cs1"><abbr title="Computer Science">CS</abbr></th>
               <th scope="col" id="subj-eng1"><abbr title="English">Eng</abbr></th>
               <th scope="col" id="subj-eco1"><abbr title="Economics">Eco</abbr></th>
               <th scope="col" id="subj-phy1"><abbr title="Physics">Phy</abbr></th>
               <th scope="col" id="subj-psy1"><abbr title="Psychology">Psy</abbr></th>
-              <th scope="col" id="subj-spa1"><abbr title="Spanish">Spa</abbr></th>
               <th scope="col" id="subj-cs2"><abbr title="Computer Science">CS</abbr></th>
               <th scope="col" id="subj-eng2"><abbr title="English">Eng</abbr></th>
               <th scope="col" id="subj-eco2"><abbr title="Economics">Eco</abbr></th>
               <th scope="col" id="subj-phy2"><abbr title="Physics">Phy</abbr></th>
               <th scope="col" id="subj-psy2"><abbr title="Psychology">Psy</abbr></th>
-              <th scope="col" id="subj-spa2"><abbr title="Spanish">Spa</abbr></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" id="total">Total</th>
-              <!--2007-08 data-->
-              <td headers="y07-08 subj-cs1 total">84</td>
-              <td headers="y07-08 subj-eng1 total">126</td>
-              <td headers="y07-08 subj-eco1 total">43</td>
-              <td headers="y07-08 subj-phy1 total">32</td>
-              <td headers="y07-08 subj-psy1 total">112</td>
-              <td headers="y07-08 subj-spa1 total">59</td>
-              <!--2008-09 data-->
-              <td headers="y08-09 subj-cs2 total">82</td>
-              <td headers="y08-09 subj-eng2 total">140</td>
-              <td headers="y08-09 subj-eco2 total">45</td>
-              <td headers="y08-09 subj-phy2 total">34</td>
-              <td headers="y08-09 subj-psy2 total">101</td>
-              <td headers="y08-09 subj-spa2 total">64</td>
+              <th scope="row" id="undergrad">Undergraduate</th>
+              <!--Last Year-->
+              <td headers="year1 subj-cs1 undergrad">1481</td>
+              <td headers="year1 subj-eng1 undergrad">712</td>
+              <td headers="year1 subj-eco1 undergrad">701</td>
+              <td headers="year1 subj-phy1 undergrad">734</td>
+              <td headers="year1 subj-psy1 undergrad">1006</td>
+              <!--This Year-->
+              <td headers="year2 subj-cs2 undergrad">1500</td>
+              <td headers="year2 subj-eng2 undergrad">642</td>
+              <td headers="year2 subj-eco2 undergrad">777</td>
+              <td headers="year2 subj-phy2 undergrad">777</td>
+              <td headers="year2 subj-psy2 undergrad">1112</td>
             </tr>
             <tr>
-              <th scope="row" id="male">% Male</th>
-              <!--2007-08 data-->
-              <td headers="y07-08 subj-cs1 male">89</td>
-              <td headers="y07-08 subj-eng1 male">84</td>
-              <td headers="y07-08 subj-eco1 male">73</td>
-              <td headers="y07-08 subj-phy1 male">69</td>
-              <td headers="y07-08 subj-psy1 male">20</td>
-              <td headers="y07-08 subj-spa1 male">47</td>
-              <!--2008-09 data-->
-              <td headers="y08-09 subj-cs2 male">87</td>
-              <td headers="y08-09 subj-eng2 male">80</td>
-              <td headers="y08-09 subj-eco2 male">69</td>
-              <td headers="y08-09 subj-phy2 male">69</td>
-              <td headers="y08-09 subj-psy2 male">22</td>
-              <td headers="y08-09 subj-spa2 male">48</td>
-            </tr>
-            <tr>
-              <th scope="row" id="female">% Female</th>
-              <!--2007-08 data-->
-              <td headers="y07-08 subj-cs1 female">11</td>
-              <td headers="y07-08 subj-eng1 female">16</td>
-              <td headers="y07-08 subj-eco1 female">27</td>
-              <td headers="y07-08 subj-phy1 female">31</td>
-              <td headers="y07-08 subj-psy1 female">80</td>
-              <td headers="y07-08 subj-spa1 female">53</td>
-              <!--2007-08 data-->
-              <td headers="y08-09 subj-cs2 female">13</td>
-              <td headers="y08-09 subj-eng2 female">20</td>
-              <td headers="y08-09 subj-eco2 female">31</td>
-              <td headers="y08-09 subj-phy2 female">31</td>
-              <td headers="y08-09 subj-psy2 female">78</td>
-              <td headers="y08-09 subj-spa2 female">52</td>
+              <th scope="row" id="grad">Graduate</th>
+              <td headers="year1 subj-cs1 grad">310</td>
+              <td headers="year1 subj-eng1 grad">84</td>
+              <td headers="year1 subj-eco1 grad">273</td>
+              <td headers="year1 subj-phy1 grad">69</td>
+              <td headers="year1 subj-psy1 grad">312</td>
+              <!--This Year-->
+              <td headers="year2 subj-cs2 grad">350</td>
+              <td headers="year2 subj-eng2 grad">64</td>
+              <td headers="year2 subj-eco2 grad">341</td>
+              <td headers="year2 subj-phy2 grad">72</td>
+              <td headers="year2 subj-psy2 grad">325</td>
             </tr>
           </tbody>
         </table>
