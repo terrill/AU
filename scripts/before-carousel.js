@@ -19,7 +19,7 @@ $(document).ready(function() {
   var prevButton = $('<div>')
     .addClass('btn-prev')
     .on('click',function() {
-      currentIndex = updateIndex(currentIndex,'prev',slideCount);
+      currentIndex = updateIndex(currentIndex,'prev',slideCount);      
       showSlide(currentIndex);
     });
   var nextButton = $('<div>')
@@ -44,24 +44,27 @@ $(document).ready(function() {
   $('#carousel').append(lentils);
 
   // show the first one
-  var slides = $('#slides > div.slide'); 
-  var slideIndex = 0; 
-  showSlide(slideIndex);
+  showSlide(0);
 
   // Auto-advance slides 
+  /* Disabled for now because it's buggy 
+    & super annoying (that's the point, but it renders the site unusable)
   setInterval(function() { 
-    if (slideIndex == (slides.length-1)) { 
+    if (currentIndex == (slideCount-1)) { 
       // this is the the last slide. reset 
-      slideIndex = 0; 
+      currentIndex = 0; 
     }
     else { 
-      slideIndex++; 
+      currentIndex++; 
     }
-    showSlide(slideIndex); 
+    showSlide(currentIndex); 
   }, 3000);
+  */
 });
 
 function showSlide(index) {
+
+console.log('showing slide ' + index);  
 
   // hide the current visible slide
   $('.slide:visible').removeClass('current');
