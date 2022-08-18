@@ -14,14 +14,15 @@ $(document).ready(function() {
   var captchas = getCaptchas(); 
   var captchaIndex = getCaptchaIndex(captchas.length);
   var question = captchas[captchaIndex]['question']; 
-  var captchaHeading = $('<h3>').attr({
+  var captchaFieldset = $('<fieldset>'); 
+  var captchaLegend = $('<legend>').attr({
     class: 'required'
   }).text('Security Question ');
   var captchaStar = $('<span>').attr({
     'class': 'star',
     'aria-hidden': 'true'
   }).text('*');
-  captchaHeading.append(captchaStar);
+  captchaLegend.append(captchaStar);
   var captchaLabel = $('<label>').attr({
     'id': 'captcha_label',
     'for': 'captcha_answer'
@@ -32,7 +33,8 @@ $(document).ready(function() {
     'type': 'text',
     'required': ''
   });
-  $('#captcha').append(captchaHeading,captchaLabel,captchaInput);
+  captchaFieldset.append(captchaLegend,captchaLabel,captchaInput);
+  $('#captcha').append(captchaFieldset);
 
   // handle form submission 
   $('#submit').on('click',function(event) { 
