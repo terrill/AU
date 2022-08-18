@@ -164,8 +164,11 @@
         <p>This page is an improved version, with 18 accessibility issues corrected.
           Details about all known issues are on the <a href="issues.html">List of Issues</a> page.
           To see the original issues, consult the <a href="before.html">Inaccessible version</a>.
-          See also our <a href="cheatsheet.html">Cheat Sheet of Accessibility Issues</a>.
+          See also:
         </p>
+        <button type="button" id="open_short_list" aria-haspopup="dialog">
+          Short list of accessibility issues
+        </button>
       </div>
 
       <div class="section">
@@ -339,8 +342,8 @@
 
   <!--containers for displaying modal content-->
   <div id="modalMask"></div>
-  <div id="modalContent" role="dialog" aria-labelledby="modalHeading">
-    <h1 id="modalHeading">Eighteen Accessibility Issues</h1>
+  <div id="modalContent" role="dialog" aria-labelledby="modalHeading" aria-modal="true">
+    <h1 id="modalHeading">Accessibility Issues</h1>
     <button type="button" id="modalXButton" aria-label="Close dialog">x</button>
     <ol>
       <li>No headings</li>

@@ -51,7 +51,8 @@ var focusedElementBeforeModal;
 
 $(document).ready(function() {
 
-  $('a[href="cheatsheet.html"]').on('click',function(event) {
+  $('button#open_short_list').on('click',function(event) {
+
     showModal($('#modalContent'));
     event.preventDefault();
   });

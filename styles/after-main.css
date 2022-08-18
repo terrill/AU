@@ -96,6 +96,16 @@ footer :focus {
 
 /*
  *
+ * Button for triggering modal dialog
+ *
+ */
+button#open_short_list { 
+  font-size: 1.1em;
+  margin: 1em;
+}
+
+/*
+ *
  * Somewhat Responsive
  *
  */
