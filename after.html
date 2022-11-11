@@ -15,6 +15,10 @@
 	<script src="scripts/after-form.js"></script>
 	<script src="scripts/after-modal.js"></script>
 	<script src="scripts/after-carousel.js"></script>
+  <!-- Add Able Player for playing video -->
+  <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+  <script src="ableplayer/build/ableplayer.min.js"></script>
+  <link href="ableplayer/build/ableplayer.min.css" rel="stylesheet">  
 </head>
 <body>
 
@@ -113,7 +117,7 @@
           <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
             <img src="images/carousel/slide1.jpg" 
               alt="An old brick building reflected in the glass exterior of a modern building">
-            <div class="caption">A modern shool</div>
+            <div class="caption">A modern school</div>
           </div>
           <div class="slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
             <img src="images/carousel/slide2.jpg" 
@@ -127,7 +131,7 @@
           </div>
           <div class="slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
             <img src="images/carousel/slide4.jpg" 
-              alt="Students sitting on a green lawn beneath old cherry trees trees"/>
+              alt="Students sitting on a green lawn beneath giant trees"/>
             <div class="caption">and grow.</div>
           </div>
         </div>
@@ -198,15 +202,15 @@
               <th scope="row" id="undergrad">Undergraduate</th>
               <!--Last Year-->
               <td headers="year1 subj-cs1 undergrad">1481</td>
-              <td headers="year1 subj-eng1 undergrad">712</td>
-              <td headers="year1 subj-eco1 undergrad">701</td>
-              <td headers="year1 subj-phy1 undergrad">734</td>
+              <td headers="year1 subj-eng1 undergrad">400</td>
+              <td headers="year1 subj-eco1 undergrad">727</td>
+              <td headers="year1 subj-phy1 undergrad">747</td>
               <td headers="year1 subj-psy1 undergrad">1006</td>
               <!--This Year-->
               <td headers="year2 subj-cs2 undergrad">1500</td>
-              <td headers="year2 subj-eng2 undergrad">642</td>
+              <td headers="year2 subj-eng2 undergrad">340</td>
               <td headers="year2 subj-eco2 undergrad">777</td>
-              <td headers="year2 subj-phy2 undergrad">777</td>
+              <td headers="year2 subj-phy2 undergrad">787</td>
               <td headers="year2 subj-psy2 undergrad">1112</td>
             </tr>
             <tr>
@@ -225,6 +229,15 @@
             </tr>
           </tbody>
         </table>
+      </div>
+
+      <div id="section">
+        <h2>AU Video</h2>
+        <video id="video1" data-able-player poster="video/au-promo.jpg" data-descriptions-audible="false">
+          <source type="video/mp4" src="video/au-promo.mp4" data-desc-src="video/au-promo-described.mp4">
+          <track kind="captions" srclang="en" label="English captions" src="video/au-captions.vtt">
+          <track kind="descriptions" srclang="en" src="video/au-descriptions.vtt">
+        </video>
       </div>
     </main>
 

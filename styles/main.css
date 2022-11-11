@@ -88,6 +88,14 @@ table#enrollment th {
   background-color: #f0ecf9;
 }
 
+/*
+ *
+ * Video
+ *
+ */
+ video { 
+  width: 100%;
+ }
 
 /*
  *
