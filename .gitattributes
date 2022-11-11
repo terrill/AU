@@ -7,6 +7,16 @@
 *.jpg binary
 *.gif binary
 *.ico binary
+*.doc binary
 *.docx binary
+*.ppt binary
+*.pptx binary
 *.pdf binary
 *.mp4 binary
+*.eot binary
+*.ttf binary
+*.woff binary 
+*.mp3 binary
+*.ogg binary
+*.mp4 binary
+*.webm binary
