@@ -5,8 +5,9 @@
 	<title>Accessible University Demo Site - Accessible Version</title>
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">z	
-	<link href="styles/main.css" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link href="styles/au-shared.css" rel="stylesheet">
+  <link href="styles/main.css" rel="stylesheet">
 	<link href="styles/after-main.css" rel="stylesheet">
 	<link href="styles/after-menu.css" rel="stylesheet">
 	<link href="styles/after-form.css" rel="stylesheet">
@@ -30,6 +31,14 @@
 	    <h1>
   	    <img id="logo" src="images/au123456789.gif" alt="Accessible University" width="441" height="90"/>
       </h1>
+      <nav id="AU-menu" aria-label="Demo site menu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="before.html">Before</a></li>
+          <li><a href="after.html" aria-current="page">After</a></li>
+          <li><a href="info.html">Info</a></li>
+        </ul>
+      </nav>  
     </header>
 
     <nav aria-label="Main Menu">

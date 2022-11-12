@@ -1,0 +1,76 @@
+/* 
+ * 
+ * Styles shared across all pages (home, info, and both demo pages)  
+ * 
+ */ 
+
+
+/* 
+ * 
+ * AU nav menu 
+ * 
+ */ 
+ nav#AU-menu { 
+	position: absolute;
+	top: 10px;
+	right: 20px;
+ }
+ nav#AU-menu ul { 
+  list-style-type: none;
+	margin: 0; 
+	padding: 0; 
+}
+nav#AU-menu ul li { 
+	margin: 0 0.15em;
+	padding: 0;
+	display: inline;
+}
+nav#AU-menu ul li a { 
+	padding: 0.25em 0.5em; 
+	color: #2A194C; 
+	text-decoration: none;
+	background-color: #E9E9ED;
+	border-top: 1px solid #AAA;
+	border-right: 2px solid #999;
+	border-bottom: 2px solid #999; 
+	border-left: 1px solid #BBB;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;	
+	border-radius: 5px;
+}
+nav#AU-menu ul li a[aria-current="page"] { 
+	background-color: #2A194C; 
+	color: white;
+}
+nav#AU-menu ul li a:focus, 
+nav#AU-menu ul li a:hover { 
+	background-color: #e8e3d3; 
+	color: #2A194C; 
+	box-shadow: 0px 5px 10px 3px #2A194C;   
+}
+
+
+/*
+ *
+ * Footer
+ *
+ */
+ #footer, 
+ footer { 
+  width: 60em;
+  max-width: 95%; 
+ }
+div#ccLogo {
+  float: left;
+  padding: 0 1em 0.5em 0;
+}
+#footer p,
+footer p {
+  clear: left;
+}
+#footer a,
+footer a {
+  color: #39275b;
+  text-decoration: underline;
+}
+
