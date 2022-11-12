@@ -7,6 +7,8 @@
 
 $(document).ready(function() {
 
+console.log('yo');  
+
   // handle keydown on any element with role="button" as a click 
   $('[role="button"]').on('keydown',function(event) { 
     // Keypresses other then Enter and Space should not trigger a click
@@ -47,7 +49,7 @@ $(document).ready(function() {
       'data-slide' : i,
       'aria-label' : slideLabel 
     })
-    .text(i)
+    .text(slideNumber)
     .on('click',function() { 
       // Remove aria-current for all lentils except this one 
       $('ul.lentils span[aria-current="true"]').removeAttr('aria-current');      
@@ -65,17 +67,20 @@ $(document).ready(function() {
 
 function showSlide(index) {
 
+console.log('showSlide ' + index);   
   // hide the current visible slide
-  $('.slide:visible').removeClass('current')
+  $('.slide:visible').removeClass('current');
   $('span.current-slide').remove();
   // and show the new one
   $('.slide').eq(index).addClass('current');
 
   // also update the slide indicator
-  $('.lentils li.active').removeClass('active');
+  $('.lentils li.active')
+    .removeClass('active')
+    .find('span').removeAttr('aria-current');
   $('.lentils li').eq(index)
     .addClass('active')
-    .find('button').append('<span class="clipped current-slide">(current slide)</span>');
+    .find('span').attr('aria-current','true');
 
   // and update the live region so screen reader users know the slide has changed.
   var numSlides = $('#carousel div.slide').length;

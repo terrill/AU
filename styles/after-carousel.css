@@ -103,7 +103,13 @@ ul.lentils {
   width: 30px;
   height: 30px;
 }
-.lentils li.active {
-  background-color: #FF9; /* yellow */
-  outline: 5px solid skyblue;
+.lentils li.active, 
+.lentils li span:focus, 
+.lentils li:hover { 
+  outline: 5px solid skyblue !important;
+  border-radius: 50%;
 }
+.lentils li.active { 
+  background-color: #FF9; /* yellow */
+}
+

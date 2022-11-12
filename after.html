@@ -123,10 +123,6 @@
     <main id="main">
 
       <section id="carousel" aria-label="Slideshow" aria-roledescription="carousel">
-        <div id="controls">
-          <div role="button" id="btn-prev" aria-label="Previous" aria-controls="slides" tabindex="0"></div>
-          <div role="button" id="btn-next" aria-label="Next" aria-controls="slides" tabindex="0"></div>          
-        </div>
         <div id="slides" aria-live="polite">
           <div class="slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
             <img src="images/carousel/slide1.jpg" 
@@ -147,6 +143,10 @@
             <img src="images/carousel/slide4.jpg" 
               alt="Students sitting on a green lawn beneath giant trees"/>
             <div class="caption">and grow.</div>
+          </div>
+          <div id="controls">
+            <div role="button" id="btn-prev" aria-label="Previous" aria-controls="slides" tabindex="0"></div>
+            <div role="button" id="btn-next" aria-label="Next" aria-controls="slides" tabindex="0"></div>          
           </div>
         </div>
       </section>
