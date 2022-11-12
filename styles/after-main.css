@@ -43,7 +43,7 @@ footer {
  *
  */
 h1 {
-  margin: 0;
+  margin: 1em 0 0;
   padding: 0;
 }
 h2 {
@@ -68,6 +68,29 @@ main :focus,
 form :focus,
 footer :focus {
   outline: 3px solid #6CF !important;
+}
+
+/*
+ *
+ * Skip to main content link
+ *
+ */
+#skip-link a {
+	background-color: #2A194C;
+  color: white;
+	width: 10em;
+	padding: 0.5em;
+	text-align: center;
+	margin: 0 0 1em;
+  /* visibly hidden (positioned off-screen) by default */
+  position: absolute;
+  top: -40px;
+  left: 0px;
+}
+#skip-link a:focus { 
+  /* move into visible focus */
+  top: 0.5em;   
+  left: 1em;
 }
 
 /*

@@ -42,7 +42,9 @@
   font-weight: normal;
   margin: 0.75em 0;
 }
-
+img#logo { 
+  margin: 1em 0 0;
+}
 /*
  * Uses color alone to communicate "link"
  *
