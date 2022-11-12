@@ -7,8 +7,6 @@
 
 $(document).ready(function() {
 
-console.log('yo');  
-
   // handle keydown on any element with role="button" as a click 
   $('[role="button"]').on('keydown',function(event) { 
     // Keypresses other then Enter and Space should not trigger a click
@@ -67,7 +65,6 @@ console.log('yo');
 
 function showSlide(index) {
 
-console.log('showSlide ' + index);   
   // hide the current visible slide
   $('.slide:visible').removeClass('current');
   $('span.current-slide').remove();
