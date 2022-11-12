@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   // add text-based captcha to the #captcha container
   // NOTE: This is just an example, not a real CAPTCHA 
-  // See issues.html for a discussion of captcha accessibility
+  // See info.html for a discussion of captcha accessibility
 
   var captchas = getCaptchas(); 
   var captchaIndex = getCaptchaIndex(captchas.length);
