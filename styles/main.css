@@ -102,6 +102,11 @@ table#enrollment th {
  * Footer
  *
  */
+ #footer, 
+ footer { 
+  width: 60em;
+  max-width: 95%; 
+ }
 div#ccLogo {
   float: left;
   padding: 0 1em 0.5em 0;
