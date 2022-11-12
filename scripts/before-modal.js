@@ -13,10 +13,10 @@ $(document).ready(function(event) {
   });
 
   // handle click on X or Ok button in modal dialog
-  $(document).on('click','#modalXButton, #modalOkButton',function(event) {
-    $('#modalContent').hide();
-    $('#modalMask').hide();
-  })
+  $('#modalContent button').on('click',function () { 
+console.log('you clicked a button');     
+    hideModal();     
+  });
 
   function showModal() {
 
@@ -35,4 +35,11 @@ $(document).ready(function(event) {
 
     $('#modalMask').show();
   }
+
+  function hideModal() {
+
+    $('#modalContent').hide(); 
+    $('#modalMask').hide();
+  }
+
 });

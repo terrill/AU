@@ -182,7 +182,18 @@
           To see the original issues, consult the <a href="before.html">Inaccessible version</a>.
           See also:
         </p>
-        <button type="button" id="open_short_list" aria-haspopup="dialog">
+        <!-- 
+          NOTE: The following button could have aria-haspopup="dialog" 
+          rather than an aria-label to inform screen reader users of what to expect 
+          However, as of Nov 2022: 
+            NVDA and JAWS both announce the button as a menu button if aria-haspopup is present 
+              JAWS even announces that it has a submenu 
+            VoiceOver on iOS says "Double tap to activate the picker" 
+          This has been an issue since at least 2019, and shows no signs of improving: 
+          https://github.com/w3c/aria/issues/1024
+        -->
+        <button type="button" id="openDialog" 
+          aria-label="Short list of accessibility issues, opens in a dialog">
           Short list of accessibility issues
         </button>
       </div>
@@ -335,32 +346,34 @@
   <div id="error" role="alert"></div>
 
   <!--containers for displaying modal content-->
+  <!--
   <div id="modalMask"></div>
-  <div id="modalContent" role="dialog" aria-labelledby="modalHeading" aria-modal="true">
-    <h1 id="modalHeading">Accessibility Issues</h1>
-    <button type="button" id="modalXButton" aria-label="Close dialog">x</button>
-    <ol>
-      <li>No headings</li>
-      <li>No alternate text on informative images</li>
-      <li>Missing or excessive alternate text on decorative images</li>
-      <li>Insufficient color contrast</li>
-      <li>Inaccessible dropdown menu</li>
-      <li>Insufficient visual cues</li>
-      <li>Redundant, uninformative link text</li>
-      <li>Color used to communicate information</li>
-      <li>Language not specified</li>
-      <li>Missing accessible form markup</li>
-      <li>Inaccessible CAPTCHA</li>
-      <li>Inaccessible validation</li>
-      <li>Missing ARIA landmark roles</li>
-      <li>Inaccessible modal window</li>
-      <li>Inaccessible carousel</li>
-      <li>Missing accessible table markup</li>
-      <li>Missing abbreviation tags</li>
-      <li>HTML fails validation</li>
-    </ol>
-    <button type="button" id="modalOkButton">OK</button>
-  </div>
+  -->
+<dialog id="modalContent" aria-labelledby="modalHeading" aria-modal="true">
+  <h1 id="modalHeading">Accessibility Issues</h1>
+  <button value="cancel" id="modalClose" aria-label="Close dialog">x</button>
+  <ol>
+    <li>No headings</li>
+    <li>No alternate text on informative images</li>
+    <li>Missing or excessive alternate text on decorative images</li>
+    <li>Insufficient color contrast</li>
+    <li>Inaccessible dropdown menu</li>
+    <li>Insufficient visual cues</li>
+    <li>Redundant, uninformative link text</li>
+    <li>Color used to communicate information</li>
+    <li>Language not specified</li>
+    <li>Missing accessible form markup</li>
+    <li>Inaccessible CAPTCHA</li>
+    <li>Inaccessible validation</li>
+    <li>Missing ARIA landmark roles</li>
+    <li>Inaccessible modal window</li>
+    <li>Inaccessible carousel</li>
+    <li>Missing accessible table markup</li>
+    <li>Missing abbreviation tags</li>
+    <li>HTML fails validation</li>
+  </ol>
+  <button value="cancel" id="modalOk">OK</button>
+</dialog>
 
 </body>
 </html>

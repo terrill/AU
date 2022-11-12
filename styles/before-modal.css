@@ -25,9 +25,9 @@
 	position: fixed;
   top: 100px;
 	left: 10px;
-  background-color: #E9E9ED;
+	background-color: white;
 	border: 5px solid black;
-	padding: 1em;
+	padding: 0;
 	font-weight: normal;
 	text-align: left;
 	width: 400px;
@@ -36,18 +36,24 @@
 	display: none;
 }
 .modalHeading {
-  font-size: 1.2em;
+	background-color: #2A194C; 
+	color: white;
+  font-size: 1.4em;
   font-weight: bold;
   text-align: center;
-  margin: 0.5em 0.25em 1em;
+  margin: 0;
+	padding: 0.25em;	
 }
-#modalXButton {
+#modalClose {
   position: absolute;
   right: 5px;
   top: 5px;
+	font-weight: bold;	
 }
-#modalOkButton {
-
+#modalOk {
+	margin: 0 0.5em 1em;
+	font-weight: bold;
+	font-size: 1.1em;
 }
 #modalContent button {
   outline: none;

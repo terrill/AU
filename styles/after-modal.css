@@ -5,8 +5,9 @@
  * after-modal.css = Styles for accessible modal
  */
 
-#cheatSheetLinkSpan a {
-  cursor: pointer;
+button#openDialog { 
+	font-size: 1.05em;
+	margin: 0.5em 0 1em;
 }
 #modalMask {
   position: fixed;
@@ -22,37 +23,40 @@
 	display: none;
 }
 #modalContent {
-	position: fixed;
-  background-color: #E9E9ED;
-	border: 5px solid black;
-	padding: 1em;
-	font-weight: normal;
-	text-align: left;
-	width: 50%;
-	top: 10%;
-	left: 25%;
-	margin-left: auto;
-	margin-right: auto;
-	opacity: 1;
-	filter:alpha(opacity=100);
-	z-index: 100;
-	display: none;
+	padding: 0; 
+	background-color: white;
 }
 h1#modalHeading {
-  font-size: 1.2em;
+	background-color: #2A194C; 
+	color: white;
+  font-size: 1.4em;
   font-weight: bold;
   text-align: center;
-  margin: 0.5em 0.25em 1em;
+  margin: 0;
+	padding: 0.25em;
 }
 #modalContent ol {
-  width: 30em;
-  margin: 0 auto;
+  /* width: 30em; */
+  margin: 1em;
+	padding: 0 1em;
+	line-height: 1.5em;
 }
-#modalXButton {
+#modalContent button:hover, 
+#modalContent button:focus { 
+	border: 2px solid skyblue;
+}
+button#modalClose {
   position: absolute;
   right: 5px;
   top: 5px;
+	font-weight: bold;
 }
-#modalOkButton {
-
+button#modalOk {
+	margin: 0 0.5em 1em;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+#modalContent::backdrop { 
+	background-color: black;
+	opacity: 0.75;
 }
