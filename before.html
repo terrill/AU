@@ -77,19 +77,19 @@
         </div>
         <div id="slides">
           <div class="slide">
-            <img src="images/carousel/slide1.jpg" />
+            <img src="images/carousel/slide1.jpg">
             <div class="caption">A modern shool</div>
           </div>
           <div class="slide">
-            <img src="images/carousel/slide2.jpg" />
+            <img src="images/carousel/slide2.jpg">
             <div class="caption">rooted in its history</div>
           </div>
           <div class="slide">
-            <img src="images/carousel/slide3.jpg" />
+            <img src="images/carousel/slide3.jpg">
             <div class="caption">with opportunities to learn</div>
           </div>
           <div class="slide">
-            <img src="images/carousel/slide4.jpg" />
+            <img src="images/carousel/slide4.jpg">
             <div class="caption">and grow.</div>
           </div>
         </div>
@@ -120,7 +120,7 @@
       <img class="hr" src="images/line_gradient.gif" alt="horizontal line graphic">
 
       <div class="heading">Can you spot the barriers?</div>
-      <p>There are at least 18 accessibility issues on this page.
+      <p>There are at least 22 accessibility issues on this page.
         To see a list of all known issues, <a href="info.html">click here</a>.
         To see a more accessible version of this same page, <a href="after.html">click here</a>.
         For a cheat sheet of accessibility issues, <a href="cheatsheet.html">click here</a>.
@@ -241,7 +241,7 @@
       <footer>
         <div id="license">
           <div id="ccLogo">    
-            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
           </div>
           <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Accessible University</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://washington.edu/accesscomputing/AU" property="cc:attributionName" rel="cc:attributionURL">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
         </div>
@@ -257,24 +257,37 @@
     <div class="modalHeading">Accessibility Issues</div>
     <button type="button" id="modalClose">x</button>
     <ol>
+      <!-- Structure -->
+      <li>Missing landmark regions</li>
       <li>No headings</li>
+      <li>Language not specified</li>
+      <!-- Images -->
       <li>No alternate text on informative images</li>
       <li>Missing or excessive alternate text on decorative images</li>
+      <!-- Color-->
       <li>Insufficient color contrast</li>
-      <li>Inaccessible dropdown menu</li>
-      <li>Insufficient visual cues</li>
-      <li>Redundant, uninformative link text</li>
       <li>Color used to communicate information</li>
-      <li>Language not specified</li>
-      <li>Missing accessible form markup</li>
-      <li>Inaccessible CAPTCHA</li>
-      <li>Inaccessible validation</li>
-      <li>Missing ARIA landmark roles</li>
-      <li>Inaccessible modal window</li>
+      <!-- Keyboard-->
+      <li>Inaccessible keyboard interface</li>
+      <li>No visible indication of focus</li>
+      <li>No "skip to main content" link</li>
+      <!-- Links-->
+      <li>Redundant, uninformative link text</li>
+      <li>Links vs buttons</li>
+      <!-- Features -->
+      <li>Inaccessible navigation menu</li>
       <li>Inaccessible carousel</li>
+      <li>Inaccessible modal dialog</li>
+      <!-- Forms -->
+      <li>Form not properly labeled</li>
+      <li>Inaccessible CAPTCHA</li>
+      <li>Inaccessible input validation</li>
+      <!-- Tables -->
       <li>Missing accessible table markup</li>
       <li>Missing abbreviation tags</li>
-      <li>HTML fails validation</li>
+      <!-- Video -->
+      <li>Inaccessible audio content in video</li>
+      <li>Inaccessible visual content in video</li> 
     </ol>
     <button type="button" id="modalOk">OK</button>
   </div>
