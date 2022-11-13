@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Document Accessibility Samples | Accessible University 3.0</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link href="styles/au-shared.css" rel="stylesheet">	
+	<style>
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 1.1em;
+			color: black;
+			background-color: white;
+			margin: 0 1em;			
+		}
+		main { 
+			width: 60em; 
+			max-width: 95%;
+		}
+		#logo img {
+			border: none;
+		}
+
+		h1 {
+			margin-left: 0.5em;
+			margin-top: 0;
+			font-size: 2em;
+		}
+		h2 { 
+			margin-left: 0.5em;
+		}
+		h3 { 
+			margin-top: 0.25em;
+			margin-left: 1em;
+		}
+		h4 { 
+			margin: 0 0 1em;
+		}
+		p, ol {
+			line-height: 1.5em;
+		}
+		p {
+			margin-left: 1em;
+		}
+		ol {}
+		ol ul {
+			list-style-type: disc;
+			margin-bottom: 0.75em;
+		}
+		li p {
+			margin: 0 0 0.75em 0;
+		}
+		ol li {
+			padding-bottom: 0.75em;
+		}
+		ol ul li {
+			padding-bottom: 0;
+		}
+		li .label {
+			font-weight: bold;
+		}
+		.element, .attribute, .code, .snippet {
+			font-family: Courier, monospace;
+			font-size: 1em;
+			font-weight: bold;
+			color: black; 
+			background-color: #F0F0F0;
+		}
+		.snippet {
+			margin: 0.5em;
+			padding: 0.15em 0.5em;
+			width: 22em;
+		}
+		footer {
+			font-size: 0.9em;
+			width: 100%;
+			padding: 1em 0.5em;
+			border-top: 3px solid #514273;
+		}
+    div#ccLogo {
+      float: left;
+      padding: 0 1em 0.5em;
+    }
+    footer p {
+      clear: left;
+    }
+    a {
+      color: #039;
+      text-decoration: underline;
+      padding: 0 0.15em;
+    }
+    a:hover, a:focus {
+      color: #FFF;
+      background-color: #039;
+      text-decoration: none;
+    }
+	</style>
+</head>
+<body>
+
+	<header>
+		<a href="http://www.washington.edu/accesscomputing">
+			<img src="http://www.washington.edu/doit/Kb/Images/ACLogo220x110.gif" alt="AccessComputing">
+		</a>
+		<nav id="AU-menu" aria-label="Demo site menu">
+			<ul>
+				<li><a href="index.html">Home</a></li>
+			</ul>
+		</nav>
+	</header>
+	
+	<main>
+
+<h1>Accessible University Document Accessibility Samples</h1>
+
+<p>This page summarizes the accessibility issues demonstrated in the Word, PDF, and PowerPoint sample files that accompany the <a href="index.html">Accessible University</a> demo site. With each issue, a solution is suggested as demonstrated in the accessible files.</p>
+
+<h2>Word</h2>
+<p>These documents should be demonstrated using Microsoft Office 365 desktop client, or the most current version of Microsoft Word.
+</p>
+
+<h3>Word - Inaccessible version (syllabus_NOTaccessible.docx)</h3>
+<ol>
+	<li><h4>No headings.</h4> 
+		<p>Avoid using font styling to make text bigger and bold to appear as a heading. Using defined paragraph styles and headings creates the scaffolding that forms an outline of a document and allows a screen reader user to navigate from section to section, and heading to heading.</p>
+		<p>Expand the Styles Pane then select the checkbox that says, “Show Preview” at the bottom of the pane. This will reveal what styles, if any, are used in the document. Notice only Normal styling is applied.</p>
+	</li>
+	<li><h4>No alt text for meaningful images.</h4> 
+		<p>One image is included in this document, the logo at the top of the page, which does not have alternative text assigned to it. Visual content that is meaningful must have alt text associated with it so all users have access to the content.</p>
+		<p>Expose the Alt text panel to reveal the empty text field. This can also be demonstrated by running the built in Accessibility Checker, this will be flagged as an error.</p>
+	</li>
+	<li><h4>List is not created using the List feature.</h4> 
+		<p>The list in this document was created by inserting symbols for bullet points instead of using the bulleted list tool. This can be revealed when the “Show Preview” checkbox is selected in the Styles pane.</p>
+	</li>
+	<li><h4>Tables do not have headers defined, table includes merged table cells.</h4> 
+		<p>Assistive technology will read a table from left to right starting at the top. If the relationship between the cells is not defined, then the table is not formatted correctly.</p>
+		<p>Reveal the Table Properties dialog window by selecting the Layout tab from the ribbon, then select the Properties icon. In the Table Properties window, select the Row tab; under Options notice the checkbox for, “Allow row to break across pages” is checked. Also notice the checkbox for, “Repeat as header row at the top of each page” is unchecked. This is the default setting for tables and can cause barriers for screen readers, these options should always be reviewed.</p>
+		<p>This document also contains a complex table with merged cells, tables that contain merged or split cells can cause challenges for screen readers. Using a keyboard, place focus in the first table cell then use the tab key to emulate what it might be like for a screen reader to access the information in the table. Is the reading order logical?</p>
+	</li>
+	<li><h4>Missing language assignment.</h4> 
+		<p>Notice the text at the bottom of the page is a foreign language. Office flags some of the text with red squiggly lines underneath indicating a spelling error. An English speaking screen reader will announce this content with improper pronunciation.</p>
+	</li>
+</ol>
+
+<h3>Word - Accessible version (syllabus_accessible.docx)</h3>
+<ol>
+	<li><h4>Headings are present.</h4>
+		<p>
+			This document uses Paragraph Styles, they provide anchor points for screen readers to navigate by. Expand the Styles pane then select the checkbox that says, “Show Preview'' at the bottom of the pane to reveal the styles used to author the document. Styles can be modified by highlighting text, then select the paragraph style dropdown menu and choose, “Update Heading to Match Selection.”
+		</p>
+		<p>When using Styles, this provides an outline that is automatically used when initiating the Table of Contents tool in the References tab of Word. For longer documents of 10 pages or more, using styles in combination with Table of Contents provides additional navigation aids that will benefit all users.
+		</p>
+	</li>
+	<li><h4>Alt text is included for images.</h4>
+		<p>
+			The logo at the top of the document includes alternative text. Expose the Alt text panel to display a text field where the user can review the description of the visual content.
+		</p>
+		<p>Also included on this panel is a button for generating automated alt text, selecting this will initiate Microsoft’s AI for creating alt text. Review results of auto generated alt text for accuracy.</p>
+		<p>Any images included in a document that do not have significant meaning should be marked as decorative by selecting the checkbox, “Mark as decorative.”
+		</p>
+	</li>
+	<li><h4>List created using proper tool.</h4>
+		<p>
+			When encountering lists in a Word document, screen readers will announce how many items are included in a list if the proper tool was used to create it. Be sure to use the bulleted list tool to create bulleted lists, the numbered list tool to create numerical lists, and the multi-level list tool to create nested lists. Using the multi-level list tool to create nested lists will allow screen readers to accurately announce the number of list items, and where the user focus is located in the list and subsequent sub lists.
+		</p>
+	</li>
+	<li><h4>Tables include headers.</h4>
+		<p>
+			Reveal the Table Properties dialog window by selecting the table, then select the Table Layout tab, then choose the Properties icon. On the Table Properties window, select the Row tab. Under Options, the checkbox for, “Allow row to break across pages” should be unchecked. A good table should not contain a data cell that spans more than one page. Also notice the checkbox for, “Repeat as header row at the top of each page” should be checked. Selecting this option defines the top row of the table as a header row and announces table data in a meaningful way. 
+		</p>
+	</li>
+	<li><h4>Proper language identification.</h4>
+		<p>
+			Notice the text at the bottom of the page is a foreign language. Screen readers support multiple languages and can switch on the fly when announcing content in different languages. For most documents, the default language is English, for all other languages, be sure to set the language attribute from the Review ribbon so that assistive technology announces the content accurately.
+		</p>
+	</li>
+</ol>
+
+<h2>PDF</h2>
+<p>These documents should be demonstrated using Adobe Acrobat Pro DC, or another application that will allow participants to view the Tags, Reading Order, and Content panels.</p>
+
+<h3>PDF - Scanned version (syllabus_scanned.pdf)</h3>
+<ol>
+	<li><h4>Text is not selectable.</h4>
+		<p>
+			PDF documents that were scanned using a flatbed scanner or captured using a mobile devices camera are usually saved as an image of the document. Try using a mouse to marquee text, notice how the text is not selectable. A screen reader will not be able to access any of the content in this document.
+		</p>
+		<p>Optical Character Recognition (OCR) will need to be applied to this document to convert the page image to machine readable text.</p>
+	</li>
+	<li><h4>Tags are missing.</h4>
+		<p>
+			Exposing the tag tree, notice this document does not have tags. Extra: by exposing the Content panel and expanding the page information in the panel, notice there is no textual content, only an image content.
+		</p>
+	</li>
+</ol>
+
+<h3>PDF - Inaccessible version (syllabus_NOTaccessible.pdf)</h3>
+<ol>
+	<li><h4>Text is selectable.</h4>
+		<p>
+			Text can be marqueed, or selected, using a mouse, indicating screen readers can access the content.
+		</p>
+	</li>
+	<li><h4>Tags are missing.</h4>
+		<p>
+			Exposing the tag tree, notice this document also does not have tags. Extra: by exposing the Content panel and expanding the page, notice there is text present. Screen readers and assistive technologies will announce this text, but without tags, semantic structure is not available and navigation aids are missing causing barriers to understanding the information.
+		</p>
+	</li>
+</ol>
+
+<h3>PDF - Accessible version (syllabus_accessible.pdf)</h3>
+<ol>
+	<li><h4>Text is selectable.</h4>
+		<p>
+			Text can be marqueed, or selected, using a mouse, indicating screen readers can access the textual content.
+		</p>
+	</li>
+	<li><h4>Tags are present.</h4>
+		<p>
+			Expose the tag tree, notice this document has tags.
+		</p>
+	</li>
+	<li><h4>Tags are semantically accurate.</h4>
+		<p>
+			Place focus on the top <span class="element">&lt;Sect&gt;</span> tag, then use the down arrow key on a keyboard to walk down the tag tree. Notice that items highlighted in the tags panel are also highlighted in the document with a magenta rectangle. Tags are similar to HTML coding providing the proper semantic structure, screen readers will announce the text with proper context. Use the right arrow key on the keyboard to expand the tag to reveal the content of the semantic tag.
+		</p>
+	</li>
+	<li><h4>Images include alternative text.</h4>
+		<p>
+			The logo at the top of the document includes alternative text. From the tag tree, expose the Image content of the <span class="element">&lt;Figure&gt;</span> tag, then expose the Object Properties window. On the Tag tab, reveal the Alt text in the center text field. Any images included in a document that do not have significant meaning should be artifacted using the Reading Order panel.
+		</p>
+	</li>
+	<li><h4>Tables include ID headers.</h4>
+		<p>
+			From the tag tree, expose the first <span class="element">&lt;Table&gt;</span> parent tag, then expose the first <span class="element">&lt;TR&gt;</span> child tag, notice proper <span class="element">&lt;TH&gt;</span> child tags are included for the table header. </p>
+			<p>
+				The second table is more complex than the first table, requiring header IDs to properly identify column and row headers that span multiple cells. From the tag tree, expose the second <span class="element">&lt;Table&gt;</span> parent tag, then expose the first <span class="element">&lt;TR&gt;</span> child tag, then review the Attributes and expand the Attribute Objects to reveal the <span class="element">&lt;&lt;Dictionary&gt;&gt;</span>.				
+			</p>
+	</li>
+	<li><h4>Proper language attribute.</h4>
+		<p>
+			From the tag tree, expose the last <span class="element">&lt;P&gt;</span> tag of the foreign language text. Display the Object Properties window and reveal the correct Language attribute drop down at the bottom of the window.
+		</p>
+	</li>
+</ol>
+
+<h2>PowerPoint</h2>
+<p>These documents should be demonstrated using Microsoft Office 365 desktop client, or the most current version of Microsoft PowerPoint. It is also recommended to demonstrate these documents using the Microsoft Windows operating system.
+</p>
+
+<h3>PowerPoint - Inaccessible version (presentation_NOTaccessible.pptx)</h3>
+<ol>
+	<li><h4>No alt text for meaningful images, non-meaningful images are not marked as decorative.</h4>
+		<p>
+			Meaningful images are included on slides 1 and 2, select the image then expose the Alt text panel to reveal no information in the alt text field. Non-meaningful images are included on slide 5, the diagram was created using SmartArt. Some screen readers will announce all of the elements of a SmartArt diagram including text and the colorful background rectangles (announced as diagrams), while other screen readers will announce nothing at all. 
+		</p>
+		<p>It is possible to assign alt text to SmartArt, in which case screen readers will skip announcing the elements of the diagram and will announce the alt text insead. However, screen reader users are not able to navigate alt text, forcing the user to listen to the content from beginning to end. </p>
+	</li>
+	<li><h4>Uninformative link text.</h4>
+		<p>
+			Slide 2 includes a live link, however this link is not meaningful as it includes the URL. 
+		</p>
+		<p>Screen reader users can call up a list of links included in a document, if the active link text is not meaningful then the user may not be certain where that link will take them.</p>
+	</li>
+	<li><h4>Reading order of slide content is not accurate.</h4>
+		<p>
+			Slides 2 and 3 include content that is out of the expected reading order. Reveal the Reading Order panel (only available on winOS), select the Review tab, then select the Check Accessibility drop down and choose Reading Order Pane. Objects from the slide will appear in order from top to bottom, place focus at the top of the Reading Order pane and use the down arrow key on the keyboard to walk down the pane, notice that items highlighted in the Reading Order pane are also highlighted in the slide making it easy to identify slide contents.
+		</p>
+		<p>
+			To check reading order on macOS, users must use the Selection Pane. Items in the Selection Pane are arranged in reverse order.
+		</p>
+	</li>
+	<li><h4>Language needs to be assigned.</h4>
+		<p>
+			Slide 3 contains content in a foreign language. Office flags some of the text with red squiggly lines underneath indicating a spelling error. An English speaking screen reader will announce this text with improper pronunciation.
+		</p>
+	</li>
+	<li><h4>Tables inserted into slides can not have table headers assigned.</h4>
+		<p>
+			Slide 4 includes a table. Select the table, then select the Table Layout Tab from the ribbon, notice that the Properties icon is not available.
+		</p>
+		<p>Since this is a simple table with a single top header row, this table may not pose barriers to users of Assistive Technology. This can be confirmed by exposing the Table Design tab and reviewing the check box for Header Row is selected.</p>
+	</li>
+	<li><h4>SmartArt diagrams pose barriers</h4>
+		<p>
+			Slide 5 includes a SmartArt diagram, these are challenging for screen readers to interpret and are not flagged in an Accessibility Report when using the built-in Accessibility Checker for Office.
+		</p>
+	</li>
+</ol>
+
+<h3>PowerPoint - Accessible version (presentation_accessible.pptx)</h3>
+<ol>
+	<li><h4>Alt text is included for meaningful images, non-meaningful images are marked as decorative.</h4>
+		<p>
+			Meaningful images are included on slides 1 and 2; select an image then expose the Alt text panel to reveal the content in the text field. Multiple images on slide 2 are grouped, each image is marked as decorative while the group has alt text assigned. 
+		</p>
+	</li>
+	<li><h4>Informative link text.</h4>
+		<p>
+			Slide 2 includes a live link with meaningful text, indicating to screen reader users where that link may take them. This slide also includes an inactive link with the URL to share when presenting this information live, participants can visit the link from their own devices in real time.
+		</p>
+	</li>
+	<li><h4>Reading order is accurate.</h4>
+		<p>
+			All slides pass logical reading order. This can be reviewed in the Reading Order Pane in winOS (reading order is top to bottom), or the Selection Pane in macOS (reading order is reverse, bottom to top).
+		</p>
+	</li>
+	<li><h4>Language is properly applied to foreign language text.</h4>
+		<p>
+			Slide 3 contains content in a foreign language. Language assignment appears on the status bar in the lower left corner of the window, select to change.
+		</p>
+	</li>
+	<li><h4>Using proper slide template.</h4>
+		<p>
+			Slide 5 uses a modified slide template that formats text in a similar way to using a SmartArt diagram but is completely accessible. Additional content added to the slide is presented in proper reading order and colorful background rectangles are marked as decorative in the Slide Master.
+		</p>
+	</li>
+</ol>
+
+
+</main>
+
+<footer>
+  <div id="license">
+    <div id="ccLogo">    
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a>
+    </div>
+    <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Accessible University</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://washington.edu/accesscomputing/AU" property="cc:attributionName" rel="cc:attributionURL">University of Washington</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </div>
+  <p>This product was originally developed with support from the National Institute on Disability and Rehabilitation Research of the U.S. Department of Education (grant #H133D010306), and has been subsequently updated and maintained with support from the National Science Foundation (grants #CNS-0540615, CNS-0837508, CNS-1042260, CNS-1539179, and CNS-2137312). The contents do not necessarily represent the policies of the U.S. federal government, and you should not assume their endorsement.</p>
+</footer>
+
+</body>
+</html>
