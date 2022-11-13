@@ -177,7 +177,7 @@
 
       <div class="section">
         <h2>Can you spot the barriers?</h2>
-        <p>This page is an improved version, with 18 accessibility issues corrected.
+        <p>This page is an improved version, with 20 accessibility issues corrected.
           Details about all known issues are on the <a href="info.html">Info</a> page.
           To see the original issues, consult the <a href="before.html">Inaccessible version</a>.
           See also:
@@ -267,7 +267,7 @@
       </div>
     </main>
 
-    <div id="appForm" role="form" aria-labelledby="appFormHeading">
+    <aside id="appForm" aria-labelledby="appFormHeading">
 
       <h2 id="appFormHeading">Apply Now!</h2>
 
@@ -329,7 +329,7 @@
           <input id="submit" type="submit" name="submit" value="Submit" />
         </div>
       </form>
-    </div>
+    </aside>
 
     <footer>
       <div id="license">
@@ -354,24 +354,35 @@
   <h1 id="modalHeading">Accessibility Issues</h1>
   <button value="cancel" id="modalClose" aria-label="Close dialog">x</button>
   <ol>
+    <!-- Structure -->
+    <li>Missing landmark regions</li>
     <li>No headings</li>
+    <li>Language not specified</li>
+    <!-- Images -->
     <li>No alternate text on informative images</li>
     <li>Missing or excessive alternate text on decorative images</li>
+    <!-- Contrast-->
     <li>Insufficient color contrast</li>
-    <li>Inaccessible dropdown menu</li>
-    <li>Insufficient visual cues</li>
-    <li>Redundant, uninformative link text</li>
+    <!-- Keyboard-->
+    <li>Inaccessible keyboard interface</li>
+    <li>No visible indication of focus</li>
+    <!-- Links-->
     <li>Color used to communicate information</li>
-    <li>Language not specified</li>
-    <li>Missing accessible form markup</li>
-    <li>Inaccessible CAPTCHA</li>
-    <li>Inaccessible validation</li>
-    <li>Missing ARIA landmark roles</li>
-    <li>Inaccessible modal window</li>
+    <li>Redundant, uninformative link text</li>
+    <!-- Features -->
+    <li>Inaccessible website navigation menu</li>
     <li>Inaccessible carousel</li>
+    <li>Inaccessible modal window</li>
+    <!-- Forms -->
+    <li>Form not properly labeled</li>
+    <li>Inaccessible CAPTCHA</li>
+    <li>Inaccessible input validation</li>
+    <!-- Tables -->
     <li>Missing accessible table markup</li>
     <li>Missing abbreviation tags</li>
-    <li>HTML fails validation</li>
+    <!-- Video -->
+    <li>Inaccessible audio content</li>
+    <li>Inaccessible visual content</li>
   </ol>
   <button value="cancel" id="modalOk">OK</button>
 </dialog>

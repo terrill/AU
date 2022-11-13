@@ -22,13 +22,13 @@ main p img {
   float: left;
 	padding: 0 0.25em 0.25em 0;
 }
-#appForm {
-  width: 22%;
+aside {
 	float: right;
+  width: 22%;
+	margin: 0;
+	padding: 0 1%;
 	border: 2px solid #39275B;
 	background-color: #E9E9ED;
-	padding: 0 1%;
-	margin: 0.75em 0 2em;
 }
 footer {
   clear: both;
