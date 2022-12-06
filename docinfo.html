@@ -29,13 +29,16 @@
 			font-size: 2em;
 		}
 		h2 { 
+			font-size: 1.5em;
 			margin-left: 0.5em;
 		}
 		h3 { 
+			font-size: 1.2em;
 			margin-top: 0.25em;
 			margin-left: 1em;
 		}
-		h4 { 
+		h4, ol#html-list h3 { 
+			font-size: 1.1em;
 			margin: 0 0 1em;
 		}
 		p, ol {
@@ -116,6 +119,29 @@
 <h1>Accessible University Document Accessibility Samples</h1>
 
 <p>This page summarizes the accessibility issues demonstrated in the Word, PDF, and PowerPoint sample files that accompany the <a href="index.html">Accessible University</a> demo site. With each issue, a solution is suggested as demonstrated in the accessible files.</p>
+
+<h2>HTML</h2>
+<p>This document can be demonstrated using any web browser, and exposing the source code as needed to show the underlying code. HTML is far more accessible than Word or PDF, and sets the bar for the level of accessibility we're striving for, to the extent possible, in other document formats. Noteworthy features of the sample HTML document include:</p>
+<ol id="html-list">
+	<li><h3>CSS styles are included</h3>
+		<p>All styles are defined using Cascading Style Sheet (CSS). Font family is sans-serif and background and foreground colors pass contrast ratios as defined by WCAG.</p>
+	</li>
+	<li><h3>Image includes alt text.</h3>
+		<p>An image is included in this file and alt text is assigned.</p>
+	</li>
+	<li><h3>Headings are present with proper levels.</h3>
+		<p>Headings are included in this file and they form an outline of the content by using the appropriate levels. </p>
+	</li>
+	<li><h3>Lists are coded properly.</h3>
+		<p>A list is included and uses the proper coding for an unordered list.</p>
+	</li>
+	<li><h3>Tables included proper markup for headers.</h3>
+		<p>Two tables are included in this file, the first table is simple in its construction with a single table header for the top row. The second table is more complex and includes cells that are merged and span several columns or rows. Both tables include the “scope” attribute that provides proper semantic markup for row or column headers.</p>
+	</li>
+	<li><h3>Language is properly defined.</h3>
+		<p>This file includes foreign language content. Screen readers support multiple languages and can switch on the fly when announcing content in different languages. The paragraph at the end of the file includes proper language assignment which will ensure that screen readers will announce the content with proper pronunciation. </p>
+	</li>
+</ol>
 
 <h2>Word</h2>
 <p>These documents should be demonstrated using Microsoft Office 365 desktop client, or the most current version of Microsoft Word.
